@@ -31,7 +31,14 @@
     style="font-family: 'Source Sans Pro', sans-serif"
   >
     <div
-      class="fixed z-40 h-full w-full bg-white transition-opacity duration-1000"
+      class="transition-opacity duration-1000"
+      style="
+        position: fixed;
+        z-index: 40;
+        width: 100%;
+        height: 100%;
+        background-color: #ffffff;
+      "
       id="loader"
     >
       <svg
@@ -992,11 +999,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   -->
 
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
-    />
-    <!-- <link rel="stylesheet" href="tailwind.min.css" /> -->
+    /> -->
+    <link rel="stylesheet" href="tailwind.min.css" />
     <!-- <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700"
       rel="stylesheet"
