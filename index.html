@@ -271,6 +271,7 @@
     <div
       id="content"
       class="opacity-0 transition-opacity duration-1000 ease-in-out"
+      style="display: none"
     >
       <nav
         id="header"
@@ -1097,6 +1098,7 @@
       gtag('config', 'G-VPZ4KW45MN');
     </script>
     <script>
+      document.getElementById('content').style.display = 'block';
       window.addEventListener('load', function () {
         document.getElementById('loader').classList.add('opacity-0');
         document.getElementById('content').classList.remove('opacity-0');
