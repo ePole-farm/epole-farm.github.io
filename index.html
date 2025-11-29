@@ -1,1139 +1,849 @@
 <!doctype html>
 <html lang="pl" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ePole - portal rolniczy</title>
-    <meta
-      name="description"
-      content="ePole to aplikacja, która pomaga rolnikom zarządzać swoim gospodarstwem w sposób prosty i efektywny."
-    />
-    <meta
-      name="keywords"
-      content="agriculture, rolnictwo, integrowana produkcja, raporty rolnicze, dziennik rolniczy"
-    />
-    <meta name="author" content="ePole" />
-    <link rel="icon" href="icon-min.webp" />
-    <style>
-      .gradient {
-        background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
-      }
 
-      /* Modern card hover effects */
-      .card-hover {
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ePole - portal rolniczy</title>
+  <meta name="description"
+    content="ePole to aplikacja, która pomaga rolnikom zarządzać swoim gospodarstwem w sposób prosty i efektywny." />
+  <meta name="keywords" content="agriculture, rolnictwo, integrowana produkcja, raporty rolnicze, dziennik rolniczy" />
+  <meta name="author" content="ePole" />
+  <link rel="icon" href="icon-min.webp" />
+  <style>
+    .gradient {
+      background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
+    }
 
-      .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      }
-    </style>
+    /* Modern card hover effects */
+    .card-hover {
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
 
-    <link rel="stylesheet" href="tailwind.min.css" />
-  </head>
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+  </style>
 
-  <body
-    class="gradient leading-normal tracking-normal text-white"
-    style="font-family: 'Source Sans Pro', sans-serif"
-  >
-    <div id="content">
-      <nav
-        id="header"
-        class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300"
-      >
+  <link rel="stylesheet" href="tailwind.min.css" />
+</head>
+
+<body class="gradient leading-normal tracking-normal text-white" style="font-family: 'Source Sans Pro', sans-serif">
+  <div id="content">
+    <nav id="header" class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300">
+      <div class="container mx-auto mt-0 flex w-full flex-wrap items-center justify-between px-4 py-4 lg:px-6">
+        <div class="flex items-center">
+          <a class="toggleColour flex items-center gap-2 text-2xl font-bold text-white no-underline transition-colors hover:no-underline lg:text-3xl"
+            href="#">
+            <img class="inline h-8 w-8 lg:h-10 lg:w-10" src="icon-min.webp" alt="ePole logo" width="2rem"
+              height="2rem" />
+            <span>ePole</span>
+          </a>
+        </div>
+
+        <div class="flex items-center gap-3 lg:hidden">
+          <!-- Mobile Menu Toggle -->
+          <button id="nav-toggle"
+            class="focus:shadow-outline flex transform items-center rounded-lg p-2 text-white transition duration-300 ease-in-out hover:bg-white/10 focus:outline-none">
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+
         <div
-          class="container mx-auto mt-0 flex w-full flex-wrap items-center justify-between px-4 py-4 lg:px-6"
-        >
-          <div class="flex items-center">
-            <a
-              class="toggleColour flex items-center gap-2 text-2xl font-bold text-white no-underline transition-colors hover:no-underline lg:text-3xl"
-              href="#"
-            >
-              <img
-                class="inline h-8 w-8 lg:h-10 lg:w-10"
-                src="icon-min.webp"
-                alt="ePole logo"
-                width="2rem"
-                height="2rem"
-              />
-              <span>ePole</span>
+          class="z-20 mt-4 hidden w-full rounded-lg bg-white p-6 shadow-xl lg:mt-0 lg:flex lg:w-auto lg:items-center lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+          id="nav-content">
+          <ul
+            class="flex flex-1 flex-col items-stretch gap-2 text-center lg:flex-row lg:items-center lg:justify-end lg:gap-1">
+            <li>
+              <a class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
+                href="#features">Funkcje</a>
+            </li>
+            <li>
+              <a class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
+                href="#pricing">Cennik</a>
+            </li>
+            <li>
+              <a class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
+                href="#about-us">
+                O nas
+              </a>
+            </li>
+            <li>
+              <a href="https://app.epole.farm/login">
+                <button
+                  class="toggleColour block w-full rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20">
+                  Zaloguj się
+                </button>
+              </a>
+            </li>
+            <li class="mt-2 lg:ml-2 lg:mt-0">
+              <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="no-underline">
+                <button id="navAction"
+                  class="focus:shadow-outline w-full transform rounded-full bg-white px-6 py-3 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none">
+                  Zapisz się
+                </button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Hero-->
+    <div class="pt-24 lg:pt-32">
+      <div class="container mx-auto flex flex-col flex-wrap items-center px-6 py-12 md:flex-row lg:px-8 lg:py-20">
+        <!--Left Col-->
+        <div class="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left">
+          <p class="tracking-loose mb-2 text-sm uppercase tracking-wide opacity-90 lg:text-base">
+            ePole.farm - Zarządzanie Twoim Gospodarstwem
+          </p>
+          <h1 class="my-4 text-4xl font-bold leading-tight lg:text-6xl">
+            Twoje Pole,<br />Twój Sukces
+          </h1>
+          <p class="mb-8 text-lg leading-relaxed opacity-90 lg:text-xl">
+            Zarządzaj swoim gospodarstwem rolnym w sposób prosty i efektywny
+            dzięki aplikacji ePole.farm.
+          </p>
+          <div class="flex flex-col gap-4 sm:flex-row">
+            <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="no-underline">
+              <button
+                class="focus:shadow-outline w-full transform rounded-full bg-white px-8 py-4 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none sm:w-auto">
+                Rozpocznij za darmo
+              </button>
+            </a>
+            <a href="#features" class="no-underline">
+              <button
+                class="focus:shadow-outline w-full transform rounded-full border-2 border-white bg-transparent px-8 py-4 font-bold text-white transition duration-300 ease-in-out hover:scale-105 hover:bg-white hover:text-gray-800 focus:outline-none sm:w-auto">
+                Dowiedz się więcej
+              </button>
             </a>
           </div>
+        </div>
+        <!--Right Col-->
+        <div class="mt-12 w-full py-6 text-center md:mt-0 md:w-3/5">
+          <img class="z-50 mx-auto w-full rounded-3xl shadow-2xl md:w-4/5" src="image-min.webp"
+            alt="ePole application screenshot" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div class="relative -mt-12 lg:-mt-24">
+      <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path
+              d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+              opacity="0.100000001"></path>
+            <path
+              d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+              opacity="0.100000001"></path>
+            <path
+              d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+              id="Path-4" opacity="0.200000003"></path>
+          </g>
+          <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path
+              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z">
+            </path>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <section class="border-b bg-white py-20">
+      <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+        <h2 class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
+          Dlaczego warto korzystać z ePole.farm?
+        </h2>
+        <div class="mb-12 w-full">
+          <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
+        </div>
+        <div class="flex flex-wrap items-center">
+          <div class="w-full p-6 lg:w-1/2">
+            <h3 class="mb-4 text-2xl font-bold leading-tight text-gray-800 lg:text-3xl">
+              Chcemy zaoszczędzić Twój czas
+            </h3>
+            <p class="mb-6 text-base leading-relaxed text-gray-600 lg:text-lg">
+              Budujemy platformę aby ułatwić Ci planowanie, zarządzanie i co
+              najważniejsze raportowanie które jest od Ciebie wymagane przez
+              instytucje państwowe.
+            </p>
+            <ul class="space-y-3 text-gray-700">
+              <li class="flex items-start">
+                <svg class="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Intuicyjny interfejs dostosowany do każdego</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Automatyczne generowanie raportów</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <span>Wsparcie mobilne - pracuj z dowolnego miejsca</span>
+              </li>
+            </ul>
+          </div>
+          <div class="w-full p-6 lg:w-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" class="mx-auto w-full drop-shadow-xl sm:h-80">
+              <defs>
+                <linearGradient id="deviceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#16a34a;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#84cc16;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <!-- Modern Device Frame -->
+              <rect x="50" y="30" width="300" height="240" rx="20" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="2" />
+              <rect x="60" y="50" width="280" height="180" rx="8" fill="white" stroke="#d1d5db" stroke-width="1" />
 
-          <div class="flex items-center gap-3 lg:hidden">
-            <!-- Mobile Menu Toggle -->
-            <button
-              id="nav-toggle"
-              class="focus:shadow-outline flex transform items-center rounded-lg p-2 text-white transition duration-300 ease-in-out hover:bg-white/10 focus:outline-none"
-            >
-              <svg
-                class="h-6 w-6 fill-current"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Menu</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              <!-- Dashboard Content -->
+              <rect x="75" y="65" width="80" height="50" rx="6" fill="url(#deviceGrad)" opacity="0.9" />
+              <rect x="165" y="65" width="80" height="50" rx="6" fill="url(#deviceGrad)" opacity="0.7" />
+              <rect x="255" y="65" width="70" height="50" rx="6" fill="url(#deviceGrad)" opacity="0.8" />
+
+              <!-- Field Icons -->
+              <circle cx="95" cy="80" r="8" fill="white" opacity="0.9" />
+              <path d="M 90 80 L 95 75 L 100 80 L 95 85 Z" fill="#16a34a" />
+
+              <circle cx="185" cy="80" r="8" fill="white" opacity="0.9" />
+              <rect x="181" y="76" width="8" height="8" rx="1" fill="#16a34a" />
+
+              <circle cx="275" cy="80" r="8" fill="white" opacity="0.9" />
+              <path d="M 275 76 L 279 80 L 275 84 L 271 80 Z" fill="#16a34a" />
+
+              <!-- Chart/Graph -->
+              <rect x="75" y="130" width="250" height="85" rx="6" fill="#fafafa" />
+              <polyline points="85,200 110,180 135,190 160,170 185,185 210,165 235,175 260,155 285,170 310,150"
+                fill="none" stroke="url(#deviceGrad)" stroke-width="3" stroke-linecap="round" />
+              <circle cx="85" cy="200" r="3" fill="#16a34a" />
+              <circle cx="160" cy="170" r="3" fill="#16a34a" />
+              <circle cx="235" cy="175" r="3" fill="#16a34a" />
+              <circle cx="310" cy="150" r="3" fill="#16a34a" />
+
+              <!-- Mobile Device -->
+              <rect x="270" y="150" width="80" height="120" rx="12" fill="#1f2937" opacity="0.9" />
+              <rect x="278" y="165" width="64" height="95" rx="4" fill="#f9fafb" />
+              <rect x="285" y="172" width="50" height="30" rx="3" fill="url(#deviceGrad)" opacity="0.8" />
+              <rect x="285" y="207" width="50" height="3" rx="1.5" fill="#d1d5db" />
+              <rect x="285" y="215" width="50" height="3" rx="1.5" fill="#d1d5db" />
+              <rect x="285" y="223" width="35" height="3" rx="1.5" fill="#d1d5db" />
+            </svg>
+            <path style="fill: #7dd2f0"
+              d="M455.242,28.098H56.758c-26.703,0-48.348,21.645-48.348,48.347v359.107 c0,26.702,21.646,48.347,48.348,48.347h398.485c26.702,0,48.348-21.646,48.348-48.347V76.446  C503.591,49.744,481.944,28.098,455.242,28.098z" />
+            <path style="fill: #515262"
+              d="M72.584,171.813c-4.968,0-9.01-4.041-9.01-9.009V79.067c0-4.967,4.041-9.008,9.01-9.008h374.858  c4.967,0,9.009,4.04,9.009,9.008v83.735c0,4.967-4.041,9.009-9.009,9.009H72.584V171.813z" />
+            <g>
+              <rect x="63.574" y="217.114" style="fill: #ffffff" width="165.314" height="77.768" />
+              <rect x="63.574" y="349.026" style="fill: #ffffff" width="165.314" height="77.768" />
+              <rect x="282.123" y="217.114" style="fill: #ffffff" width="165.314" height="77.768" />
+              <rect x="282.123" y="349.026" style="fill: #ffffff" width="165.314" height="77.768" />
+            </g>
+            <path style="opacity: 0.1; enable-background: new"
+              d="M109.32,435.553V76.446c0-26.702,21.646-48.347,48.348-48.347H56.758  c-26.703,0-48.348,21.645-48.348,48.347v359.107c0,26.701,21.646,48.347,48.348,48.347h100.91  C130.965,483.9,109.32,462.254,109.32,435.553z" />
+            <path
+              d="M455.241,492.31H335.334c-4.645,0-8.409-3.764-8.409-8.409c0-4.645,3.764-8.409,8.409-8.409h119.907  c22.023,0,39.939-17.916,39.939-39.938V76.446c0-22.022-17.916-39.938-39.939-39.938h-74.545c-4.645,0-8.409-3.764-8.409-8.409  s3.764-8.409,8.409-8.409h74.545c31.296,0,56.758,25.461,56.758,56.756v359.107C512,466.849,486.538,492.31,455.241,492.31z   M301.697,492.31H56.758C25.462,492.31,0,466.849,0,435.553V76.446C0,45.15,25.462,19.689,56.758,19.689H347.06  c4.645,0,8.409,3.764,8.409,8.409s-3.764,8.409-8.409,8.409H56.758c-22.023,0-39.939,17.916-39.939,39.938v359.107  c0,22.022,17.916,39.938,39.939,39.938h244.94c4.645,0,8.409,3.764,8.409,8.409C310.106,488.546,306.342,492.31,301.697,492.31z" />
+            <path
+              d="M447.441,180.222H142.54c-4.645,0-8.409-3.764-8.409-8.409c0-4.645,3.764-8.409,8.409-8.409h304.902  c0.325,0,0.6-0.275,0.6-0.6V79.068c0-0.325-0.275-0.599-0.6-0.599H72.583c-0.325,0-0.6,0.274-0.6,0.599v83.737  c0,0.325,0.275,0.6,0.6,0.6h36.321c4.645,0,8.409,3.764,8.409,8.409c0,4.645-3.764,8.409-8.409,8.409H72.583  c-9.604,0-17.418-7.814-17.418-17.418V79.068c0-9.603,7.814-17.417,17.418-17.417h374.858c9.604,0,17.418,7.814,17.418,17.417  v83.737C464.86,172.409,457.046,180.222,447.441,180.222z" />
+            <path
+              d="M228.893,303.294H63.574c-4.645,0-8.409-3.764-8.409-8.409v-77.772c0-4.645,3.764-8.409,8.409-8.409h165.318  c4.645,0,8.409,3.764,8.409,8.409v77.772C237.302,299.53,233.537,303.294,228.893,303.294z M71.983,286.476h148.5v-60.953h-148.5  V286.476z" />
+            <path
+              d="M228.893,435.211H63.574c-4.645,0-8.409-3.764-8.409-8.409V349.03c0-4.645,3.764-8.409,8.409-8.409h165.318  c4.645,0,8.409,3.764,8.409,8.409v77.772C237.302,431.447,233.537,435.211,228.893,435.211z M71.983,418.393h148.5V357.44h-148.5  V418.393z" />
+            <path
+              d="M447.441,303.294H282.122c-4.645,0-8.409-3.764-8.409-8.409v-77.772c0-4.645,3.764-8.409,8.409-8.409h165.319  c4.645,0,8.409,3.764,8.409,8.409v77.772C455.85,299.53,452.086,303.294,447.441,303.294z M290.531,286.476h148.501v-60.953H290.531  V286.476z" />
+            <path
+              d="M447.441,435.211H282.122c-4.645,0-8.409-3.764-8.409-8.409V349.03c0-4.645,3.764-8.409,8.409-8.409h165.319  c4.645,0,8.409,3.764,8.409,8.409v77.772C455.85,431.447,452.086,435.211,447.441,435.211z M290.531,418.393h148.501V357.44H290.531  V418.393z" />
+            </svg>
+          </div>
+        </div>
+        <div class="mt-12 flex flex-col-reverse flex-wrap lg:flex-row">
+          <div class="w-full rounded p-6 lg:w-1/2">
+            <svg class="mx-auto w-5/6 drop-shadow-xl sm:h-80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+              <defs>
+                <linearGradient id="freeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color: #16a34a; stop-opacity: 1" />
+                  <stop offset="100%" style="stop-color: #84cc16; stop-opacity: 1" />
+                </linearGradient>
+              </defs>
+
+              <!-- Background Circle -->
+              <circle cx="200" cy="150" r="140" fill="#f0fdf4" opacity="0.5" />
+
+              <!-- Large Gift Box -->
+              <rect x="130" y="130" width="140" height="120" rx="8" fill="url(#freeGrad)" />
+              <rect x="130" y="130" width="140" height="30" rx="8" fill="#15803d" />
+
+              <!-- Ribbon Vertical -->
+              <rect x="190" y="130" width="20" height="120" fill="#fef3c7" />
+
+              <!-- Ribbon Horizontal -->
+              <rect x="130" y="180" width="140" height="20" fill="#fef3c7" />
+
+              <!-- Bow -->
+              <ellipse cx="175" cy="120" rx="25" ry="15" fill="#fbbf24" />
+              <ellipse cx="225" cy="120" rx="25" ry="15" fill="#fbbf24" />
+              <circle cx="200" cy="120" r="12" fill="#f59e0b" />
+
+              <!-- Sparkles -->
+              <g fill="#fbbf24" opacity="0.8">
+                <path d="M 90 100 L 95 105 L 90 110 L 85 105 Z" />
+                <path d="M 310 140 L 315 145 L 310 150 L 305 145 Z" />
+                <path d="M 100 200 L 105 205 L 100 210 L 95 205 Z" />
+                <path d="M 300 90 L 305 95 L 300 100 L 295 95 Z" />
+              </g>
+
+              <!-- Price Tag -->
+              <g transform="translate(280, 200)">
+                <rect x="0" y="0" width="90" height="50" rx="8" fill="white" stroke="url(#freeGrad)" stroke-width="3" />
+                <text x="45" y="25" text-anchor="middle" font-size="20" font-weight="bold" fill="#16a34a">DARMO</text>
+                <text x="45" y="42" text-anchor="middle" font-size="12" fill="#6b7280">0 PLN</text>
+              </g>
+
+              <!-- Decorative elements -->
+              <circle cx="60" cy="150" r="8" fill="#84cc16" opacity="0.6" />
+              <circle cx="340" cy="180" r="12" fill="#16a34a" opacity="0.6" />
+              <circle cx="80" cy="240" r="6" fill="#22c55e" opacity="0.5" />
+            </svg>
+          </div>
+          <div class="w-full p-6 lg:w-1/2">
+            <div class="align-middle">
+              <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl">
+                Darmowy produkt dla Ciebie
+              </h2>
+              <p class="mt-6 text-base leading-relaxed text-gray-600 lg:text-lg">
+                Nasza aplikacja jest darmowa dla wszystkich użytkowników.
+                Możesz korzystać z większości funkcjonalności bez żadnych
+                opłat. Wierzymy, że dostęp do narzędzi wspierających rolnictwo
+                powinien być dostępny dla każdego, niezależnie od wielkości
+                gospodarstwa.
+              </p>
+              <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                <div class="rounded-lg bg-green-50 p-4">
+                  <div class="text-3xl font-bold text-green-600">100%</div>
+                  <div class="text-sm text-gray-700">Darmowe funkcje</div>
+                </div>
+                <div class="rounded-lg bg-green-50 p-4">
+                  <div class="text-3xl font-bold text-green-600">0 PLN</div>
+                  <div class="text-sm text-gray-700">Brak ukrytych opłat</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="border-b bg-white py-20" id="features">
+      <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+        <h2 class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
+          Funkcje
+        </h2>
+        <div class="mb-12 w-full">
+          <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
+        </div>
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <div class="card-hover flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <svg class="h-7 w-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41C3.37 14.2 4.63 14.2 5.41 13.41L7 11.83V20C7 21.1 7.9 22 9 22H15C16.1 22 17 21.1 17 20V11.83L18.59 13.41C19.37 14.2 20.63 14.2 21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4.83L19 11.83V20H15V14H9V20H5V11.83L12 4.83M11 16H13V20H11V16Z" />
               </svg>
-            </button>
+            </div>
+            <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600">
+              Notatnik agrotechniczny
+            </p>
+            <h3 class="mb-3 text-xl font-bold text-gray-800">
+              Zbieranie informacji o zabiegach
+            </h3>
+            <p class="flex-grow text-base leading-relaxed text-gray-600">
+              Zbieraj i analizuj dane dotyczące wszystkich wykonanych zabiegów
+              agrotechnicznych na Twoim polu.
+            </p>
+          </div>
+
+          <div class="card-hover flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+              <svg class="h-7 w-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M10 19L12 15H9V10L7 14H10V19Z" />
+              </svg>
+            </div>
+            <p class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600">
+              Raporty
+            </p>
+            <h3 class="mb-3 text-xl font-bold text-gray-800">
+              Generowanie dokumentacji
+            </h3>
+            <p class="flex-grow text-base leading-relaxed text-gray-600">
+              Generuj raporty z wykonanych zabiegów agrotechnicznych, raporty
+              oprysków oraz raporty integrowanej produkcji (IP).
+            </p>
           </div>
 
           <div
-            class="z-20 mt-4 hidden w-full rounded-lg bg-white p-6 shadow-xl lg:mt-0 lg:flex lg:w-auto lg:items-center lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
-            id="nav-content"
-          >
-            <ul
-              class="flex flex-1 flex-col items-stretch gap-2 text-center lg:flex-row lg:items-center lg:justify-end lg:gap-1"
-            >
+            class="card-hover flex flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-lg">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white">
+              <svg class="h-7 w-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C11.5 2 11 2.19 10.59 2.59C10.2 3 10 3.5 10 4V4.5C7.5 5.6 6 8.2 6 11C6 14.3 4 16 4 17H20C20 16 18 14.3 18 11C18 8.2 16.5 5.6 14 4.5V4C14 3.5 13.81 3 13.41 2.59C13 2.19 12.5 2 12 2M10 20C10 20.5 10.2 21 10.59 21.41C11 21.8 11.5 22 12 22C12.5 22 13 21.8 13.41 21.41C13.8 21 14 20.5 14 20H10M12 6C13.11 6 14.11 6.45 14.83 7.17C15.55 7.9 16 8.89 16 10H8C8 8.89 8.45 7.9 9.17 7.17C9.89 6.45 10.89 6 12 6Z" />
+              </svg>
+            </div>
+            <h3 class="mb-3 text-xl font-bold text-gray-800">
+              Wkrótce więcej...
+            </h3>
+            <p class="flex-grow text-base leading-relaxed text-gray-700">
+              Pracujemy nad nowymi funkcjami, które jeszcze bardziej ułatwią
+              zarządzanie Twoim gospodarstwem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Product Screenshot Section -->
+    <section class="gradient py-20">
+      <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="mb-12 text-center">
+          <h2 class="my-2 w-full text-4xl font-bold leading-tight text-white lg:text-5xl">
+            Zobacz jak wygląda aplikacja
+          </h2>
+          <p class="mx-auto mt-4 max-w-2xl text-lg text-white opacity-90">
+            Prosty i intuicyjny interfejs, który pozwala na szybkie i efektywne zarządzanie gospodarstwem
+          </p>
+        </div>
+        <div class="relative mx-auto max-w-5xl">
+          <!-- Browser mockup frame -->
+          <div class="overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <!-- Browser header -->
+            <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-3">
+              <div class="flex gap-2">
+                <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                <div class="h-3 w-3 rounded-full bg-green-500"></div>
+              </div>
+              <div class="mx-4 flex-1 rounded-md bg-white px-4 py-1 text-sm text-gray-500">
+                app.epole.farm
+              </div>
+            </div>
+            <!-- Screenshot -->
+            <div class="relative bg-white">
+              <img src="website-ss.png" alt="ePole aplikacja - widok głównego panelu zarządzania gospodarstwem"
+                class="w-full" loading="lazy" />
+            </div>
+          </div>
+          <!-- Decorative elements -->
+          <div class="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-white opacity-10"></div>
+          <div class="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-white opacity-10"></div>
+        </div>
+        <!-- CTA below screenshot -->
+        <div class="mt-12 text-center">
+          <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="no-underline">
+            <button
+              class="focus:shadow-outline transform rounded-full bg-white px-8 py-4 font-bold text-green-700 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none">
+              Wypróbuj za darmo
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="bg-gray-50 py-20" id="pricing">
+      <div class="container mx-auto max-w-6xl px-6 text-gray-800 lg:px-8">
+        <h2 class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
+          Cennik
+        </h2>
+        <div class="mb-12 w-full">
+          <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
+        </div>
+        <div class="flex flex-col justify-center gap-8 sm:flex-row lg:gap-6">
+          <div class="card-hover mx-auto flex w-full max-w-sm flex-col rounded-2xl bg-white shadow-xl lg:w-1/3">
+            <div class="flex-1 overflow-hidden rounded-t-2xl bg-white p-8 text-gray-600">
+              <div class="mb-6 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 lg:text-3xl">
+                  Darmowy
+                </h3>
+                <div class="mt-6 text-5xl font-bold text-green-600">
+                  0 PLN
+                </div>
+                <p class="mt-2 text-sm text-gray-500">na zawsze</p>
+              </div>
+              <ul class="w-full space-y-4 text-center text-sm">
+                <li class="flex items-center justify-center py-2">
+                  <svg class="mr-2 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Dziennik procedur
+                </li>
+                <li class="flex items-center justify-center py-2">
+                  <svg class="mr-2 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Raporty oprysków
+                </li>
+                <li class="flex items-center justify-center py-2">
+                  <svg class="mr-2 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Raporty IP
+                </li>
+                <li class="flex items-center justify-center py-2">
+                  <svg class="mr-2 h-5 w-5 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Wielouzitkow ość
+                </li>
+              </ul>
+            </div>
+            <div class="mt-auto flex-none overflow-hidden rounded-b-2xl bg-white p-6">
+              <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="block">
+                <button
+                  class="w-full rounded-full bg-gray-200 px-6 py-3 font-bold text-gray-800 transition hover:bg-gray-300">
+                  Rozpocznij teraz
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="card-hover z-10 mx-auto flex w-full max-w-sm flex-col rounded-2xl bg-white shadow-2xl lg:w-1/3 lg:scale-105">
+            <div class="flex-1 overflow-hidden rounded-t-2xl bg-white p-8">
+              <!-- <div class="mb-2 text-center">
+                <span class="gradient inline-block rounded-full px-4 py-1 text-sm font-bold text-white">
+                  Popularne
+                </span>
+              </div> -->
+              <div class="mb-6 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 lg:text-3xl">
+                  Bez reklam
+                </h3>
+                <div class="mt-6 text-5xl font-bold text-green-600">
+                  10 PLN
+                </div>
+                <p class="mt-2 text-sm text-gray-500">miesięcznie</p>
+              </div>
+              <ul class="w-full space-y-4 text-center text-base font-semibold">
+                <li class="flex items-center justify-center py-2 text-gray-800">
+                  <svg class="mr-2 h-6 w-6 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Wszystko z planu darmowego
+                </li>
+                <li class="flex items-center justify-center py-2 text-green-600">
+                  <svg class="mr-2 h-6 w-6 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Brak reklam
+                </li>
+                <li class="flex items-center justify-center py-2 text-gray-500">
+                  <svg class="mr-2 h-6 w-6 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd" />
+                  </svg>
+                  Radość ze wsparcia projektu 😁
+              </ul>
+            </div>
+            <div class="mt-auto flex-none overflow-hidden rounded-b-2xl bg-white p-6">
+              <button
+                class="gradient w-full cursor-not-allowed rounded-full px-6 py-4 font-bold text-white opacity-70 shadow-lg transition">
+                Wkrótce dostępne
+              </button>
+            </div>
+          </div>
+
+          <div class="card-hover mx-auto flex w-full max-w-sm flex-col rounded-2xl bg-white shadow-xl lg:w-1/3">
+            <div class="flex-1 overflow-hidden rounded-t-2xl bg-white p-8 text-gray-600">
+              <div class="mb-6 text-center">
+                <h3 class="text-2xl font-bold text-gray-800 lg:text-3xl">
+                  Wkrótce...
+                </h3>
+                <div class="mt-6 text-5xl font-bold text-gray-400">-</div>
+                <p class="mt-2 text-sm text-gray-500">miesięcznie</p>
+              </div>
+              <ul class="w-full space-y-4 text-center text-sm">
+                <li class="py-4 text-gray-500">Więcej funkcji już wkrótce</li>
+              </ul>
+            </div>
+            <div class="mt-auto flex-none overflow-hidden rounded-b-2xl bg-white p-6">
+              <button class="w-full cursor-not-allowed rounded-full bg-gray-200 px-6 py-3 font-bold text-gray-400">
+                Niedostępne
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about-us" class="bg-gray-50 py-20">
+      <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+        <h2 class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
+          O nas
+        </h2>
+
+        <div class="mb-12 w-full">
+          <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
+        </div>
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- CEO Profile -->
+          <div class="card-hover w-full max-w-sm rounded-2xl bg-white p-8 text-center shadow-xl sm:w-1/2 lg:w-1/3">
+            <img src="ceo-min.webp" alt="Wojtek - CEO"
+              class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-green-100" width="10rem"
+              height="10rem" loading="lazy" />
+            <h3 class="mt-6 text-2xl font-bold text-gray-800">Wojtek</h3>
+            <p class="mt-2 text-sm font-medium text-green-600">
+              CEO & pomysłodawca
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-gray-600">
+              Stworzyłem produkt który używam w swoim gospodarstwie. Chciałem
+              zminimalizować ilość czasu spędzonego na platformach
+              internetowych i zająć się tym co najważniejsze.
+            </p>
+          </div>
+          <!-- Developer Profile -->
+          <div class="card-hover w-full max-w-sm rounded-2xl bg-white p-8 text-center shadow-xl sm:w-1/2 lg:w-1/3">
+            <img src="developer-min.webp" alt="Borys - Developer" width="10rem" height="10rem"
+              class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-green-100" loading="lazy" />
+            <h3 class="mt-6 text-2xl font-bold text-gray-800">Borys</h3>
+            <p class="mt-2 text-sm font-medium text-green-600">
+              Główny developer
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-gray-600">
+              Jako główny developer dbam o to aby nasz produkt był zawsze na
+              czasie i spełniał oczekiwania naszych klientów. Wof wof.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Change the colour #f8fafc to match the previous section colour -->
+    <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
+          <g class="wave" fill="#f8fafc">
+            <path
+              d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z">
+            </path>
+          </g>
+          <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
+            <g transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
+              <path
+                d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+                opacity="0.100000001"></path>
+              <path
+                d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+                opacity="0.100000001"></path>
+              <path
+                d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+                opacity="0.200000003"></path>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+    <section class="container mx-auto mb-16 px-6 py-12 text-center lg:px-8">
+      <h2 class="my-2 w-full text-center text-4xl font-bold leading-tight text-white lg:text-5xl">
+        Sprawdź naszą aplikację
+      </h2>
+      <div class="mb-6 w-full">
+        <div class="mx-auto my-0 h-1 w-24 rounded-full bg-white py-0"></div>
+      </div>
+      <h3 class="my-6 text-2xl leading-tight text-white/90 lg:text-3xl">
+        Darmo to uczciwa cena!
+      </h3>
+      <a href="https://forms.gle/MWBF9xGjbq8trmgB7">
+        <button
+          class="focus:shadow-outline mx-auto my-6 transform rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl focus:outline-none lg:mx-0">
+          Zapisz się
+        </button>
+      </a>
+    </section>
+    <!--Footer-->
+    <footer class="bg-white">
+      <div class="container mx-auto px-6 lg:px-8">
+        <div class="flex w-full flex-col gap-8 py-12 md:flex-row">
+          <div class="mb-6 flex-1 text-black md:mb-0">
+            <a class="flex items-center gap-2 text-2xl font-bold no-underline hover:no-underline lg:text-3xl" href="#">
+              <img src="icon-min.webp" alt="ePole logo" class="inline h-8 w-8 fill-current lg:h-10 lg:w-10" width="2rem"
+                height="2rem" loading="lazy" />
+              <span>ePole</span>
+            </a>
+            <p class="mt-4 text-sm text-gray-600">
+              Nowoczesne narzędzie dla nowoczesnych rolników.
+            </p>
+          </div>
+          <div class="flex-1">
+            <p class="mb-4 text-sm font-bold uppercase tracking-wider text-gray-500">
+              Materiały informacyjne
+            </p>
+            <ul class="space-y-2">
               <li>
-                <a
-                  class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
-                  href="#features"
-                  >Funkcje</a
-                >
-              </li>
-              <li>
-                <a
-                  class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
-                  href="#pricing"
-                  >Cennik</a
-                >
-              </li>
-              <li>
-                <a
-                  class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
-                  href="#about-us"
-                >
-                  O nas
+                <a href="https://app.epole.farm/faq"
+                  class="text-gray-800 no-underline transition-colors hover:text-green-600">
+                  FAQ
                 </a>
               </li>
               <li>
-                <a href="https://app.epole.farm/login">
-                  <button
-                    class="toggleColour block w-full rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
-                  >
-                    Zaloguj się
-                  </button>
+                <a href="https://app.epole.farm/contact"
+                  class="text-gray-800 no-underline transition-colors hover:text-green-600">
+                  Kontakt
                 </a>
               </li>
-              <li class="mt-2 lg:ml-2 lg:mt-0">
-                <a
-                  href="https://forms.gle/MWBF9xGjbq8trmgB7"
-                  class="no-underline"
-                >
-                  <button
-                    id="navAction"
-                    class="focus:shadow-outline w-full transform rounded-full bg-white px-6 py-3 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none"
-                  >
-                    Zapisz się
-                  </button>
+            </ul>
+          </div>
+          <div class="flex-1">
+            <p class="mb-4 text-sm font-bold uppercase tracking-wider text-gray-500">
+              Regulamin
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://app.epole.farm/tos"
+                  class="text-gray-800 no-underline transition-colors hover:text-green-600">
+                  Warunki użytkowania
+                </a>
+              </li>
+              <li>
+                <a href="https://app.epole.farm/privacy"
+                  class="text-gray-800 no-underline transition-colors hover:text-green-600">
+                  Polityka prywatności
                 </a>
               </li>
             </ul>
           </div>
         </div>
-      </nav>
-      <!--Hero-->
-      <div class="pt-24 lg:pt-32">
-        <div
-          class="container mx-auto flex flex-col flex-wrap items-center px-6 py-12 md:flex-row lg:px-8 lg:py-20"
-        >
-          <!--Left Col-->
-          <div
-            class="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left"
-          >
-            <p
-              class="tracking-loose mb-2 text-sm uppercase tracking-wide opacity-90 lg:text-base"
-            >
-              ePole.farm - Zarządzanie Twoim Gospodarstwem
-            </p>
-            <h1 class="my-4 text-4xl font-bold leading-tight lg:text-6xl">
-              Twoje Pole,<br />Twój Sukces
-            </h1>
-            <p class="mb-8 text-lg leading-relaxed opacity-90 lg:text-xl">
-              Zarządzaj swoim gospodarstwem rolnym w sposób prosty i efektywny
-              dzięki aplikacji ePole.farm.
-            </p>
-            <div class="flex flex-col gap-4 sm:flex-row">
-              <a
-                href="https://forms.gle/MWBF9xGjbq8trmgB7"
-                class="no-underline"
-              >
-                <button
-                  class="focus:shadow-outline w-full transform rounded-full bg-white px-8 py-4 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none sm:w-auto"
-                >
-                  Rozpocznij za darmo
-                </button>
-              </a>
-              <a href="#features" class="no-underline">
-                <button
-                  class="focus:shadow-outline w-full transform rounded-full border-2 border-white bg-transparent px-8 py-4 font-bold text-white transition duration-300 ease-in-out hover:scale-105 hover:bg-white hover:text-gray-800 focus:outline-none sm:w-auto"
-                >
-                  Dowiedz się więcej
-                </button>
-              </a>
-            </div>
-          </div>
-          <!--Right Col-->
-          <div class="mt-12 w-full py-6 text-center md:mt-0 md:w-3/5">
-            <img
-              class="z-50 mx-auto w-full rounded-3xl shadow-2xl md:w-4/5"
-              src="image-min.webp"
-              alt="ePole application screenshot"
-              loading="lazy"
-            />
-          </div>
+        <div class="border-t border-gray-200 py-6 text-center">
+          <p class="text-sm text-gray-600">
+            © 2024 ePole.farm. Wszelkie prawa zastrzeżone.
+          </p>
         </div>
       </div>
-      <div class="relative -mt-12 lg:-mt-24">
-        <svg
-          viewBox="0 0 1428 174"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-        >
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g
-              transform="translate(-2.000000, 44.000000)"
-              fill="#FFFFFF"
-              fill-rule="nonzero"
-            >
-              <path
-                d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
-                opacity="0.100000001"
-              ></path>
-              <path
-                d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-                opacity="0.100000001"
-              ></path>
-              <path
-                d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-                id="Path-4"
-                opacity="0.200000003"
-              ></path>
-            </g>
-            <g
-              transform="translate(-4.000000, 76.000000)"
-              fill="#FFFFFF"
-              fill-rule="nonzero"
-            >
-              <path
-                d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
-              ></path>
-            </g>
-          </g>
-        </svg>
-      </div>
-      <section class="border-b bg-white py-20">
-        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
-          <h2
-            class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl"
-          >
-            Dlaczego warto korzystać z ePole.farm?
-          </h2>
-          <div class="mb-12 w-full">
-            <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
-          </div>
-          <div class="flex flex-wrap items-center">
-            <div class="w-full p-6 lg:w-1/2">
-              <h3
-                class="mb-4 text-2xl font-bold leading-tight text-gray-800 lg:text-3xl"
-              >
-                Chcemy zaoszczędzić Twój czas
-              </h3>
-              <p
-                class="mb-6 text-base leading-relaxed text-gray-600 lg:text-lg"
-              >
-                Budujemy platformę aby ułatwić Ci planowanie, zarządzanie i co
-                najważniejsze raportowanie które jest od Ciebie wymagane przez
-                instytucje państwowe.
-              </p>
-              <ul class="space-y-3 text-gray-700">
-                <li class="flex items-start">
-                  <svg
-                    class="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-green-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span>Intuicyjny interfejs dostosowany do każdego</span>
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-green-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span>Automatyczne generowanie raportów</span>
-                </li>
-                <li class="flex items-start">
-                  <svg
-                    class="mr-3 mt-1 h-5 w-5 flex-shrink-0 text-green-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span>Wsparcie mobilne - pracuj z dowolnego miejsca</span>
-                </li>
-              </ul>
-            </div>
-            <div class="w-full p-6 lg:w-1/2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 400 300"
-                class="mx-auto w-full drop-shadow-xl sm:h-80"
-              >
-                <defs>
-                  <linearGradient id="deviceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#16a34a;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#84cc16;stop-opacity:1" />
-                  </linearGradient>
-                </defs>
-                <!-- Modern Device Frame -->
-                <rect x="50" y="30" width="300" height="240" rx="20" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="2"/>
-                <rect x="60" y="50" width="280" height="180" rx="8" fill="white" stroke="#d1d5db" stroke-width="1"/>
-                
-                <!-- Dashboard Content -->
-                <rect x="75" y="65" width="80" height="50" rx="6" fill="url(#deviceGrad)" opacity="0.9"/>
-                <rect x="165" y="65" width="80" height="50" rx="6" fill="url(#deviceGrad)" opacity="0.7"/>
-                <rect x="255" y="65" width="70" height="50" rx="6" fill="url(#deviceGrad)" opacity="0.8"/>
-                
-                <!-- Field Icons -->
-                <circle cx="95" cy="80" r="8" fill="white" opacity="0.9"/>
-                <path d="M 90 80 L 95 75 L 100 80 L 95 85 Z" fill="#16a34a"/>
-                
-                <circle cx="185" cy="80" r="8" fill="white" opacity="0.9"/>
-                <rect x="181" y="76" width="8" height="8" rx="1" fill="#16a34a"/>
-                
-                <circle cx="275" cy="80" r="8" fill="white" opacity="0.9"/>
-                <path d="M 275 76 L 279 80 L 275 84 L 271 80 Z" fill="#16a34a"/>
-                
-                <!-- Chart/Graph -->
-                <rect x="75" y="130" width="250" height="85" rx="6" fill="#fafafa"/>
-                <polyline points="85,200 110,180 135,190 160,170 185,185 210,165 235,175 260,155 285,170 310,150" 
-                  fill="none" stroke="url(#deviceGrad)" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="85" cy="200" r="3" fill="#16a34a"/>
-                <circle cx="160" cy="170" r="3" fill="#16a34a"/>
-                <circle cx="235" cy="175" r="3" fill="#16a34a"/>
-                <circle cx="310" cy="150" r="3" fill="#16a34a"/>
-                
-                <!-- Mobile Device -->
-                <rect x="270" y="150" width="80" height="120" rx="12" fill="#1f2937" opacity="0.9"/>
-                <rect x="278" y="165" width="64" height="95" rx="4" fill="#f9fafb"/>
-                <rect x="285" y="172" width="50" height="30" rx="3" fill="url(#deviceGrad)" opacity="0.8"/>
-                <rect x="285" y="207" width="50" height="3" rx="1.5" fill="#d1d5db"/>
-                <rect x="285" y="215" width="50" height="3" rx="1.5" fill="#d1d5db"/>
-                <rect x="285" y="223" width="35" height="3" rx="1.5" fill="#d1d5db"/>
-              </svg>
-                <path
-                  style="fill: #7dd2f0"
-                  d="M455.242,28.098H56.758c-26.703,0-48.348,21.645-48.348,48.347v359.107 c0,26.702,21.646,48.347,48.348,48.347h398.485c26.702,0,48.348-21.646,48.348-48.347V76.446  C503.591,49.744,481.944,28.098,455.242,28.098z"
-                />
-                <path
-                  style="fill: #515262"
-                  d="M72.584,171.813c-4.968,0-9.01-4.041-9.01-9.009V79.067c0-4.967,4.041-9.008,9.01-9.008h374.858  c4.967,0,9.009,4.04,9.009,9.008v83.735c0,4.967-4.041,9.009-9.009,9.009H72.584V171.813z"
-                />
-                <g>
-                  <rect
-                    x="63.574"
-                    y="217.114"
-                    style="fill: #ffffff"
-                    width="165.314"
-                    height="77.768"
-                  />
-                  <rect
-                    x="63.574"
-                    y="349.026"
-                    style="fill: #ffffff"
-                    width="165.314"
-                    height="77.768"
-                  />
-                  <rect
-                    x="282.123"
-                    y="217.114"
-                    style="fill: #ffffff"
-                    width="165.314"
-                    height="77.768"
-                  />
-                  <rect
-                    x="282.123"
-                    y="349.026"
-                    style="fill: #ffffff"
-                    width="165.314"
-                    height="77.768"
-                  />
-                </g>
-                <path
-                  style="opacity: 0.1; enable-background: new"
-                  d="M109.32,435.553V76.446c0-26.702,21.646-48.347,48.348-48.347H56.758  c-26.703,0-48.348,21.645-48.348,48.347v359.107c0,26.701,21.646,48.347,48.348,48.347h100.91  C130.965,483.9,109.32,462.254,109.32,435.553z"
-                />
-                <path
-                  d="M455.241,492.31H335.334c-4.645,0-8.409-3.764-8.409-8.409c0-4.645,3.764-8.409,8.409-8.409h119.907  c22.023,0,39.939-17.916,39.939-39.938V76.446c0-22.022-17.916-39.938-39.939-39.938h-74.545c-4.645,0-8.409-3.764-8.409-8.409  s3.764-8.409,8.409-8.409h74.545c31.296,0,56.758,25.461,56.758,56.756v359.107C512,466.849,486.538,492.31,455.241,492.31z   M301.697,492.31H56.758C25.462,492.31,0,466.849,0,435.553V76.446C0,45.15,25.462,19.689,56.758,19.689H347.06  c4.645,0,8.409,3.764,8.409,8.409s-3.764,8.409-8.409,8.409H56.758c-22.023,0-39.939,17.916-39.939,39.938v359.107  c0,22.022,17.916,39.938,39.939,39.938h244.94c4.645,0,8.409,3.764,8.409,8.409C310.106,488.546,306.342,492.31,301.697,492.31z"
-                />
-                <path
-                  d="M447.441,180.222H142.54c-4.645,0-8.409-3.764-8.409-8.409c0-4.645,3.764-8.409,8.409-8.409h304.902  c0.325,0,0.6-0.275,0.6-0.6V79.068c0-0.325-0.275-0.599-0.6-0.599H72.583c-0.325,0-0.6,0.274-0.6,0.599v83.737  c0,0.325,0.275,0.6,0.6,0.6h36.321c4.645,0,8.409,3.764,8.409,8.409c0,4.645-3.764,8.409-8.409,8.409H72.583  c-9.604,0-17.418-7.814-17.418-17.418V79.068c0-9.603,7.814-17.417,17.418-17.417h374.858c9.604,0,17.418,7.814,17.418,17.417  v83.737C464.86,172.409,457.046,180.222,447.441,180.222z"
-                />
-                <path
-                  d="M228.893,303.294H63.574c-4.645,0-8.409-3.764-8.409-8.409v-77.772c0-4.645,3.764-8.409,8.409-8.409h165.318  c4.645,0,8.409,3.764,8.409,8.409v77.772C237.302,299.53,233.537,303.294,228.893,303.294z M71.983,286.476h148.5v-60.953h-148.5  V286.476z"
-                />
-                <path
-                  d="M228.893,435.211H63.574c-4.645,0-8.409-3.764-8.409-8.409V349.03c0-4.645,3.764-8.409,8.409-8.409h165.318  c4.645,0,8.409,3.764,8.409,8.409v77.772C237.302,431.447,233.537,435.211,228.893,435.211z M71.983,418.393h148.5V357.44h-148.5  V418.393z"
-                />
-                <path
-                  d="M447.441,303.294H282.122c-4.645,0-8.409-3.764-8.409-8.409v-77.772c0-4.645,3.764-8.409,8.409-8.409h165.319  c4.645,0,8.409,3.764,8.409,8.409v77.772C455.85,299.53,452.086,303.294,447.441,303.294z M290.531,286.476h148.501v-60.953H290.531  V286.476z"
-                />
-                <path
-                  d="M447.441,435.211H282.122c-4.645,0-8.409-3.764-8.409-8.409V349.03c0-4.645,3.764-8.409,8.409-8.409h165.319  c4.645,0,8.409,3.764,8.409,8.409v77.772C455.85,431.447,452.086,435.211,447.441,435.211z M290.531,418.393h148.501V357.44H290.531  V418.393z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="mt-12 flex flex-col-reverse flex-wrap lg:flex-row">
-            <div class="w-full rounded p-6 lg:w-1/2">
-              <svg
-                class="mx-auto w-5/6 drop-shadow-xl sm:h-80"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 400 300"
-              >
-                <defs>
-                  <linearGradient id="freeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color: #16a34a; stop-opacity: 1"/>
-                    <stop offset="100%" style="stop-color: #84cc16; stop-opacity: 1"/>
-                  </linearGradient>
-                </defs>
-                
-                <!-- Background Circle -->
-                <circle cx="200" cy="150" r="140" fill="#f0fdf4" opacity="0.5"/>
-                
-                <!-- Large Gift Box -->
-                <rect x="130" y="130" width="140" height="120" rx="8" fill="url(#freeGrad)"/>
-                <rect x="130" y="130" width="140" height="30" rx="8" fill="#15803d"/>
-                
-                <!-- Ribbon Vertical -->
-                <rect x="190" y="130" width="20" height="120" fill="#fef3c7"/>
-                
-                <!-- Ribbon Horizontal -->
-                <rect x="130" y="180" width="140" height="20" fill="#fef3c7"/>
-                
-                <!-- Bow -->
-                <ellipse cx="175" cy="120" rx="25" ry="15" fill="#fbbf24"/>
-                <ellipse cx="225" cy="120" rx="25" ry="15" fill="#fbbf24"/>
-                <circle cx="200" cy="120" r="12" fill="#f59e0b"/>
-                
-                <!-- Sparkles -->
-                <g fill="#fbbf24" opacity="0.8">
-                  <path d="M 90 100 L 95 105 L 90 110 L 85 105 Z"/>
-                  <path d="M 310 140 L 315 145 L 310 150 L 305 145 Z"/>
-                  <path d="M 100 200 L 105 205 L 100 210 L 95 205 Z"/>
-                  <path d="M 300 90 L 305 95 L 300 100 L 295 95 Z"/>
-                </g>
-                
-                <!-- Price Tag -->
-                <g transform="translate(280, 200)">
-                  <rect x="0" y="0" width="90" height="50" rx="8" fill="white" stroke="url(#freeGrad)" stroke-width="3"/>
-                  <text x="45" y="25" text-anchor="middle" font-size="20" font-weight="bold" fill="#16a34a">DARMO</text>
-                  <text x="45" y="42" text-anchor="middle" font-size="12" fill="#6b7280">0 PLN</text>
-                </g>
-                
-                <!-- Decorative elements -->
-                <circle cx="60" cy="150" r="8" fill="#84cc16" opacity="0.6"/>
-                <circle cx="340" cy="180" r="12" fill="#16a34a" opacity="0.6"/>
-                <circle cx="80" cy="240" r="6" fill="#22c55e" opacity="0.5"/>
-              </svg>
-            </div>
-            <div class="w-full p-6 lg:w-1/2">
-              <div class="align-middle">
-                <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl">
-                  Darmowy produkt dla Ciebie
-                </h2>
-                <p
-                  class="mt-6 text-base leading-relaxed text-gray-600 lg:text-lg"
-                >
-                  Nasza aplikacja jest darmowa dla wszystkich użytkowników.
-                  Możesz korzystać z większości funkcjonalności bez żadnych
-                  opłat. Wierzymy, że dostęp do narzędzi wspierających rolnictwo
-                  powinien być dostępny dla każdego, niezależnie od wielkości
-                  gospodarstwa.
-                </p>
-                <div class="mt-8 grid gap-4 sm:grid-cols-2">
-                  <div class="rounded-lg bg-green-50 p-4">
-                    <div class="text-3xl font-bold text-green-600">100%</div>
-                    <div class="text-sm text-gray-700">Darmowe funkcje</div>
-                  </div>
-                  <div class="rounded-lg bg-green-50 p-4">
-                    <div class="text-3xl font-bold text-green-600">0 PLN</div>
-                    <div class="text-sm text-gray-700">Brak ukrytych opłat</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="border-b bg-white py-20" id="features">
-        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
-          <h2
-            class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl"
-          >
-            Funkcje
-          </h2>
-          <div class="mb-12 w-full">
-            <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
-          </div>
-          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div
-              class="card-hover flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg"
-            >
-              <div
-                class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100"
-              >
-                <svg
-                  class="h-7 w-7 text-green-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C11.5 2 11 2.19 10.59 2.59L2.59 10.59C1.8 11.37 1.8 12.63 2.59 13.41C3.37 14.2 4.63 14.2 5.41 13.41L7 11.83V20C7 21.1 7.9 22 9 22H15C16.1 22 17 21.1 17 20V11.83L18.59 13.41C19.37 14.2 20.63 14.2 21.41 13.41C22.2 12.63 22.2 11.37 21.41 10.59L13.41 2.59C13 2.19 12.5 2 12 2M12 4.83L19 11.83V20H15V14H9V20H5V11.83L12 4.83M11 16H13V20H11V16Z"/>
-                </svg>
-              </div>
-              <p
-                class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600"
-              >
-                Notatnik agrotechniczny
-              </p>
-              <h3 class="mb-3 text-xl font-bold text-gray-800">
-                Zbieranie informacji o zabiegach
-              </h3>
-              <p class="flex-grow text-base leading-relaxed text-gray-600">
-                Zbieraj i analizuj dane dotyczące wszystkich wykonanych zabiegów
-                agrotechnicznych na Twoim polu.
-              </p>
-            </div>
+    </footer>
+  </div>
+  <link href="font.css" rel="stylesheet" />
 
-            <div
-              class="card-hover flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg"
-            >
-              <div
-                class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100"
-              >
-                <svg
-                  class="h-7 w-7 text-green-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M18 20H6V4H13V9H18V20M10 19L12 15H9V10L7 14H10V19Z"/>
-                </svg>
-              </div>
-              <p
-                class="mb-2 text-xs font-medium uppercase tracking-wider text-gray-600"
-              >
-                Raporty
-              </p>
-              <h3 class="mb-3 text-xl font-bold text-gray-800">
-                Generowanie dokumentacji
-              </h3>
-              <p class="flex-grow text-base leading-relaxed text-gray-600">
-                Generuj raporty z wykonanych zabiegów agrotechnicznych, raporty
-                oprysków oraz raporty integrowanej produkcji (IP).
-              </p>
-            </div>
+  <!-- Navigation Script -->
+  <script>
+    var scrollpos = window.scrollY;
+    var header = document.getElementById('header');
+    var navcontent = document.getElementById('nav-content');
+    var navaction = document.getElementById('navAction');
+    var toToggle = document.querySelectorAll('.toggleColour');
 
-            <div
-              class="card-hover flex flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-lg"
-            >
-              <div
-                class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white"
-              >
-                <svg
-                  class="h-7 w-7 text-green-600"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C11.5 2 11 2.19 10.59 2.59C10.2 3 10 3.5 10 4V4.5C7.5 5.6 6 8.2 6 11C6 14.3 4 16 4 17H20C20 16 18 14.3 18 11C18 8.2 16.5 5.6 14 4.5V4C14 3.5 13.81 3 13.41 2.59C13 2.19 12.5 2 12 2M10 20C10 20.5 10.2 21 10.59 21.41C11 21.8 11.5 22 12 22C12.5 22 13 21.8 13.41 21.41C13.8 21 14 20.5 14 20H10M12 6C13.11 6 14.11 6.45 14.83 7.17C15.55 7.9 16 8.89 16 10H8C8 8.89 8.45 7.9 9.17 7.17C9.89 6.45 10.89 6 12 6Z"/>
-                </svg>
-              </div>
-              <h3 class="mb-3 text-xl font-bold text-gray-800">
-                Wkrótce więcej...
-              </h3>
-              <p class="flex-grow text-base leading-relaxed text-gray-700">
-                Pracujemy nad nowymi funkcjami, które jeszcze bardziej ułatwią
-                zarządzanie Twoim gospodarstwem.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Product Screenshot Section -->
-      <section class="gradient py-20">
-        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
-          <div class="mb-12 text-center">
-            <h2
-              class="my-2 w-full text-4xl font-bold leading-tight text-white lg:text-5xl"
-            >
-              Zobacz jak wygląda aplikacja
-            </h2>
-            <p class="mx-auto mt-4 max-w-2xl text-lg text-white opacity-90">
-              Prosty i intuicyjny interfejs, który pozwala na szybkie i efektywne zarządzanie gospodarstwem
-            </p>
-          </div>
-          <div class="relative mx-auto max-w-5xl">
-            <!-- Browser mockup frame -->
-            <div class="overflow-hidden rounded-2xl bg-white shadow-2xl">
-              <!-- Browser header -->
-              <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-3">
-                <div class="flex gap-2">
-                  <div class="h-3 w-3 rounded-full bg-red-500"></div>
-                  <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
-                  <div class="h-3 w-3 rounded-full bg-green-500"></div>
-                </div>
-                <div class="mx-4 flex-1 rounded-md bg-white px-4 py-1 text-sm text-gray-500">
-                  app.epole.farm
-                </div>
-              </div>
-              <!-- Screenshot -->
-              <div class="relative bg-white">
-                <img
-                  src="website-ss.png"
-                  alt="ePole aplikacja - widok głównego panelu zarządzania gospodarstwem"
-                  class="w-full"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-            <!-- Decorative elements -->
-            <div class="absolute -left-4 -top-4 h-24 w-24 rounded-full bg-white opacity-10"></div>
-            <div class="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-white opacity-10"></div>
-          </div>
-          <!-- CTA below screenshot -->
-          <div class="mt-12 text-center">
-            <a
-              href="https://forms.gle/MWBF9xGjbq8trmgB7"
-              class="no-underline"
-            >
-              <button
-                class="focus:shadow-outline transform rounded-full bg-white px-8 py-4 font-bold text-green-700 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none"
-              >
-                Wypróbuj za darmo
-              </button>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section class="bg-gray-50 py-20" id="pricing">
-        <div class="container mx-auto max-w-6xl px-6 text-gray-800 lg:px-8">
-          <h2
-            class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl"
-          >
-            Cennik
-          </h2>
-          <div class="mb-12 w-full">
-            <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
-          </div>
-          <div class="flex flex-col justify-center gap-8 sm:flex-row lg:gap-6">
-            <div
-              class="card-hover mx-auto flex w-full max-w-sm flex-col rounded-2xl bg-white shadow-xl lg:w-1/3"
-            >
-              <div
-                class="flex-1 overflow-hidden rounded-t-2xl bg-white p-8 text-gray-600"
-              >
-                <div class="mb-6 text-center">
-                  <h3 class="text-2xl font-bold text-gray-800 lg:text-3xl">
-                    Darmowy
-                  </h3>
-                  <div class="mt-6 text-5xl font-bold text-green-600">
-                    0 PLN
-                  </div>
-                  <p class="mt-2 text-sm text-gray-500">na zawsze</p>
-                </div>
-                <ul class="w-full space-y-4 text-center text-sm">
-                  <li class="flex items-center justify-center py-2">
-                    <svg
-                      class="mr-2 h-5 w-5 flex-shrink-0 text-green-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Dziennik procedur
-                  </li>
-                  <li class="flex items-center justify-center py-2">
-                    <svg
-                      class="mr-2 h-5 w-5 flex-shrink-0 text-green-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Raporty oprysków
-                  </li>
-                  <li class="flex items-center justify-center py-2">
-                    <svg
-                      class="mr-2 h-5 w-5 flex-shrink-0 text-green-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Raporty IP
-                  </li>
-                  <li class="flex items-center justify-center py-2">
-                    <svg
-                      class="mr-2 h-5 w-5 flex-shrink-0 text-green-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Wielouzitkow ość
-                  </li>
-                </ul>
-              </div>
-              <div
-                class="mt-auto flex-none overflow-hidden rounded-b-2xl bg-white p-6"
-              >
-                <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="block">
-                  <button
-                    class="w-full rounded-full bg-gray-200 px-6 py-3 font-bold text-gray-800 transition hover:bg-gray-300"
-                  >
-                    Rozpocznij teraz
-                  </button>
-                </a>
-              </div>
-            </div>
+    document.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
 
-            <div
-              class="card-hover z-10 mx-auto flex w-full max-w-sm flex-col rounded-2xl bg-white shadow-2xl lg:w-1/3 lg:scale-105"
-            >
-              <div class="flex-1 overflow-hidden rounded-t-2xl bg-white p-8">
-                <div class="mb-2 text-center">
-                  <span
-                    class="gradient inline-block rounded-full px-4 py-1 text-sm font-bold text-white"
-                  >
-                    Popularne
-                  </span>
-                </div>
-                <div class="mb-6 text-center">
-                  <h3 class="text-2xl font-bold text-gray-800 lg:text-3xl">
-                    Bez reklam
-                  </h3>
-                  <div class="mt-6 text-5xl font-bold text-green-600">
-                    10 PLN
-                  </div>
-                  <p class="mt-2 text-sm text-gray-500">miesięcznie</p>
-                </div>
-                <ul
-                  class="w-full space-y-4 text-center text-base font-semibold"
-                >
-                  <li
-                    class="flex items-center justify-center py-2 text-gray-800"
-                  >
-                    <svg
-                      class="mr-2 h-6 w-6 flex-shrink-0 text-green-600"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Wszystko z planu darmowego
-                  </li>
-                  <li
-                    class="flex items-center justify-center py-2 text-green-600"
-                  >
-                    <svg
-                      class="mr-2 h-6 w-6 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Brak reklam
-                  </li>
-                </ul>
-              </div>
-              <div
-                class="mt-auto flex-none overflow-hidden rounded-b-2xl bg-white p-6"
-              >
-                <button
-                  class="gradient w-full cursor-not-allowed rounded-full px-6 py-4 font-bold text-white opacity-70 shadow-lg transition"
-                >
-                  Wkrótce dostępne
-                </button>
-              </div>
-            </div>
+      if (scrollpos > 75) {
+        header.classList.add('bg-white');
+        header.classList.remove('backdrop-blur-sm');
+        navaction.classList.remove('bg-white');
+        navaction.classList.add('gradient');
+        navaction.classList.remove('text-gray-800');
+        navaction.classList.add('text-white');
 
-            <div
-              class="card-hover mx-auto flex w-full max-w-sm flex-col rounded-2xl bg-white shadow-xl lg:w-1/3"
-            >
-              <div
-                class="flex-1 overflow-hidden rounded-t-2xl bg-white p-8 text-gray-600"
-              >
-                <div class="mb-6 text-center">
-                  <h3 class="text-2xl font-bold text-gray-800 lg:text-3xl">
-                    Wkrótce...
-                  </h3>
-                  <div class="mt-6 text-5xl font-bold text-gray-400">-</div>
-                  <p class="mt-2 text-sm text-gray-500">miesięcznie</p>
-                </div>
-                <ul class="w-full space-y-4 text-center text-sm">
-                  <li class="py-4 text-gray-500">Więcej funkcji już wkrótce</li>
-                </ul>
-              </div>
-              <div
-                class="mt-auto flex-none overflow-hidden rounded-b-2xl bg-white p-6"
-              >
-                <button
-                  class="w-full cursor-not-allowed rounded-full bg-gray-200 px-6 py-3 font-bold text-gray-400"
-                >
-                  Niedostępne
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="about-us" class="bg-gray-50 py-20">
-        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
-          <h2
-            class="my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl"
-          >
-            O nas
-          </h2>
+        for (var i = 0; i < toToggle.length; i++) {
+          toToggle[i].classList.add('text-gray-800');
+          toToggle[i].classList.remove('text-white');
+        }
+        header.classList.add('shadow');
+      } else {
+        header.classList.remove('bg-white', 'shadow');
+        header.classList.add('backdrop-blur-sm');
+        navaction.classList.remove('gradient', 'text-white');
+        navaction.classList.add('bg-white', 'text-gray-800');
 
-          <div class="mb-12 w-full">
-            <div class="gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
-          </div>
-          <div class="flex flex-wrap justify-center gap-8">
-            <!-- CEO Profile -->
-            <div
-              class="card-hover w-full max-w-sm rounded-2xl bg-white p-8 text-center shadow-xl sm:w-1/2 lg:w-1/3"
-            >
-              <img
-                src="ceo-min.webp"
-                alt="Wojtek - CEO"
-                class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-green-100"
-                width="10rem"
-                height="10rem"
-                loading="lazy"
-              />
-              <h3 class="mt-6 text-2xl font-bold text-gray-800">Wojtek</h3>
-              <p class="mt-2 text-sm font-medium text-green-600">
-                CEO & pomysłodawca
-              </p>
-              <p class="mt-4 text-base leading-relaxed text-gray-600">
-                Stworzyłem produkt który używam w swoim gospodarstwie. Chciałem
-                zminimalizować ilość czasu spędzonego na platformach
-                internetowych i zająć się tym co najważniejsze.
-              </p>
-            </div>
-            <!-- Developer Profile -->
-            <div
-              class="card-hover w-full max-w-sm rounded-2xl bg-white p-8 text-center shadow-xl sm:w-1/2 lg:w-1/3"
-            >
-              <img
-                src="developer-min.webp"
-                alt="Borys - Developer"
-                width="10rem"
-                height="10rem"
-                class="mx-auto h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-green-100"
-                loading="lazy"
-              />
-              <h3 class="mt-6 text-2xl font-bold text-gray-800">Borys</h3>
-              <p class="mt-2 text-sm font-medium text-green-600">
-                Główny developer
-              </p>
-              <p class="mt-4 text-base leading-relaxed text-gray-600">
-                Jako główny developer dbam o to aby nasz produkt był zawsze na
-                czasie i spełniał oczekiwania naszych klientów. Wof wof.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Change the colour #f8fafc to match the previous section colour -->
-      <svg
-        class="wave-top"
-        viewBox="0 0 1439 147"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-      >
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
-            <g class="wave" fill="#f8fafc">
-              <path
-                d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
-              ></path>
-            </g>
-            <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
-              <g
-                transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) "
-              >
-                <path
-                  d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
-                  opacity="0.100000001"
-                ></path>
-                <path
-                  d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-                  opacity="0.100000001"
-                ></path>
-                <path
-                  d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
-                  opacity="0.200000003"
-                ></path>
-              </g>
-            </g>
-          </g>
-        </g>
-      </svg>
-      <section class="container mx-auto mb-16 px-6 py-12 text-center lg:px-8">
-        <h2
-          class="my-2 w-full text-center text-4xl font-bold leading-tight text-white lg:text-5xl"
-        >
-          Sprawdź naszą aplikację
-        </h2>
-        <div class="mb-6 w-full">
-          <div class="mx-auto my-0 h-1 w-24 rounded-full bg-white py-0"></div>
-        </div>
-        <h3 class="my-6 text-2xl leading-tight text-white/90 lg:text-3xl">
-          Darmo to uczciwa cena!
-        </h3>
-        <a href="https://forms.gle/MWBF9xGjbq8trmgB7">
-          <button
-            class="focus:shadow-outline mx-auto my-6 transform rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl focus:outline-none lg:mx-0"
-          >
-            Zapisz się
-          </button>
-        </a>
-      </section>
-      <!--Footer-->
-      <footer class="bg-white">
-        <div class="container mx-auto px-6 lg:px-8">
-          <div class="flex w-full flex-col gap-8 py-12 md:flex-row">
-            <div class="mb-6 flex-1 text-black md:mb-0">
-              <a
-                class="flex items-center gap-2 text-2xl font-bold no-underline hover:no-underline lg:text-3xl"
-                href="#"
-              >
-                <img
-                  src="icon-min.webp"
-                  alt="ePole logo"
-                  class="inline h-8 w-8 fill-current lg:h-10 lg:w-10"
-                  width="2rem"
-                  height="2rem"
-                  loading="lazy"
-                />
-                <span>ePole</span>
-              </a>
-              <p class="mt-4 text-sm text-gray-600">
-                Nowoczesne narzędzie dla nowoczesnych rolników.
-              </p>
-            </div>
-            <div class="flex-1">
-              <p
-                class="mb-4 text-sm font-bold uppercase tracking-wider text-gray-500"
-              >
-                Materiały informacyjne
-              </p>
-              <ul class="space-y-2">
-                <li>
-                  <a
-                    href="https://app.epole.farm/faq"
-                    class="text-gray-800 no-underline transition-colors hover:text-green-600"
-                  >
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://app.epole.farm/contact"
-                    class="text-gray-800 no-underline transition-colors hover:text-green-600"
-                  >
-                    Kontakt
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="flex-1">
-              <p
-                class="mb-4 text-sm font-bold uppercase tracking-wider text-gray-500"
-              >
-                Regulamin
-              </p>
-              <ul class="space-y-2">
-                <li>
-                  <a
-                    href="https://app.epole.farm/tos"
-                    class="text-gray-800 no-underline transition-colors hover:text-green-600"
-                  >
-                    Warunki użytkowania
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://app.epole.farm/privacy"
-                    class="text-gray-800 no-underline transition-colors hover:text-green-600"
-                  >
-                    Polityka prywatności
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="border-t border-gray-200 py-6 text-center">
-            <p class="text-sm text-gray-600">
-              © 2024 ePole.farm. Wszelkie prawa zastrzeżone.
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
-    <link href="font.css" rel="stylesheet" />
+        for (var i = 0; i < toToggle.length; i++) {
+          toToggle[i].classList.add('text-white');
+          toToggle[i].classList.remove('text-gray-800');
+        }
+      }
+    });
+  </script>
 
-    <!-- Navigation Script -->
-    <script>
-      var scrollpos = window.scrollY;
-      var header = document.getElementById('header');
-      var navcontent = document.getElementById('nav-content');
-      var navaction = document.getElementById('navAction');
-      var toToggle = document.querySelectorAll('.toggleColour');
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    var navMenuDiv = document.getElementById('nav-content');
+    var navMenu = document.getElementById('nav-toggle');
 
-      document.addEventListener('scroll', function () {
-        scrollpos = window.scrollY;
-
-        if (scrollpos > 75) {
-          header.classList.add('bg-white');
-          header.classList.remove('backdrop-blur-sm');
-          navaction.classList.remove('bg-white');
-          navaction.classList.add('gradient');
-          navaction.classList.remove('text-gray-800');
-          navaction.classList.add('text-white');
-
+    navMenu.addEventListener('click', function (event) {
+      event.preventDefault();
+      if (navMenuDiv.classList.contains('hidden')) {
+        navMenuDiv.classList.remove('hidden');
+        // Make text dark when mobile menu opens (white background)
+        if (window.innerWidth < 1024) {
           for (var i = 0; i < toToggle.length; i++) {
             toToggle[i].classList.add('text-gray-800');
             toToggle[i].classList.remove('text-white');
           }
-          header.classList.add('shadow');
-        } else {
-          header.classList.remove('bg-white', 'shadow');
-          header.classList.add('backdrop-blur-sm');
-          navaction.classList.remove('gradient', 'text-white');
-          navaction.classList.add('bg-white', 'text-gray-800');
-
+        }
+      } else {
+        navMenuDiv.classList.add('hidden');
+        // Restore proper color when mobile menu closes
+        if (window.innerWidth < 1024 && scrollpos <= 75) {
           for (var i = 0; i < toToggle.length; i++) {
             toToggle[i].classList.add('text-white');
             toToggle[i].classList.remove('text-gray-800');
           }
         }
-      });
-    </script>
-
-    <!-- Mobile Menu Toggle Script -->
-    <script>
-      var navMenuDiv = document.getElementById('nav-content');
-      var navMenu = document.getElementById('nav-toggle');
-
-      navMenu.addEventListener('click', function (event) {
-        event.preventDefault();
-        if (navMenuDiv.classList.contains('hidden')) {
-          navMenuDiv.classList.remove('hidden');
-          // Make text dark when mobile menu opens (white background)
-          if (window.innerWidth < 1024) {
-            for (var i = 0; i < toToggle.length; i++) {
-              toToggle[i].classList.add('text-gray-800');
-              toToggle[i].classList.remove('text-white');
-            }
-          }
-        } else {
-          navMenuDiv.classList.add('hidden');
-          // Restore proper color when mobile menu closes
-          if (window.innerWidth < 1024 && scrollpos <= 75) {
-            for (var i = 0; i < toToggle.length; i++) {
-              toToggle[i].classList.add('text-white');
-              toToggle[i].classList.remove('text-gray-800');
-            }
-          }
-        }
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', function (event) {
-        var target = event.target;
-        if (!checkParent(target, navMenuDiv) && !checkParent(target, navMenu)) {
-          navMenuDiv.classList.add('hidden');
-        }
-      });
-
-      function checkParent(t, elm) {
-        while (t.parentNode) {
-          if (t == elm) {
-            return true;
-          }
-          t = t.parentNode;
-        }
-        return false;
       }
+    });
 
-      // Close mobile menu when clicking a link
-      const navLinks = navMenuDiv.querySelectorAll('a');
-      navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          navMenuDiv.classList.add('hidden');
-        });
-      });
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-VPZ4KW45MN"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!checkParent(target, navMenuDiv) && !checkParent(target, navMenu)) {
+        navMenuDiv.classList.add('hidden');
       }
-      gtag('js', new Date());
+    });
+
+    function checkParent(t, elm) {
+      while (t.parentNode) {
+        if (t == elm) {
+          return true;
+        }
+        t = t.parentNode;
+      }
+      return false;
+    }
+
+    // Close mobile menu when clicking a link
+    const navLinks = navMenuDiv.querySelectorAll('a');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenuDiv.classList.add('hidden');
+      });
+    });
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPZ4KW45MN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
     gtag('config', 'G-VPZ4KW45MN');
   </script>
