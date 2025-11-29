@@ -90,21 +90,21 @@
             >
               <li>
                 <a
-                  class="block rounded-lg px-4 py-2.5 text-gray-800 no-underline transition-all hover:bg-gray-100 lg:text-white lg:hover:bg-white/10"
+                  class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
                   href="#features"
                   >Funkcje</a
                 >
               </li>
               <li>
                 <a
-                  class="block rounded-lg px-4 py-2.5 text-gray-800 no-underline transition-all hover:bg-gray-100 lg:text-white lg:hover:bg-white/10"
+                  class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
                   href="#pricing"
                   >Cennik</a
                 >
               </li>
               <li>
                 <a
-                  class="block rounded-lg px-4 py-2.5 text-gray-800 no-underline transition-all hover:bg-gray-100 lg:text-white lg:hover:bg-white/10"
+                  class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
                   href="#about-us"
                 >
                   O nas
@@ -113,7 +113,7 @@
               <li>
                 <a href="https://app.epole.farm/login">
                   <button
-                    class="block w-full rounded-lg px-4 py-2.5 text-gray-800 no-underline transition-all hover:bg-gray-100 lg:text-white lg:hover:bg-white/10"
+                    class="toggleColour block w-full rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
                   >
                     Zaloguj się
                   </button>
@@ -1078,8 +1078,22 @@
         event.preventDefault();
         if (navMenuDiv.classList.contains('hidden')) {
           navMenuDiv.classList.remove('hidden');
+          // Make text dark when mobile menu opens (white background)
+          if (window.innerWidth < 1024) {
+            for (var i = 0; i < toToggle.length; i++) {
+              toToggle[i].classList.add('text-gray-800');
+              toToggle[i].classList.remove('text-white');
+            }
+          }
         } else {
           navMenuDiv.classList.add('hidden');
+          // Restore proper color when mobile menu closes
+          if (window.innerWidth < 1024 && scrollpos <= 75) {
+            for (var i = 0; i < toToggle.length; i++) {
+              toToggle[i].classList.add('text-white');
+              toToggle[i].classList.remove('text-gray-800');
+            }
+          }
         }
       });
 
