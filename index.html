@@ -139,6 +139,14 @@
       transform: scaleX(1);
       animation: scaleIn 0.6s ease-out 0.3s forwards;
     }
+
+    /* Minimum section heights to prevent multiple animations triggering */
+    .min-section-height {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   </style>
 
   <link rel="stylesheet" href="tailwind.min.css" />
@@ -189,18 +197,16 @@
               </a>
             </li>
             <li>
-              <a href="https://app.epole.farm/login">
-                <button
-                  class="toggleColour block w-full rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20">
-                  Zaloguj się
-                </button>
+              <a class="toggleColour block rounded-lg px-4 py-2.5 text-white no-underline transition-all duration-300 ease-out hover:scale-105 hover:bg-white/20 hover:shadow-lg lg:hover:bg-white/20"
+                href="#get-started">
+                Spróbuj
               </a>
             </li>
             <li class="mt-2 lg:ml-2 lg:mt-0">
-              <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="no-underline">
+              <a href="https://app.epole.farm/login" class="no-underline">
                 <button id="navAction"
                   class="focus:shadow-outline w-full transform rounded-full bg-white px-6 py-3 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none">
-                  Zapisz się
+                  Zaloguj się
                 </button>
               </a>
             </li>
@@ -267,7 +273,7 @@
         </g>
       </svg>
     </div>
-    <section class="border-b bg-white py-20">
+    <section class="min-section-height border-b bg-white py-20">
       <div class="container mx-auto max-w-6xl px-6 lg:px-8">
         <h2 class="section-title my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
           Po co to komu?
@@ -455,7 +461,7 @@
         </div>
       </div>
     </section>
-    <section class="border-b bg-white py-20" id="features">
+    <section class="min-section-height border-b bg-white py-20" id="features">
       <div class="container mx-auto max-w-6xl px-6 lg:px-8">
         <h2 class="section-title my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
           Funkcje
@@ -520,7 +526,7 @@
       </div>
     </section>
     <!-- Product Screenshot Section -->
-    <section class="gradient py-20">
+    <section class="min-section-height gradient py-20">
       <div class="container mx-auto max-w-6xl px-6 lg:px-8">
         <div class="mb-12 text-center">
           <h2 class="section-title my-2 w-full text-4xl font-bold leading-tight text-white lg:text-5xl">
@@ -556,16 +562,16 @@
         </div>
         <!-- CTA below screenshot -->
         <div class="mt-12 text-center">
-          <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="no-underline">
+          <a href="https://app.epole.farm/login" class="no-underline">
             <button
               class="focus:shadow-outline transform rounded-full bg-white px-8 py-4 font-bold text-green-700 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none">
-              Zapisz się
+              Zaloguj się
             </button>
           </a>
         </div>
       </div>
     </section>
-    <section class="bg-gray-50 py-20" id="pricing">
+    <section class="min-section-height bg-gray-50 py-20" id="pricing">
       <div class="container mx-auto max-w-6xl px-6 text-gray-800 lg:px-8">
         <h2 class="section-title my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
           Cennik
@@ -695,7 +701,7 @@
         </div>
       </div>
     </section>
-    <section id="about-us" class="bg-gray-50 py-20">
+    <section id="about-us" class="min-section-height bg-gray-50 py-20">
       <div class="container mx-auto max-w-6xl px-6 lg:px-8">
         <h2 class="section-title my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
           O nas
@@ -760,7 +766,7 @@
         </g>
       </g>
     </svg>
-    <section class="container mx-auto mb-16 px-6 py-12 text-center lg:px-8">
+    <section class="container mx-auto mb-16 px-6 py-12 text-center lg:px-8 min-section-height" id="get-started">
       <h2 class="section-title my-2 w-full text-center text-4xl font-bold leading-tight text-white lg:text-5xl">
         Chcesz spróbować?
       </h2>
@@ -770,10 +776,10 @@
       <h3 class="my-6 text-2xl leading-tight text-white/90 lg:text-3xl">
         Jest darmowe, więc nic nie tracisz
       </h3>
-      <a href="https://forms.gle/MWBF9xGjbq8trmgB7">
+      <a href="https://app.epole.farm/login">
         <button
           class="focus:shadow-outline mx-auto my-6 transform rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-xl transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl focus:outline-none lg:mx-0">
-          Zapisz się
+          Zaloguj się
         </button>
       </a>
     </section>
