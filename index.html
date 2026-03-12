@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl" class="scroll-smooth">
+<html lang="pl" class="scroll-smooth snap-y snap-mandatory overflow-y-scroll h-screen">
 
 <head>
   <meta charset="UTF-8" />
@@ -16,16 +16,71 @@
       background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
     }
 
+    /* Animated gradient background */
+    .gradient-animated {
+      background: linear-gradient(-45deg, #16a34a, #22c55e, #84cc16, #4ade80);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Scroll offset for fixed navbar */
+    [id] {
+      scroll-margin-top: 100px;
+    }
+
+    /* Modern glass morphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
     /* Modern card hover effects */
     .card-hover {
       transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease;
     }
 
     .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Modern glow effect for buttons */
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-glow:hover::before {
+      left: 100%;
     }
 
     /* Logo animations */
@@ -146,13 +201,71 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* Hero section snap */
+    .snap-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    /* Subtle floating animation for hero elements */
+    .float-subtle {
+      animation: floatSubtle 6s ease-in-out infinite;
+    }
+
+    @keyframes floatSubtle {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Modern reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delay for children */
+    .stagger-1 {
+      transition-delay: 0.1s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.2s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.3s;
+    }
+
+    /* Modern gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   </style>
 
   <link rel="stylesheet" href="tailwind.min.css" />
 </head>
 
-<body class="gradient leading-normal tracking-normal text-white"
+<body class="gradient-animated leading-normal tracking-normal text-white"
   style="font-family: 'Roboto', 'Source Sans Pro', 'sans-serif'">
   <div id="content">
     <nav id="header" class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300">
@@ -215,7 +328,7 @@
       </div>
     </nav>
     <!--Hero-->
-    <div class="pt-24 lg:pt-32">
+    <div class="snap-section min-h-screen flex flex-col justify-center pt-24 lg:pt-32">
       <div class="container mx-auto flex flex-col flex-wrap items-center px-6 py-12 md:flex-row lg:px-8 lg:py-20">
         <!--Left Col-->
         <div class="flex w-full flex-col items-start justify-center text-center md:w-2/5 md:text-left">
@@ -228,16 +341,16 @@
           <p class="mb-8 text-lg leading-relaxed opacity-90 lg:text-xl">
             Aplikacja, która pomoże Ci ogarnąć dokumentację i raporty, żebyś mógł wrócić do prawdziwej pracy.
           </p>
-          <div class="flex flex-col gap-4 sm:flex-row">
+          <div class="flex flex-col sm:flex-row sm:gap-4 w-full sm:w-auto">
             <a href="https://forms.gle/MWBF9xGjbq8trmgB7" class="no-underline">
               <button
-                class="focus:shadow-outline w-full transform rounded-full bg-white px-8 py-4 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none sm:w-auto">
+                class="btn-glow focus:shadow-outline w-full transform rounded-full bg-white px-8 py-4 font-bold text-gray-800 shadow-lg transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl focus:outline-none sm:w-auto">
                 Wypróbuj za darmo
               </button>
             </a>
             <a href="#features" class="no-underline">
               <button
-                class="focus:shadow-outline w-full transform rounded-full border-2 border-white bg-transparent px-8 py-4 font-bold text-white transition duration-300 ease-in-out hover:scale-105 hover:bg-white hover:text-gray-800 focus:outline-none sm:w-auto">
+                class="btn-glow glass focus:shadow-outline w-full transform rounded-full px-8 py-4 font-bold text-white transition duration-300 ease-in-out hover:scale-105 hover:bg-white/20 focus:outline-none sm:w-auto">
                 Zobacz jak to działa
               </button>
             </a>
@@ -245,7 +358,7 @@
         </div>
         <!--Right Col-->
         <div class="mt-12 w-full py-6 text-center md:mt-0 md:w-3/5">
-          <img class="z-50 mx-auto w-full rounded-3xl shadow-2xl md:w-4/5" src="image-min.webp"
+          <img class="float-subtle z-50 mx-auto w-full rounded-3xl shadow-2xl md:w-4/5" src="image-min.webp"
             alt="ePole application screenshot" loading="lazy" />
         </div>
       </div>
@@ -273,7 +386,7 @@
         </g>
       </svg>
     </div>
-    <section class="min-section-height border-b bg-white py-20">
+    <section id="why" class="min-section-height border-b bg-white py-20">
       <div class="container mx-auto max-w-6xl px-6 lg:px-8">
         <h2 class="section-title my-2 w-full text-center text-4xl font-bold leading-tight text-gray-800 lg:text-5xl">
           Po co to komu?
@@ -470,7 +583,7 @@
           <div class="section-underline gradient mx-auto my-0 h-1 w-24 rounded-full py-0"></div>
         </div>
         <div class="flex flex-col gap-4 lg:flex-row">
-          <div class="card-hover flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg">
+          <div class="card-hover reveal stagger-1 flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
               <svg class="h-7 w-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -488,7 +601,7 @@
             </p>
           </div>
 
-          <div class="card-hover flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg">
+          <div class="card-hover reveal stagger-2 flex flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-lg">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
               <svg class="h-7 w-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -507,7 +620,7 @@
           </div>
 
           <div
-            class="card-hover flex flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-lg">
+            class="card-hover reveal stagger-3 flex flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-green-50 to-green-100 p-6 shadow-lg">
             <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white">
               <svg class="h-7 w-7 text-green-600" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -526,7 +639,7 @@
       </div>
     </section>
     <!-- Product Screenshot Section -->
-    <section class="min-section-height gradient py-20">
+    <section id="screenshot" class="min-section-height gradient-animated py-20">
       <div class="container mx-auto max-w-6xl px-6 lg:px-8">
         <div class="mb-12 text-center">
           <h2 class="section-title my-2 w-full text-4xl font-bold leading-tight text-white lg:text-5xl">
@@ -679,7 +792,7 @@
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                       clip-rule="evenodd" />
                   </svg>
-                  Brak reklam
+                  Przechowywanie dokumentów
                 </li>
                 <li class="flex items-center justify-center py-2 text-gray-500">
                   <svg class="mr-2 h-6 w-6 flex-shrink-0 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -717,8 +830,7 @@
                       clip-rule="evenodd" />
                   </svg>
                   <span class="text-left text-xs">
-                    Planowany płatny plan z usługami generującymi koszty dla portalu: przechowywanie
-                    dokumentów/zdjęć, funkcjami AI, itp.
+                    Planowany płatny plan z usługami generującymi koszty dla portalu: funkcjami AI, itp.
                   </span>
                 </li>
               </ul>
@@ -815,7 +927,7 @@
       </a>
     </section>
     <!--Footer-->
-    <footer class="bg-white">
+    <footer class="bg-white snap-section">
       <div class="container mx-auto px-6 lg:px-8">
         <div class="flex w-full flex-col gap-8 py-12 md:flex-row">
           <div class="mb-6 flex-1 text-black md:mb-0 logo-container">
@@ -932,13 +1044,27 @@
       });
     }, observerOptions);
 
+    // Observer for reveal animations
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
     // Observe all section titles and underlines
     document.addEventListener('DOMContentLoaded', function () {
       const sectionTitles = document.querySelectorAll('.section-title');
       const sectionUnderlines = document.querySelectorAll('.section-underline');
+      const revealElements = document.querySelectorAll('.reveal');
 
       sectionTitles.forEach(title => observer.observe(title));
       sectionUnderlines.forEach(underline => observer.observe(underline));
+      revealElements.forEach(el => revealObserver.observe(el));
     });
   </script>
 
