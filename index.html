@@ -10,7 +10,33 @@
     content="ePole to aplikacja, która pomaga rolnikom zarządzać swoim gospodarstwem w sposób prosty i efektywny." />
   <meta name="keywords" content="agriculture, rolnictwo, integrowana produkcja, raporty rolnicze, dziennik rolniczy" />
   <meta name="author" content="ePole" />
+  <link rel="canonical" href="https://epole.farm/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#16a34a" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ePole" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:url" content="https://epole.farm/" />
+  <meta property="og:title" content="ePole – zarządzaj polem bez papierologii" />
+  <meta property="og:description"
+    content="Pola, zabiegi, raporty, obserwacje i ceny skupu — wszystko w jednym miejscu. Za darmo." />
+  <meta property="og:image" content="https://epole.farm/website-ss.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ePole - panel zarządzania gospodarstwem rolnym" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ePole – zarządzaj polem bez papierologii" />
+  <meta name="twitter:description"
+    content="Pola, zabiegi, raporty, obserwacje i ceny skupu — wszystko w jednym miejscu. Za darmo." />
+  <meta name="twitter:image" content="https://epole.farm/website-ss.png" />
+  <meta name="twitter:image:alt" content="ePole - panel zarządzania gospodarstwem rolnym" />
+
   <link rel="icon" href="icon-min.webp" />
+  <link rel="apple-touch-icon" href="icon-min.png" />
   <style>
     .gradient {
       background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
@@ -23,16 +49,27 @@
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
-    [id] { scroll-margin-top: 80px; }
+    [id] {
+      scroll-margin-top: 80px;
+    }
 
     .card-hover {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card-hover:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -50,16 +87,35 @@
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .stagger-1 { transition-delay: 0.05s; }
-    .stagger-2 { transition-delay: 0.1s; }
-    .stagger-3 { transition-delay: 0.15s; }
-    .stagger-4 { transition-delay: 0.2s; }
-    .stagger-5 { transition-delay: 0.25s; }
-    .stagger-6 { transition-delay: 0.3s; }
+
+    .stagger-1 {
+      transition-delay: 0.05s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.1s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.15s;
+    }
+
+    .stagger-4 {
+      transition-delay: 0.2s;
+    }
+
+    .stagger-5 {
+      transition-delay: 0.25s;
+    }
+
+    .stagger-6 {
+      transition-delay: 0.3s;
+    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -70,7 +126,8 @@
     <!-- Nav -->
     <nav id="header" class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300">
       <div class="container mx-auto flex items-center justify-between px-4 py-3 lg:px-6">
-        <a class="toggleColour flex items-center gap-2 text-xl font-bold text-white no-underline hover:no-underline lg:text-2xl" href="#">
+        <a class="toggleColour flex items-center gap-2 text-xl font-bold text-white no-underline hover:no-underline lg:text-2xl"
+          href="#">
           <img class="inline h-8 w-8" src="icon-min.webp" alt="ePole logo" width="32" height="32" />
           <span>ePole</span>
         </a>
@@ -80,14 +137,20 @@
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="currentColor" />
           </svg>
         </button>
-        <div class="z-20 mt-4 hidden w-full rounded-lg bg-white p-6 shadow-xl lg:mt-0 lg:flex lg:w-auto lg:items-center lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none" id="nav-content">
+        <div
+          class="z-20 mt-4 hidden w-full rounded-lg bg-white p-6 shadow-xl lg:mt-0 lg:flex lg:w-auto lg:items-center lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+          id="nav-content">
           <ul class="flex flex-col items-stretch gap-1 text-center lg:flex-row lg:items-center lg:gap-1">
-            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10" href="#features">Funkcje</a></li>
-            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10" href="#pricing">Cennik</a></li>
-            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10" href="#about-us">O nas</a></li>
+            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                href="#features">Funkcje</a></li>
+            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                href="#pricing">Cennik</a></li>
+            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                href="#about-us">O nas</a></li>
             <li class="mt-2 lg:ml-2 lg:mt-0">
               <a href="https://app.epole.farm/login" class="no-underline">
-                <button id="navAction" class="w-full rounded-full bg-white px-6 py-2.5 text-sm font-bold text-gray-800 shadow transition hover:shadow-lg">Zaloguj&nbsp;się</button>
+                <button id="navAction"
+                  class="w-full rounded-full bg-white px-6 py-2.5 text-sm font-bold text-gray-800 shadow transition hover:shadow-lg">Zaloguj&nbsp;się</button>
               </a>
             </li>
           </ul>
@@ -108,19 +171,22 @@
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
             <a href="https://app.epole.farm/login" class="no-underline">
-              <button class="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl sm:w-auto">
+              <button
+                class="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl sm:w-auto">
                 Wypróbuj za darmo
               </button>
             </a>
             <a href="#features" class="no-underline">
-              <button class="w-full rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition hover:bg-white/10 sm:w-auto">
+              <button
+                class="w-full rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition hover:bg-white/10 sm:w-auto">
                 Poznaj funkcje
               </button>
             </a>
           </div>
         </div>
         <div class="mt-12 w-full text-center md:mt-0 md:w-1/2">
-          <img class="mx-auto w-full rounded-2xl shadow-2xl md:w-5/6" src="image-min.webp" alt="ePole - widok aplikacji" loading="lazy" />
+          <img class="mx-auto w-full rounded-2xl shadow-2xl md:w-5/6" src="image-min.webp" alt="ePole - widok aplikacji"
+            loading="lazy" />
         </div>
       </div>
     </section>
@@ -130,12 +196,17 @@
       <svg viewBox="0 0 1428 174" xmlns="http://www.w3.org/2000/svg">
         <g stroke="none" fill="none" fill-rule="evenodd">
           <g transform="translate(-2,44)" fill="#FFFFFF" fill-rule="nonzero">
-            <path d="M0,0 C90.7,0.9 147.9,27.2 291.9,59.9 C387.9,81.7 543.6,89.3 759,82.7 C469.3,156.3 216.3,153.7 0,75" opacity=".1"/>
-            <path d="M100,104.7 C277.4,72.2 426.1,52.5 546.2,45.6 C666.3,38.6 810.5,41.8 979,55.1 C931.1,56.1 810.3,74.8 616.7,111.2 C423.1,147.6 250.9,145.5 100,104.7Z" opacity=".1"/>
-            <path d="M1046,51.7 C1130.8,29.3 1279.1,17.6 1439,40.2 L1439,120 C1271.2,77.9 1140.2,55.2 1046,51.7Z" opacity=".2"/>
+            <path d="M0,0 C90.7,0.9 147.9,27.2 291.9,59.9 C387.9,81.7 543.6,89.3 759,82.7 C469.3,156.3 216.3,153.7 0,75"
+              opacity=".1" />
+            <path
+              d="M100,104.7 C277.4,72.2 426.1,52.5 546.2,45.6 C666.3,38.6 810.5,41.8 979,55.1 C931.1,56.1 810.3,74.8 616.7,111.2 C423.1,147.6 250.9,145.5 100,104.7Z"
+              opacity=".1" />
+            <path d="M1046,51.7 C1130.8,29.3 1279.1,17.6 1439,40.2 L1439,120 C1271.2,77.9 1140.2,55.2 1046,51.7Z"
+              opacity=".2" />
           </g>
           <g transform="translate(-4,76)" fill="#FFFFFF" fill-rule="nonzero">
-            <path d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035Z"/>
+            <path
+              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035Z" />
           </g>
         </g>
       </svg>
@@ -154,7 +225,11 @@
           <!-- 1 - Fields -->
           <div class="reveal stagger-1 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100">
-              <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+              </svg>
             </div>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Pola i działki</h3>
             <p class="text-sm leading-relaxed text-gray-600">
@@ -165,40 +240,57 @@
           <!-- 2 - Procedures -->
           <div class="reveal stagger-2 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-              <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+              <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
             </div>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Zabiegi agrotechniczne</h3>
             <p class="text-sm leading-relaxed text-gray-600">
-              Zapisuj opryski, nawożenie i siewy. Przypisuj produkty z dawkami, sprzęt i operatorów. Prowadź pełny dziennik zabiegów na każdym polu.
+              Zapisuj opryski, nawożenie i siewy. Przypisuj produkty z dawkami, sprzęt i operatorów. Prowadź pełny
+              dziennik zabiegów na każdym polu.
             </p>
           </div>
 
           <!-- 3 - Reports -->
           <div class="reveal stagger-3 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100">
-              <svg class="h-6 w-6 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <svg class="h-6 w-6 text-amber-600" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
             </div>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Raporty PDF</h3>
             <p class="text-sm leading-relaxed text-gray-600">
-              Generuj raporty oprysków, Integrowanej Produkcji, upraw, ubezpieczeń i maszyn. Jedno kliknięcie &mdash; gotowy dokument do druku.
+              Generuj raporty oprysków, Integrowanej Produkcji, upraw, ubezpieczeń i maszyn. Jedno kliknięcie &mdash;
+              gotowy dokument do druku.
             </p>
           </div>
 
           <!-- 4 - Observations -->
           <div class="reveal stagger-4 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100">
-              <svg class="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <svg class="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
             </div>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Obserwacje polowe</h3>
             <p class="text-sm leading-relaxed text-gray-600">
-              Dokumentuj stan pola ze zdjęciami: szkodniki, choroby, fazy BBCH, pogoda. Wszystko powiązane z konkretną działką.
+              Dokumentuj stan pola ze zdjęciami: szkodniki, choroby, fazy BBCH, pogoda. Wszystko powiązane z konkretną
+              działką.
             </p>
           </div>
 
           <!-- 5 - Price tracker -->
           <div class="reveal stagger-5 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-rose-100">
-              <svg class="h-6 w-6 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              <svg class="h-6 w-6 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
             </div>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Ceny skupu</h3>
             <p class="text-sm leading-relaxed text-gray-600">
@@ -209,23 +301,33 @@
           <!-- 6 - Products DB -->
           <div class="reveal stagger-6 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
             <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100">
-              <svg class="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+              <svg class="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
             </div>
             <h3 class="mb-2 text-lg font-bold text-gray-900">Baza środków ochrony</h3>
             <p class="text-sm leading-relaxed text-gray-600">
-              Pełna baza produktów ochrony roślin zsynchronizowana z gov.pl. Substancje czynne, dawki, zezwolenia &mdash; zawsze aktualne.
+              Pełna baza produktów ochrony roślin zsynchronizowana z gov.pl. Substancje czynne, dawki, zezwolenia
+              &mdash; zawsze aktualne.
             </p>
           </div>
         </div>
 
         <!-- PWA install banner -->
-        <div class="reveal mt-12 flex flex-col items-center gap-6 rounded-2xl border border-green-100 bg-gradient-to-r from-green-50 to-emerald-50 p-8 sm:flex-row sm:gap-8">
+        <div
+          class="reveal mt-12 flex flex-col items-center gap-6 rounded-2xl border border-green-100 bg-gradient-to-r from-green-50 to-emerald-50 p-8 sm:flex-row sm:gap-8">
           <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-green-100">
-            <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
           </div>
           <div class="text-center sm:text-left">
             <h4 class="text-lg font-bold text-gray-900">Zainstaluj jak aplikację mobilną</h4>
-            <p class="mt-1 text-sm text-gray-600">ePole to PWA (Progressive Web App) &mdash; zainstaluj bezpośrednio na telefonie, tablecie lub komputerze. Bez sklepu z aplikacjami, bez aktualizacji. Działa wszędzie, gdzie masz przeglądarkę.</p>
+            <p class="mt-1 text-sm text-gray-600">ePole to PWA (Progressive Web App) &mdash; zainstaluj bezpośrednio na
+              telefonie, tablecie lub komputerze. Bez sklepu z aplikacjami, bez aktualizacji. Działa wszędzie, gdzie
+              masz przeglądarkę.</p>
           </div>
         </div>
       </div>
@@ -263,59 +365,99 @@
 
         <div class="flex flex-col gap-6 sm:flex-row sm:justify-center">
           <!-- Free -->
-          <div class="card-hover flex w-full max-w-sm flex-col rounded-2xl border border-gray-100 bg-white shadow-md sm:w-1/2">
+          <div
+            class="card-hover flex w-full max-w-sm flex-col rounded-2xl border border-gray-100 bg-white shadow-md sm:w-1/2">
             <div class="flex-1 p-8">
               <h3 class="text-xl font-bold text-gray-900">Darmowy</h3>
               <div class="mt-4 text-4xl font-extrabold text-green-600">0&nbsp;PLN</div>
               <p class="mt-1 text-sm text-gray-400">na zawsze</p>
               <ul class="mt-8 space-y-3 text-sm text-gray-700">
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Zarządzanie polami i&nbsp;działkami
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Import z&nbsp;eWniosku, ULDK i&nbsp;GML
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Dziennik zabiegów z&nbsp;produktami i&nbsp;dawkami
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Baza środków ochrony roślin (gov.pl)
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Raporty PDF: opryski, IP, uprawy, ubezpieczenia
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Obserwacje polowe ze zdjęciami
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Tracker cen skupu (aktualizacja co godzinę)
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Rejestr sprzętu i&nbsp;operatorów
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Zaproszenia i&nbsp;dostęp dla wielu użytkowników
                 </li>
               </ul>
             </div>
             <div class="p-6 pt-0">
               <a href="https://app.epole.farm/login" class="block">
-                <button class="w-full rounded-full bg-gray-100 px-6 py-3 text-sm font-bold text-gray-800 transition hover:bg-gray-200">Rozpocznij za darmo</button>
+                <button
+                  class="w-full rounded-full bg-gray-100 px-6 py-3 text-sm font-bold text-gray-800 transition hover:bg-gray-200">Rozpocznij
+                  za darmo</button>
               </a>
             </div>
           </div>
 
           <!-- Paid -->
-          <div class="card-hover relative flex w-full max-w-sm flex-col rounded-2xl border-2 border-green-500 bg-white shadow-lg sm:w-1/2">
+          <div
+            class="card-hover relative flex w-full max-w-sm flex-col rounded-2xl border-2 border-green-500 bg-white shadow-lg sm:w-1/2">
             <div class="absolute -top-3 left-1/2 -translate-x-1/2">
               <span class="gradient rounded-full px-4 py-1 text-xs font-bold text-white">Premium</span>
             </div>
@@ -330,29 +472,50 @@
               </div>
               <ul class="mt-8 space-y-3 text-sm text-gray-700">
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Wszystko z&nbsp;planu darmowego
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Przechowywanie dokumentów w&nbsp;chmurze
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Funkcje AI
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Brak reklam
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd" />
+                  </svg>
                   Wsparcie rozwoju projektu
                 </li>
               </ul>
             </div>
             <div class="p-6 pt-0">
-              <button class="gradient w-full cursor-not-allowed rounded-full px-6 py-3 text-sm font-bold text-white opacity-60">Wkrótce</button>
+              <button
+                class="gradient w-full cursor-not-allowed rounded-full px-6 py-3 text-sm font-bold text-white opacity-60">Wkrótce</button>
             </div>
           </div>
         </div>
@@ -369,16 +532,22 @@
         </div>
         <div class="flex flex-wrap justify-center gap-8">
           <div class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md">
-            <img src="ceo-min.webp" alt="Wojtek - CEO" class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100" width="128" height="128" loading="lazy" />
+            <img src="ceo-min.webp" alt="Wojtek - CEO"
+              class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100" width="128" height="128"
+              loading="lazy" />
             <h3 class="mt-5 text-xl font-bold text-gray-900">Wojtek</h3>
             <p class="mt-1 text-sm font-medium text-green-600">CEO &amp; pomysłodawca</p>
-            <p class="mt-4 text-sm text-gray-600">Zrobiłem to dla siebie, bo miałem dość tracenia czasu na dokumentację. Teraz używam tego w swoim gospodarstwie.</p>
+            <p class="mt-4 text-sm text-gray-600">Zrobiłem to dla siebie, bo miałem dość tracenia czasu na dokumentację.
+              Teraz używam tego w swoim gospodarstwie.</p>
           </div>
           <div class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md">
-            <img src="developer-min.webp" alt="Borys - Developer" class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100" width="128" height="128" loading="lazy" />
+            <img src="developer-min.webp" alt="Borys - Developer"
+              class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100" width="128" height="128"
+              loading="lazy" />
             <h3 class="mt-5 text-xl font-bold text-gray-900">Borys</h3>
             <p class="mt-1 text-sm font-medium text-green-600">Główny developer</p>
-            <p class="mt-4 text-sm text-gray-600">Koduję to wszystko i staram się, żeby działało szybko i bez błędów. Wof wof.</p>
+            <p class="mt-4 text-sm text-gray-600">Koduję to wszystko i staram się, żeby działało szybko i bez błędów.
+              Wof wof.</p>
           </div>
         </div>
       </div>
@@ -390,7 +559,8 @@
         <h2 class="text-3xl font-bold text-white lg:text-4xl">Gotowy, żeby spróbować?</h2>
         <p class="mt-4 text-lg text-white/80">Rejestracja zajmuje minutę. Bez karty, bez zobowiązań.</p>
         <a href="https://app.epole.farm/login" class="no-underline">
-          <button class="mt-8 rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl">
+          <button
+            class="mt-8 rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl">
             Zaloguj się za darmo
           </button>
         </a>
@@ -406,20 +576,25 @@
               <img src="icon-min.webp" alt="ePole logo" class="inline h-7 w-7" width="28" height="28" loading="lazy" />
               ePole
             </a>
-            <p class="mt-3 text-sm text-gray-500">Narzędzie dla rolników, którzy wolą być w polu niż przy komputerze.</p>
+            <p class="mt-3 text-sm text-gray-500">Narzędzie dla rolników, którzy wolą być w polu niż przy komputerze.
+            </p>
           </div>
           <div class="flex-1">
             <p class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">Informacje</p>
             <ul class="space-y-2 text-sm">
-              <li><a href="https://app.epole.farm/faq" class="text-gray-700 no-underline hover:text-green-600">FAQ</a></li>
-              <li><a href="https://app.epole.farm/contact" class="text-gray-700 no-underline hover:text-green-600">Kontakt</a></li>
+              <li><a href="https://app.epole.farm/faq" class="text-gray-700 no-underline hover:text-green-600">FAQ</a>
+              </li>
+              <li><a href="https://app.epole.farm/contact"
+                  class="text-gray-700 no-underline hover:text-green-600">Kontakt</a></li>
             </ul>
           </div>
           <div class="flex-1">
             <p class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">Regulamin</p>
             <ul class="space-y-2 text-sm">
-              <li><a href="https://app.epole.farm/tos" class="text-gray-700 no-underline hover:text-green-600">Warunki użytkowania</a></li>
-              <li><a href="https://app.epole.farm/privacy" class="text-gray-700 no-underline hover:text-green-600">Polityka prywatności</a></li>
+              <li><a href="https://app.epole.farm/tos" class="text-gray-700 no-underline hover:text-green-600">Warunki
+                  użytkowania</a></li>
+              <li><a href="https://app.epole.farm/privacy"
+                  class="text-gray-700 no-underline hover:text-green-600">Polityka prywatności</a></li>
             </ul>
           </div>
         </div>
