@@ -1,0 +1,50 @@
+# ePole
+
+> ePole to darmowa aplikacja (Progressive Web App) dla polskich rolników do zarządzania gospodarstwem rolnym w jednym miejscu. Strona w języku polskim. Aplikacja: https://app.epole.farm
+
+ePole zastępuje papierową dokumentację gospodarstwa. Działa w przeglądarce oraz jako aplikacja mobilna (PWA) na telefonie, tablecie i komputerze — bez sklepu z aplikacjami.
+
+## Kluczowe fakty
+
+- Nazwa: ePole
+- Strona: https://epole.farm — Aplikacja: https://app.epole.farm
+- Język / rynek: polski, Polska
+- Typ: oprogramowanie do zarządzania gospodarstwem rolnym (Progressive Web App)
+- Cena: plan darmowy na zawsze; plan Premium 50 PLN/mies. lub 500 PLN/rok netto (wkrótce)
+- Rejestracja: ok. 1 minuta, bez karty kredytowej, bez zobowiązań
+
+## Funkcje
+
+- Pola i działki: dodawanie ręczne lub import z eWniosku, ULDK i plików GML, mapa, uprawa, odmiana
+- Zabiegi agrotechniczne: dziennik oprysków, nawożenia i siewów z produktami, dawkami, sprzętem i operatorami
+- Raporty PDF: opryski, Integrowana Produkcja (IP), uprawy, ubezpieczenia, maszyny — gotowe do druku
+- Obserwacje polowe: zdjęcia, szkodniki, choroby, fazy BBCH, pogoda, powiązane z działką
+- Ceny skupu: aktualne ceny płodów rolnych, wykresy, historia, ulubione (aktualizacja co godzinę)
+- Baza środków ochrony roślin: synchronizowana z gov.pl (substancje czynne, dawki, zezwolenia)
+- Rejestr sprzętu i operatorów
+- Dostęp dla wielu użytkowników (zaproszenia)
+
+## Plany cenowe
+
+- Darmowy (0 PLN, na zawsze): zarządzanie polami, dziennik zabiegów, baza środków ochrony roślin, raporty PDF, obserwacje, tracker cen skupu, rejestr sprzętu, wielu użytkowników
+- Premium (50 PLN/mies. lub 500 PLN/rok netto, wkrótce): wszystko z planu darmowego + przechowywanie dokumentów w chmurze, funkcje AI, brak reklam
+
+## Najczęstsze pytania
+
+- Czym jest ePole? Aplikacja dla rolników do zarządzania gospodarstwem (pola, zabiegi, raporty, obserwacje, ceny skupu) w przeglądarce i jako PWA.
+- Ile kosztuje? Darmowy plan na zawsze; Premium 50 PLN/mies. lub 500 PLN/rok netto.
+- Czy działa na telefonie? Tak, jako Progressive Web App instalowana bez sklepu z aplikacjami.
+- Import z eWniosku? Tak — eWniosek, ULDK i pliki GML.
+- Raporty? PDF: opryski, Integrowana Produkcja, uprawy, ubezpieczenia, maszyny.
+- Integrowana Produkcja? Tak — pełny dziennik zabiegów i raport IP.
+- Baza środków ochrony roślin? Synchronizowana z gov.pl, zawsze aktualna.
+- Karta kredytowa? Niewymagana; plan darmowy dostępny na zawsze.
+
+## Linki
+
+- Strona główna: https://epole.farm/
+- Aplikacja / logowanie: https://app.epole.farm/login
+- FAQ: https://app.epole.farm/faq
+- Kontakt: https://app.epole.farm/contact
+- Warunki użytkowania: https://app.epole.farm/tos
+- Polityka prywatności: https://app.epole.farm/privacy
