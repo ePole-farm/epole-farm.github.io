@@ -2,7 +2,7 @@
 
 > ePole to darmowa aplikacja (Progressive Web App) dla polskich rolników do zarządzania gospodarstwem rolnym w jednym miejscu. Strona w języku polskim. Aplikacja: https://app.epole.farm
 
-ePole zastępuje papierową dokumentację gospodarstwa. Działa w przeglądarce oraz jako aplikacja mobilna (PWA) na telefonie, tablecie i komputerze — bez sklepu z aplikacjami.
+ePole zastępuje papierową dokumentację gospodarstwa. Działa w przeglądarce oraz jako aplikacja mobilna (PWA) na telefonie, tablecie i komputerze. Wielodostępność realizowana przez organizacje i sezony.
 
 ## Kluczowe fakty
 
@@ -11,33 +11,72 @@ ePole zastępuje papierową dokumentację gospodarstwa. Działa w przeglądarce 
 - Język / rynek: polski, Polska
 - Typ: oprogramowanie do zarządzania gospodarstwem rolnym (Progressive Web App)
 - Cena: plan darmowy na zawsze; plan Premium 50 PLN/mies. lub 500 PLN/rok netto (wkrótce)
-- Rejestracja: ok. 1 minuta, bez karty kredytowej, bez zobowiązań
+- Rejestracja: ok. 1 minuta, e-mail/hasło lub Google, bez karty kredytowej
+- Struktura danych: organizacje → gospodarstwa → sezony (np. 2024_2025)
 
 ## Funkcje
 
-- Pola i działki: dodawanie ręczne lub import z eWniosku, ULDK i plików GML, mapa, uprawa, odmiana
-- Zabiegi agrotechniczne: dziennik oprysków, nawożenia i siewów z produktami, dawkami, sprzętem i operatorami
-- Raporty PDF: opryski, Integrowana Produkcja (IP), uprawy, ubezpieczenia, maszyny — gotowe do druku
-- Obserwacje polowe: zdjęcia, szkodniki, choroby, fazy BBCH, pogoda, powiązane z działką
-- Ceny skupu: aktualne ceny płodów rolnych, wykresy, historia, ulubione (aktualizacja co godzinę)
-- Baza środków ochrony roślin: synchronizowana z gov.pl (substancje czynne, dawki, zezwolenia)
-- Rejestr sprzętu i operatorów
-- Dostęp dla wielu użytkowników (zaproszenia)
+### Konto i organizacja
+- Logowanie/rejestracja e-mail + Google OAuth, reset hasła, weryfikacja e-mail
+- Organizacje: tworzenie, członkowie, role, zaproszenia
+- Gospodarstwa w obrębie organizacji; przypisanie pól do właściciela
+- Sezony (rok agrotechniczny) z migracją danych między sezonami
+- Płatności: historia, kody promocyjne, śledzenie subskrypcji
+- Kreator zakładania gospodarstwa przy pierwszym logowaniu
+
+### Pola i działki
+- Działki katastralne z baz urzędowych (lista, usuwanie, zmiana właściciela)
+- Pola uprawne: edycja, usuwanie, scalanie, edycja masowa
+- Edytor geometrii pola na mapie, mapa wszystkich pól i działek
+- Historia pola (zmiany, płodozmian), podgląd metadanych katastralnych
+- Import pól: portal eWniosek (scrape), CSV z eWniosku, GML z eWniosku, po numerze działki; import obejmujący wszystkie sezony; historia importów
+
+### Zabiegi i uprawy
+- Zabiegi: opryski, nawożenie, siewy, zbiory — tworzenie, edycja, operacje masowe
+- Przy zabiegu: wybór pól, produktów/nawozów, sprzętu, operatora, daty; obliczenia dawek
+- Zapotrzebowanie roślin na składniki pokarmowe (dane referencyjne)
+
+### Obserwacje i znaczniki
+- Obserwacje polowe: notatki z lustracji ze zdjęciami, powiązane z polem
+- Znaczniki na mapie z własnymi kategoriami i ikonami; oznaczanie jako usunięte/przywracanie
+
+### Pomiary gleby
+- Kampanie pomiarów gleby; kreator: wybór pól, anality, automatyczne punkty poboru z GPS, wyniki laboratoryjne
+- Konfigurowalna lista analitów (pH, N, P, K i inne)
+
+### Środki ochrony i nawozy
+- Katalog środków ochrony roślin: substancje czynne, dawki, okresy karencji; własne produkty
+- Katalog nawozów ze składem NPK
+
+### Sprzęt, operatorzy, dokumenty
+- Rejestr sprzętu/maszyn i operatorów (używane w zabiegach)
+- Przechowywanie dokumentów gospodarstwa
+
+### Tracker cen skupu
+- Pulpit cen, skupy (m.in. Woźniak, Agromax, Arteo), katalog upraw trackera
+- Ceny historyczne i bieżące per skup/uprawa, ulubione
+
+### Raporty
+- Uprawy, odmiany, pola, pola dzierżawione, maszyny, odżywienie gleby, opryski, ubezpieczenia, przegląd gospodarstwa, bilans składników pokarmowych
+
+### Pozostałe
+- Powiadomienia (lista, oznaczanie przeczytanych, licznik nieprzeczytanych)
+- Strona startowa per sezon z podsumowaniem gospodarstwa
 
 ## Plany cenowe
 
-- Darmowy (0 PLN, na zawsze): zarządzanie polami, dziennik zabiegów, baza środków ochrony roślin, raporty PDF, obserwacje, tracker cen skupu, rejestr sprzętu, wielu użytkowników
-- Premium (50 PLN/mies. lub 500 PLN/rok netto, wkrótce): wszystko z planu darmowego + przechowywanie dokumentów w chmurze, funkcje AI, brak reklam
+- Darmowy (0 PLN, na zawsze): pełne zarządzanie gospodarstwem — pola, zabiegi, katalogi środków i nawozów, obserwacje, znaczniki, pomiary gleby, raporty, tracker cen skupu, sprzęt i operatorzy, wielu użytkowników
+- Premium (50 PLN/mies. lub 500 PLN/rok netto, wkrótce): wszystko z planu darmowego + przechowywanie dokumentów w chmurze, brak reklam, wsparcie rozwoju projektu
 
 ## Najczęstsze pytania
 
-- Czym jest ePole? Aplikacja dla rolników do zarządzania gospodarstwem (pola, zabiegi, raporty, obserwacje, ceny skupu) w przeglądarce i jako PWA.
+- Czym jest ePole? Aplikacja dla rolników do zarządzania gospodarstwem (pola, zabiegi, obserwacje, pomiary gleby, raporty, ceny skupu) w przeglądarce i jako PWA.
 - Ile kosztuje? Darmowy plan na zawsze; Premium 50 PLN/mies. lub 500 PLN/rok netto.
 - Czy działa na telefonie? Tak, jako Progressive Web App instalowana bez sklepu z aplikacjami.
-- Import z eWniosku? Tak — eWniosek, ULDK i pliki GML.
-- Raporty? PDF: opryski, Integrowana Produkcja, uprawy, ubezpieczenia, maszyny.
-- Integrowana Produkcja? Tak — pełny dziennik zabiegów i raport IP.
-- Baza środków ochrony roślin? Synchronizowana z gov.pl, zawsze aktualna.
+- Import pól? Z portalu eWniosek, plików CSV/GML z eWniosku lub po numerze działki.
+- Jakie raporty? Uprawy, odmiany, pola, dzierżawy, opryski, ubezpieczenia, maszyny, bilans składników, odżywienie gleby, przegląd gospodarstwa.
+- Pomiary gleby? Tak — kreator z punktami poboru GPS i wynikami laboratoryjnymi.
+- Katalog środków/nawozów? Substancje czynne, dawki i okresy karencji oraz skład NPK nawozów; własne produkty.
 - Karta kredytowa? Niewymagana; plan darmowy dostępny na zawsze.
 
 ## Linki
@@ -46,5 +85,6 @@ ePole zastępuje papierową dokumentację gospodarstwa. Działa w przeglądarce 
 - Aplikacja / logowanie: https://app.epole.farm/login
 - FAQ: https://app.epole.farm/faq
 - Kontakt: https://app.epole.farm/contact
+- Wsparcie: https://app.epole.farm/support
 - Warunki użytkowania: https://app.epole.farm/tos
 - Polityka prywatności: https://app.epole.farm/privacy

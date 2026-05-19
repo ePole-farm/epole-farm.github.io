@@ -1,683 +1,1492 @@
 <!doctype html>
 <html lang="pl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      ePole – darmowy program dla rolników: pola, zabiegi, raporty i ceny skupu
+    </title>
+    <meta
+      name="description"
+      content="ePole to darmowa aplikacja dla rolników: ewidencja pól i działek, dziennik zabiegów agrotechnicznych, obserwacje, pomiary gleby, raporty i tracker cen skupu. Import pól z eWniosku. Działa na telefonie i komputerze."
+    />
+    <meta
+      name="keywords"
+      content="program dla rolników, aplikacja dla rolników, dziennik zabiegów agrotechnicznych, ewidencja zabiegów ochrony roślin, ewidencja oprysków, import pól z eWniosku, mapa pól, pomiary gleby, raporty rolnicze, zarządzanie gospodarstwem rolnym, ceny skupu zbóż, baza środków ochrony roślin, nawozy"
+    />
+    <meta name="author" content="ePole" />
+    <link rel="canonical" href="https://epole.farm/" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
+    />
+    <meta name="theme-color" content="#16a34a" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>ePole - portal rolniczy</title>
-  <meta name="description"
-    content="ePole to aplikacja, która pomaga rolnikom zarządzać swoim gospodarstwem w sposób prosty i efektywny." />
-  <meta name="keywords" content="agriculture, rolnictwo, integrowana produkcja, raporty rolnicze, dziennik rolniczy" />
-  <meta name="author" content="ePole" />
-  <link rel="canonical" href="https://epole.farm/" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#16a34a" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ePole" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:url" content="https://epole.farm/" />
+    <meta
+      property="og:title"
+      content="ePole – zarządzaj polem bez papierologii"
+    />
+    <meta
+      property="og:description"
+      content="Pola, zabiegi, raporty, obserwacje i ceny skupu — wszystko w jednym miejscu. Za darmo."
+    />
+    <meta property="og:image" content="https://epole.farm/website-ss.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta
+      property="og:image:alt"
+      content="ePole - panel zarządzania gospodarstwem rolnym"
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="ePole" />
-  <meta property="og:locale" content="pl_PL" />
-  <meta property="og:url" content="https://epole.farm/" />
-  <meta property="og:title" content="ePole – zarządzaj polem bez papierologii" />
-  <meta property="og:description"
-    content="Pola, zabiegi, raporty, obserwacje i ceny skupu — wszystko w jednym miejscu. Za darmo." />
-  <meta property="og:image" content="https://epole.farm/website-ss.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="ePole - panel zarządzania gospodarstwem rolnym" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="ePole – zarządzaj polem bez papierologii"
+    />
+    <meta
+      name="twitter:description"
+      content="Pola, zabiegi, raporty, obserwacje i ceny skupu — wszystko w jednym miejscu. Za darmo."
+    />
+    <meta name="twitter:image" content="https://epole.farm/website-ss.png" />
+    <meta
+      name="twitter:image:alt"
+      content="ePole - panel zarządzania gospodarstwem rolnym"
+    />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ePole – zarządzaj polem bez papierologii" />
-  <meta name="twitter:description"
-    content="Pola, zabiegi, raporty, obserwacje i ceny skupu — wszystko w jednym miejscu. Za darmo." />
-  <meta name="twitter:image" content="https://epole.farm/website-ss.png" />
-  <meta name="twitter:image:alt" content="ePole - panel zarządzania gospodarstwem rolnym" />
-
-  <link rel="icon" href="icon-min.webp" />
-  <link rel="apple-touch-icon" href="icon-min.png" />
-  <style>
-    .gradient {
-      background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
-    }
-
-    .gradient-animated {
-      background: linear-gradient(-45deg, #16a34a, #15803d, #22c55e, #84cc16);
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
+    <link rel="icon" href="icon-min.webp" />
+    <link rel="apple-touch-icon" href="icon-min.png" />
+    <style>
+      .gradient {
+        background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
       }
 
-      50% {
-        background-position: 100% 50%;
+      .gradient-animated {
+        background: linear-gradient(-45deg, #16a34a, #15803d, #22c55e, #84cc16);
+        background-size: 400% 400%;
+        animation: gradientShift 20s ease infinite;
       }
 
-      100% {
-        background-position: 0% 50%;
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
       }
-    }
 
-    [id] {
-      scroll-margin-top: 80px;
-    }
+      [id] {
+        scroll-margin-top: 80px;
+      }
 
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      summary::-webkit-details-marker {
+        display: none;
+      }
 
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
+      .card-hover {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
 
-    .gradient-text {
-      background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+      .card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+      .gradient-text {
+        background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
 
-    .stagger-1 {
-      transition-delay: 0.05s;
-    }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-    .stagger-2 {
-      transition-delay: 0.1s;
-    }
+      .stagger-1 {
+        transition-delay: 0.05s;
+      }
 
-    .stagger-3 {
-      transition-delay: 0.15s;
-    }
+      .stagger-2 {
+        transition-delay: 0.1s;
+      }
 
-    .stagger-4 {
-      transition-delay: 0.2s;
-    }
+      .stagger-3 {
+        transition-delay: 0.15s;
+      }
 
-    .stagger-5 {
-      transition-delay: 0.25s;
-    }
+      .stagger-4 {
+        transition-delay: 0.2s;
+      }
 
-    .stagger-6 {
-      transition-delay: 0.3s;
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
+      .stagger-5 {
+        transition-delay: 0.25s;
+      }
 
-<body class="gradient-animated leading-normal tracking-normal text-white"
-  style="font-family: 'Roboto', 'Source Sans Pro', sans-serif">
-  <div id="content">
-    <!-- Nav -->
-    <nav id="header" class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300">
-      <div class="container mx-auto flex items-center justify-between px-4 py-3 lg:px-6">
-        <a class="toggleColour flex items-center gap-2 text-xl font-bold text-white no-underline hover:no-underline lg:text-2xl"
-          href="#">
-          <img class="inline h-8 w-8" src="icon-min.webp" alt="ePole logo" width="32" height="32" />
-          <span>ePole</span>
-        </a>
-        <button id="nav-toggle" class="rounded-lg p-2 text-white hover:bg-white/10 lg:hidden">
-          <svg class="h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="currentColor" />
-          </svg>
-        </button>
+      .stagger-6 {
+        transition-delay: 0.3s;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Structured data for Google rich results & LLM answer engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://epole.farm/#organization",
+            "name": "ePole",
+            "url": "https://epole.farm/",
+            "logo": "https://epole.farm/icon-min.png",
+            "description": "Twórcy ePole – darmowej aplikacji do zarządzania gospodarstwem rolnym.",
+            "foundingDate": "2024",
+            "areaServed": { "@type": "Country", "name": "Polska" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://epole.farm/#website",
+            "url": "https://epole.farm/",
+            "name": "ePole",
+            "inLanguage": "pl-PL",
+            "publisher": { "@id": "https://epole.farm/#organization" }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://epole.farm/#app",
+            "name": "ePole",
+            "url": "https://epole.farm/",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "Aplikacja rolnicza / oprogramowanie dla gospodarstw rolnych",
+            "operatingSystem": "Web (Progressive Web App), Android, iOS, Windows, macOS",
+            "inLanguage": "pl-PL",
+            "description": "ePole to aplikacja dla rolników do zarządzania gospodarstwem: ewidencja działek i pól uprawnych z mapą, dziennik zabiegów agrotechnicznych, obserwacje, znaczniki na mapie, pomiary gleby, katalog środków ochrony roślin i nawozów, raporty (uprawy, odmiany, pola, dzierżawy, opryski, ubezpieczenia, maszyny, bilans składników) oraz tracker cen skupu.",
+            "publisher": { "@id": "https://epole.farm/#organization" },
+            "featureList": [
+              "Ewidencja działek katastralnych i pól uprawnych z mapą",
+              "Import pól z eWniosku (portal, CSV, GML) lub po numerze działki",
+              "Historia pola i scalanie pól",
+              "Dziennik zabiegów agrotechnicznych (opryski, nawożenie, siewy, zbiory)",
+              "Katalog środków ochrony roślin (substancje czynne, dawki, okresy karencji) i nawozów (NPK)",
+              "Obserwacje polowe z notatkami i zdjęciami",
+              "Znaczniki na mapie z własnymi kategoriami",
+              "Pomiary gleby z generowaniem punktów poboru i wynikami laboratoryjnymi",
+              "Raporty: uprawy, odmiany, pola, dzierżawy, opryski, ubezpieczenia, maszyny, bilans składników, odżywienie gleby",
+              "Tracker cen skupu od skupów (m.in. Woźniak, Agromax, Arteo)",
+              "Rejestr sprzętu i operatorów",
+              "Dokumenty gospodarstwa",
+              "Organizacje, gospodarstwa i sezony z dostępem dla wielu użytkowników",
+              "Działa jako Progressive Web App na telefonie i komputerze"
+            ],
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Plan darmowy",
+                "price": "0",
+                "priceCurrency": "PLN",
+                "description": "Pełne zarządzanie gospodarstwem za darmo na zawsze.",
+                "availability": "https://schema.org/InStock"
+              },
+              {
+                "@type": "Offer",
+                "name": "Plan Premium",
+                "price": "500",
+                "priceCurrency": "PLN",
+                "description": "500 PLN/rok lub 50 PLN/mies. netto. Wszystko z planu darmowego, brak reklam, wsparcie rozwoju projektu.",
+                "availability": "https://schema.org/PreOrder"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://epole.farm/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Czym jest ePole?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ePole to aplikacja dla rolników do zarządzania gospodarstwem w jednym miejscu: działki i pola uprawne z mapą, dziennik zabiegów agrotechnicznych, obserwacje, pomiary gleby, katalog środków ochrony roślin i nawozów, raporty oraz tracker cen skupu. Działa w przeglądarce oraz jako aplikacja mobilna (PWA)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Ile kosztuje ePole?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ePole ma darmowy plan na zawsze, który obejmuje zarządzanie polami, dziennik zabiegów, katalog środków ochrony i nawozów, obserwacje, pomiary gleby, raporty i tracker cen skupu. Plan Premium (50 PLN/mies. lub 500 PLN/rok netto) dodaje brak reklam i wsparcie rozwoju projektu."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Czy ePole działa na telefonie?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tak. ePole to Progressive Web App (PWA) – można je zainstalować bezpośrednio na telefonie, tablecie lub komputerze bez sklepu z aplikacjami. Działa wszędzie, gdzie masz przeglądarkę."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Czy mogę zaimportować pola z eWniosku?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tak. Pola można dodać ręcznie lub zaimportować z portalu eWniosek, z pliku CSV lub GML z eWniosku albo po numerze działki. Dostępny jest też import obejmujący wszystkie sezony naraz oraz historia importów."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Jakie raporty mogę wygenerować w ePole?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ePole generuje raporty jednym kliknięciem: uprawy, odmiany, pola, pola dzierżawione, opryski, ubezpieczenia, maszyny, bilans składników pokarmowych oraz odżywienie gleby. Dostępny jest też przegląd gospodarstwa."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Czy ePole obsługuje pomiary gleby?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Tak. Kreator pomiarów gleby prowadzi krok po kroku: wybór pól, definicja analitów, automatyczne wygenerowanie punktów poboru z GPS oraz wprowadzenie wyników laboratoryjnych. Dane trafiają do raportu odżywienia gleby."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Co zawiera katalog środków ochrony roślin i nawozów?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Katalog środków ochrony roślin zawiera substancje czynne, dawki i okresy karencji, a katalog nawozów – skład NPK. Można też dodawać własne produkty."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Czy potrzebuję karty kredytowej, żeby zacząć?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nie. Rejestracja zajmuje minutę, bez karty i bez zobowiązań. Plan darmowy jest dostępny na zawsze."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body
+    class="gradient-animated leading-normal tracking-normal text-white"
+    style="font-family: 'Roboto', 'Source Sans Pro', sans-serif"
+  >
+    <div id="content">
+      <!-- Nav -->
+      <nav
+        id="header"
+        class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300"
+      >
         <div
-          class="z-20 mt-4 hidden w-full rounded-lg bg-white p-6 shadow-xl lg:mt-0 lg:flex lg:w-auto lg:items-center lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
-          id="nav-content">
-          <ul class="flex flex-col items-stretch gap-1 text-center lg:flex-row lg:items-center lg:gap-1">
-            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
-                href="#features">Funkcje</a></li>
-            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
-                href="#pricing">Cennik</a></li>
-            <li><a class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
-                href="#about-us">O nas</a></li>
-            <li class="mt-2 lg:ml-2 lg:mt-0">
-              <a href="https://app.epole.farm/login" class="no-underline">
-                <button id="navAction"
-                  class="w-full rounded-full bg-white px-6 py-2.5 text-sm font-bold text-gray-800 shadow transition hover:shadow-lg">Zaloguj&nbsp;się</button>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="flex min-h-screen items-center pt-16">
-      <div class="container mx-auto flex flex-col items-center px-6 md:flex-row lg:px-8">
-        <div class="w-full text-center md:w-1/2 md:text-left">
-          <p class="mb-3 text-sm uppercase tracking-widest opacity-80">Aplikacja dla rolników</p>
-          <h1 class="text-4xl font-extrabold leading-tight lg:text-6xl">
-            Zarządzaj polem<br />bez papierologii
-          </h1>
-          <p class="mt-6 text-lg leading-relaxed opacity-90 lg:text-xl">
-            Pola, zabiegi, raporty, obserwacje i ceny skupu &mdash; wszystko w jednym miejscu. Za darmo.
-          </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-            <a href="https://app.epole.farm/login" class="no-underline">
-              <button
-                class="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl sm:w-auto">
-                Wypróbuj za darmo
-              </button>
-            </a>
-            <a href="#features" class="no-underline">
-              <button
-                class="w-full rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition hover:bg-white/10 sm:w-auto">
-                Poznaj funkcje
-              </button>
-            </a>
+          class="container mx-auto flex items-center justify-between px-4 py-3 lg:px-6"
+        >
+          <a
+            class="toggleColour flex items-center gap-2 text-xl font-bold text-white no-underline hover:no-underline lg:text-2xl"
+            href="#"
+          >
+            <img
+              class="inline h-8 w-8"
+              src="icon-min.webp"
+              alt="ePole logo"
+              width="32"
+              height="32"
+            />
+            <span>ePole</span>
+          </a>
+          <button
+            id="nav-toggle"
+            class="rounded-lg p-2 text-white hover:bg-white/10 lg:hidden"
+          >
+            <svg
+              class="h-6 w-6"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Menu</title>
+              <path
+                d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+          <div
+            class="z-20 mt-4 hidden w-full rounded-lg bg-white p-6 shadow-xl lg:mt-0 lg:flex lg:w-auto lg:items-center lg:rounded-none lg:bg-transparent lg:p-0 lg:shadow-none"
+            id="nav-content"
+          >
+            <ul
+              class="flex flex-col items-stretch gap-1 text-center lg:flex-row lg:items-center lg:gap-1"
+            >
+              <li>
+                <a
+                  class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                  href="#features"
+                  >Funkcje</a
+                >
+              </li>
+              <li>
+                <a
+                  class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                  href="#pricing"
+                  >Cennik</a
+                >
+              </li>
+              <li>
+                <a
+                  class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                  href="#about-us"
+                  >O nas</a
+                >
+              </li>
+              <li>
+                <a
+                  class="toggleColour block rounded-lg px-4 py-2 text-white no-underline hover:bg-white/10"
+                  href="#faq"
+                  >FAQ</a
+                >
+              </li>
+              <li class="mt-2 lg:ml-2 lg:mt-0">
+                <a href="https://app.epole.farm/login" class="no-underline">
+                  <button
+                    id="navAction"
+                    class="w-full rounded-full bg-white px-6 py-2.5 text-sm font-bold text-gray-800 shadow transition hover:shadow-lg"
+                  >
+                    Zaloguj&nbsp;się
+                  </button>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="mt-12 w-full text-center md:mt-0 md:w-1/2">
-          <img class="mx-auto w-full rounded-2xl shadow-2xl md:w-5/6" src="image-min.webp" alt="ePole - widok aplikacji"
-            loading="lazy" />
-        </div>
-      </div>
-    </section>
+      </nav>
 
-    <!-- Wave -->
-    <div class="relative -mt-12 lg:-mt-20">
-      <svg viewBox="0 0 1428 174" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="none" fill="none" fill-rule="evenodd">
-          <g transform="translate(-2,44)" fill="#FFFFFF" fill-rule="nonzero">
-            <path d="M0,0 C90.7,0.9 147.9,27.2 291.9,59.9 C387.9,81.7 543.6,89.3 759,82.7 C469.3,156.3 216.3,153.7 0,75"
-              opacity=".1" />
-            <path
-              d="M100,104.7 C277.4,72.2 426.1,52.5 546.2,45.6 C666.3,38.6 810.5,41.8 979,55.1 C931.1,56.1 810.3,74.8 616.7,111.2 C423.1,147.6 250.9,145.5 100,104.7Z"
-              opacity=".1" />
-            <path d="M1046,51.7 C1130.8,29.3 1279.1,17.6 1439,40.2 L1439,120 C1271.2,77.9 1140.2,55.2 1046,51.7Z"
-              opacity=".2" />
+      <!-- Hero -->
+      <section class="flex min-h-screen items-center pt-16">
+        <div
+          class="container mx-auto flex flex-col items-center px-6 md:flex-row lg:px-8"
+        >
+          <div class="w-full text-center md:w-1/2 md:text-left">
+            <p class="mb-3 text-sm uppercase tracking-widest opacity-80">
+              Aplikacja dla rolników
+            </p>
+            <h1 class="text-4xl font-extrabold leading-tight lg:text-6xl">
+              Zarządzaj polem<br />bez papierologii
+            </h1>
+            <p class="mt-6 text-lg leading-relaxed opacity-90 lg:text-xl">
+              Pola, zabiegi, raporty, obserwacje i ceny skupu &mdash; wszystko w
+              jednym miejscu. Za darmo.
+            </p>
+            <div
+              class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start"
+            >
+              <a href="https://app.epole.farm/login" class="no-underline">
+                <button
+                  class="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl sm:w-auto"
+                >
+                  Wypróbuj za darmo
+                </button>
+              </a>
+              <a href="#features" class="no-underline">
+                <button
+                  class="w-full rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition hover:bg-white/10 sm:w-auto"
+                >
+                  Poznaj funkcje
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="mt-12 w-full text-center md:mt-0 md:w-1/2">
+            <img
+              class="mx-auto w-full rounded-2xl shadow-2xl md:w-5/6"
+              src="image-min.webp"
+              alt="ePole - widok aplikacji"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Wave -->
+      <div class="relative -mt-12 lg:-mt-20">
+        <svg viewBox="0 0 1428 174" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="none" fill="none" fill-rule="evenodd">
+            <g transform="translate(-2,44)" fill="#FFFFFF" fill-rule="nonzero">
+              <path
+                d="M0,0 C90.7,0.9 147.9,27.2 291.9,59.9 C387.9,81.7 543.6,89.3 759,82.7 C469.3,156.3 216.3,153.7 0,75"
+                opacity=".1"
+              />
+              <path
+                d="M100,104.7 C277.4,72.2 426.1,52.5 546.2,45.6 C666.3,38.6 810.5,41.8 979,55.1 C931.1,56.1 810.3,74.8 616.7,111.2 C423.1,147.6 250.9,145.5 100,104.7Z"
+                opacity=".1"
+              />
+              <path
+                d="M1046,51.7 C1130.8,29.3 1279.1,17.6 1439,40.2 L1439,120 C1271.2,77.9 1140.2,55.2 1046,51.7Z"
+                opacity=".2"
+              />
+            </g>
+            <g transform="translate(-4,76)" fill="#FFFFFF" fill-rule="nonzero">
+              <path
+                d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035Z"
+              />
+            </g>
           </g>
-          <g transform="translate(-4,76)" fill="#FFFFFF" fill-rule="nonzero">
-            <path
-              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035Z" />
-          </g>
-        </g>
-      </svg>
+        </svg>
+      </div>
+
+      <!-- Features -->
+      <section id="features" class="bg-white py-20 lg:py-28">
+        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+          <div class="mb-16 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Co potrafi ePole?
+            </h2>
+            <p class="mx-auto mt-4 max-w-xl text-lg text-gray-500">
+              Jedno narzędzie zamiast stosu kartek
+            </p>
+            <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 1 - Fields -->
+            <div
+              class="reveal stagger-1 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100"
+              >
+                <svg
+                  class="h-6 w-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">
+                Pola i działki
+              </h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Dodawaj pola ręcznie lub importuj z eWniosku (portal, CSV, GML)
+                albo po numerze działki. Mapa, historia pola i scalanie pól.
+              </p>
+            </div>
+
+            <!-- 2 - Procedures -->
+            <div
+              class="reveal stagger-2 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100"
+              >
+                <svg
+                  class="h-6 w-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">
+                Zabiegi agrotechniczne
+              </h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Zapisuj opryski, nawożenie, siewy i zbiory. Przypisuj produkty i
+                nawozy z dawkami, sprzęt i operatorów. Prowadź pełny dziennik
+                zabiegów na każdym polu.
+              </p>
+            </div>
+
+            <!-- 3 - Reports -->
+            <div
+              class="reveal stagger-3 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100"
+              >
+                <svg
+                  class="h-6 w-6 text-amber-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">Raporty</h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Uprawy, odmiany, pola, dzierżawy, opryski, ubezpieczenia,
+                maszyny i bilans składników &mdash; gotowe zestawienia jednym
+                kliknięciem.
+              </p>
+            </div>
+
+            <!-- 4 - Observations -->
+            <div
+              class="reveal stagger-4 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100"
+              >
+                <svg
+                  class="h-6 w-6 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">
+                Obserwacje polowe
+              </h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Notuj stan pola z lustracji i dodawaj zdjęcia. Każda obserwacja
+                powiązana z konkretnym polem.
+              </p>
+            </div>
+
+            <!-- 5 - Price tracker -->
+            <div
+              class="reveal stagger-5 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-rose-100"
+              >
+                <svg
+                  class="h-6 w-6 text-rose-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">Ceny skupu</h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Śledź ceny płodów rolnych od skupów (m.in. Woźniak, Agromax,
+                Arteo). Historia, porównanie i ulubione.
+              </p>
+            </div>
+
+            <!-- 6 - Products DB -->
+            <div
+              class="reveal stagger-6 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100"
+              >
+                <svg
+                  class="h-6 w-6 text-teal-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">
+                Środki ochrony i nawozy
+              </h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Katalog środków ochrony roślin z substancjami czynnymi, dawkami
+                i okresami karencji oraz nawozów ze składem NPK. Dodawaj własne
+                produkty.
+              </p>
+            </div>
+            <!-- 7 - Soil measurements -->
+            <div
+              class="reveal stagger-1 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100"
+              >
+                <svg
+                  class="h-6 w-6 text-orange-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">
+                Pomiary gleby
+              </h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Kreator prowadzi krok po kroku: wybór pól, anality, automatyczne
+                punkty poboru z GPS i wyniki laboratoryjne.
+              </p>
+            </div>
+
+            <!-- 8 - Team & organization -->
+            <div
+              class="reveal stagger-2 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <div
+                class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-100"
+              >
+                <svg
+                  class="h-6 w-6 text-indigo-600"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-2.13a4 4 0 10-4-4 4 4 0 004 4zm6 0a3 3 0 10-2.83-4M7 8a3 3 0 11-2.83 4"
+                  />
+                </svg>
+              </div>
+              <h3 class="mb-2 text-lg font-bold text-gray-900">
+                Zespół i dokumenty
+              </h3>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Organizacje, gospodarstwa i sezony. Zapraszaj członków, nadawaj
+                role, przechowuj dokumenty i znaczniki na mapie.
+              </p>
+            </div>
+          </div>
+
+          <!-- PWA install banner -->
+          <div
+            class="reveal mt-12 flex flex-col items-center gap-6 rounded-2xl border border-green-100 bg-gradient-to-r from-green-50 to-emerald-50 p-8 sm:flex-row sm:gap-8"
+          >
+            <div
+              class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-green-100"
+            >
+              <svg
+                class="h-8 w-8 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+            </div>
+            <div class="text-center sm:text-left">
+              <h4 class="text-lg font-bold text-gray-900">
+                Zainstaluj jak aplikację mobilną
+              </h4>
+              <p class="mt-1 text-sm text-gray-600">
+                ePole to PWA (Progressive Web App) &mdash; zainstaluj
+                bezpośrednio na telefonie, tablecie lub komputerze. Bez sklepu z
+                aplikacjami, bez aktualizacji. Działa wszędzie, gdzie masz
+                przeglądarkę.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Screenshot -->
+      <section class="gradient-animated py-20">
+        <div class="container mx-auto max-w-5xl px-6 lg:px-8">
+          <div class="mb-10 text-center">
+            <h2 class="text-3xl font-bold text-white lg:text-4xl">
+              Tak to wygląda
+            </h2>
+            <p class="mt-3 text-base text-white/80">
+              Prosty interfejs &mdash; bez zbędnych komplikacji
+            </p>
+          </div>
+          <div class="overflow-hidden rounded-2xl bg-white shadow-2xl">
+            <div
+              class="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-2.5"
+            >
+              <div class="flex gap-1.5">
+                <div class="h-3 w-3 rounded-full bg-red-400"></div>
+                <div class="h-3 w-3 rounded-full bg-yellow-400"></div>
+                <div class="h-3 w-3 rounded-full bg-green-400"></div>
+              </div>
+              <div
+                class="mx-3 flex-1 rounded-md bg-white px-3 py-1 text-xs text-gray-400"
+              >
+                app.epole.farm
+              </div>
+            </div>
+            <img
+              src="website-ss.png"
+              alt="ePole - panel zarządzania gospodarstwem"
+              class="w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="bg-white py-20 lg:py-28">
+        <div class="container mx-auto max-w-4xl px-6 lg:px-8">
+          <div class="mb-16 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Cennik
+            </h2>
+            <p class="mt-3 text-gray-500">Wszystkie ceny netto</p>
+            <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
+          </div>
+
+          <div class="flex flex-col gap-6 sm:flex-row sm:justify-center">
+            <!-- Free -->
+            <div
+              class="card-hover flex w-full max-w-sm flex-col rounded-2xl border border-gray-100 bg-white shadow-md sm:w-1/2"
+            >
+              <div class="flex-1 p-8">
+                <h3 class="text-xl font-bold text-gray-900">Darmowy</h3>
+                <div class="mt-4 text-4xl font-extrabold text-green-600">
+                  0&nbsp;PLN
+                </div>
+                <p class="mt-1 text-sm text-gray-400">na zawsze</p>
+                <ul class="mt-8 space-y-3 text-sm text-gray-700">
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Zarządzanie polami i&nbsp;działkami
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Import z&nbsp;eWniosku (portal, CSV, GML) i&nbsp;po numerze
+                    działki
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Dziennik zabiegów z&nbsp;produktami i&nbsp;dawkami
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Katalog środków ochrony roślin i&nbsp;nawozów
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Raporty: uprawy, opryski, ubezpieczenia, maszyny, bilans
+                    składników
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Obserwacje polowe ze zdjęciami
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Pomiary gleby i&nbsp;znaczniki na&nbsp;mapie
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Tracker cen skupu (Woźniak, Agromax, Arteo)
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Rejestr sprzętu i&nbsp;operatorów
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Zaproszenia i&nbsp;dostęp dla wielu użytkowników
+                  </li>
+                </ul>
+              </div>
+              <div class="p-6 pt-0">
+                <a href="https://app.epole.farm/login" class="block">
+                  <button
+                    class="w-full rounded-full bg-gray-100 px-6 py-3 text-sm font-bold text-gray-800 transition hover:bg-gray-200"
+                  >
+                    Rozpocznij za darmo
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            <!-- Paid -->
+            <div
+              class="card-hover relative flex w-full max-w-sm flex-col rounded-2xl border-2 border-green-500 bg-white shadow-lg sm:w-1/2"
+            >
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span
+                  class="gradient rounded-full px-4 py-1 text-xs font-bold text-white"
+                  >Premium</span
+                >
+              </div>
+              <div class="flex-1 p-8">
+                <h3 class="text-xl font-bold text-gray-900">Płatny</h3>
+                <div class="mt-4 text-4xl font-extrabold text-green-600">
+                  50&nbsp;PLN
+                </div>
+                <p class="mt-1 text-sm text-gray-400">miesięcznie</p>
+                <div
+                  class="mt-4 rounded-lg border border-green-100 bg-green-50 p-3 text-center"
+                >
+                  <span class="text-sm font-bold text-green-700"
+                    >500&nbsp;PLN/rok</span
+                  >
+                  <span class="ml-1 text-xs text-gray-500 line-through"
+                    >600&nbsp;PLN</span
+                  >
+                  <p class="mt-0.5 text-xs text-green-600">2 miesiące gratis</p>
+                </div>
+                <ul class="mt-8 space-y-3 text-sm text-gray-700">
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Wszystko z&nbsp;planu darmowego
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Przechowywanie dokumentów w&nbsp;chmurze
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Brak reklam
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Wsparcie rozwoju projektu
+                  </li>
+                </ul>
+              </div>
+              <div class="p-6 pt-0">
+                <button
+                  class="gradient w-full cursor-not-allowed rounded-full px-6 py-3 text-sm font-bold text-white opacity-60"
+                >
+                  Wkrótce
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about-us" class="bg-gray-50 py-20 lg:py-28">
+        <div class="container mx-auto max-w-4xl px-6 lg:px-8">
+          <div class="mb-16 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              O nas
+            </h2>
+            <p class="mt-3 text-gray-500">Ludzie za ePole.farm</p>
+            <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
+          </div>
+          <div class="flex flex-wrap justify-center gap-8">
+            <div
+              class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md"
+            >
+              <img
+                src="ceo-min.webp"
+                alt="Wojtek - CEO"
+                class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100"
+                width="128"
+                height="128"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-xl font-bold text-gray-900">Wojtek</h3>
+              <p class="mt-1 text-sm font-medium text-green-600">
+                CEO &amp; pomysłodawca
+              </p>
+              <p class="mt-4 text-sm text-gray-600">
+                Zrobiłem to dla siebie, bo miałem dość tracenia czasu na
+                dokumentację. Teraz używam tego w swoim gospodarstwie.
+              </p>
+            </div>
+            <div
+              class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md"
+            >
+              <img
+                src="developer-min.webp"
+                alt="Borys - Developer"
+                class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100"
+                width="128"
+                height="128"
+                loading="lazy"
+              />
+              <h3 class="mt-5 text-xl font-bold text-gray-900">Borys</h3>
+              <p class="mt-1 text-sm font-medium text-green-600">
+                Główny developer
+              </p>
+              <p class="mt-4 text-sm text-gray-600">
+                Koduję to wszystko i staram się, żeby działało szybko i bez
+                błędów. Wof wof.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="bg-white py-20 lg:py-28">
+        <div class="container mx-auto max-w-3xl px-6 lg:px-8">
+          <div class="mb-16 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Najczęstsze pytania
+            </h2>
+            <p class="mt-3 text-gray-500">
+              Wszystko, co warto wiedzieć przed startem
+            </p>
+            <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
+          </div>
+          <div class="space-y-4">
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Czym jest ePole?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                ePole to aplikacja dla rolników do zarządzania gospodarstwem w
+                jednym miejscu: działki i pola uprawne z mapą, dziennik zabiegów
+                agrotechnicznych, obserwacje, pomiary gleby, katalog środków
+                ochrony roślin i nawozów, raporty oraz tracker cen skupu. Działa
+                w przeglądarce oraz jako aplikacja mobilna (PWA).
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Ile kosztuje ePole?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                ePole ma darmowy plan na zawsze, który obejmuje zarządzanie
+                polami, dziennik zabiegów, katalog środków ochrony i nawozów,
+                obserwacje, pomiary gleby, raporty i tracker cen skupu. Plan
+                Premium (50&nbsp;PLN/mies. lub 500&nbsp;PLN/rok netto) dodaje
+                przechowywanie dokumentów w chmurze, brak reklam i wsparcie
+                rozwoju projektu.
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Czy ePole działa na telefonie?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                Tak. ePole to Progressive Web App (PWA) &mdash; można je
+                zainstalować bezpośrednio na telefonie, tablecie lub komputerze
+                bez sklepu z aplikacjami. Działa wszędzie, gdzie masz
+                przeglądarkę.
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Czy mogę zaimportować pola z eWniosku?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                Tak. Pola można dodać ręcznie lub zaimportować z portalu
+                eWniosek, z pliku CSV lub GML z eWniosku albo po numerze
+                działki. Dostępny jest też import obejmujący wszystkie sezony
+                naraz oraz historia importów.
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Jakie raporty mogę wygenerować w ePole?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                ePole generuje raporty jednym kliknięciem: uprawy, odmiany,
+                pola, pola dzierżawione, opryski, ubezpieczenia, maszyny, bilans
+                składników pokarmowych oraz odżywienie gleby. Dostępny jest też
+                przegląd gospodarstwa.
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Czy ePole obsługuje pomiary gleby?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                Tak. Kreator pomiarów gleby prowadzi krok po kroku: wybór pól,
+                definicja analitów, automatyczne wygenerowanie punktów poboru z
+                GPS oraz wprowadzenie wyników laboratoryjnych. Dane trafiają do
+                raportu odżywienia gleby.
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Co zawiera katalog środków ochrony roślin i nawozów?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                Katalog środków ochrony roślin zawiera substancje czynne, dawki
+                i okresy karencji, a katalog nawozów &mdash; skład NPK. Można
+                też dodawać własne produkty.
+              </p>
+            </details>
+            <details
+              class="reveal group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm"
+            >
+              <summary
+                class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-gray-900"
+              >
+                Czy potrzebuję karty kredytowej, żeby zacząć?
+                <span
+                  class="ml-4 text-green-600 transition-transform group-open:rotate-45"
+                  >+</span
+                >
+              </summary>
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                Nie. Rejestracja zajmuje minutę, bez karty i bez zobowiązań.
+                Plan darmowy jest dostępny na zawsze.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="gradient-animated py-20 text-center">
+        <div class="container mx-auto max-w-2xl px-6">
+          <h2 class="text-3xl font-bold text-white lg:text-4xl">
+            Gotowy, żeby spróbować?
+          </h2>
+          <p class="mt-4 text-lg text-white/80">
+            Rejestracja zajmuje minutę. Bez karty, bez zobowiązań.
+          </p>
+          <a href="https://app.epole.farm/login" class="no-underline">
+            <button
+              class="mt-8 rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl"
+            >
+              Zaloguj się za darmo
+            </button>
+          </a>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-white">
+        <div class="container mx-auto px-6 lg:px-8">
+          <div class="flex flex-col gap-8 py-10 md:flex-row">
+            <div class="flex-1">
+              <a
+                class="flex items-center gap-2 text-xl font-bold text-gray-900 no-underline"
+                href="#"
+              >
+                <img
+                  src="icon-min.webp"
+                  alt="ePole logo"
+                  class="inline h-7 w-7"
+                  width="28"
+                  height="28"
+                  loading="lazy"
+                />
+                ePole
+              </a>
+              <p class="mt-3 text-sm text-gray-500">
+                Narzędzie dla rolników, którzy wolą być w polu niż przy
+                komputerze.
+              </p>
+            </div>
+            <div class="flex-1">
+              <p
+                class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400"
+              >
+                Informacje
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="https://app.epole.farm/faq"
+                    class="text-gray-700 no-underline hover:text-green-600"
+                    >FAQ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://app.epole.farm/contact"
+                    class="text-gray-700 no-underline hover:text-green-600"
+                    >Kontakt</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1">
+              <p
+                class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400"
+              >
+                Regulamin
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="https://app.epole.farm/tos"
+                    class="text-gray-700 no-underline hover:text-green-600"
+                    >Warunki użytkowania</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://app.epole.farm/privacy"
+                    class="text-gray-700 no-underline hover:text-green-600"
+                    >Polityka prywatności</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="border-t border-gray-100 py-5 text-center">
+            <p class="text-xs text-gray-400">
+              &copy; 2024 ePole.farm. Wszelkie prawa zastrzeżone.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
 
-    <!-- Features -->
-    <section id="features" class="bg-white py-20 lg:py-28">
-      <div class="container mx-auto max-w-6xl px-6 lg:px-8">
-        <div class="mb-16 text-center">
-          <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">Co potrafi ePole?</h2>
-          <p class="mx-auto mt-4 max-w-xl text-lg text-gray-500">Jedno narzędzie zamiast stosu kartek</p>
-          <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
-        </div>
+    <link href="font.css" rel="stylesheet" />
 
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- 1 - Fields -->
-          <div class="reveal stagger-1 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100">
-              <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-            </div>
-            <h3 class="mb-2 text-lg font-bold text-gray-900">Pola i działki</h3>
-            <p class="text-sm leading-relaxed text-gray-600">
-              Dodawaj pola ręcznie lub importuj z eWniosku, ULDK albo pliku GML. Każde pole z mapą, uprawą i odmianą.
-            </p>
-          </div>
+    <!-- Nav scroll -->
+    <script>
+      var header = document.getElementById('header');
+      var navaction = document.getElementById('navAction');
+      var toToggle = document.querySelectorAll('.toggleColour');
 
-          <!-- 2 - Procedures -->
-          <div class="reveal stagger-2 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100">
-              <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-              </svg>
-            </div>
-            <h3 class="mb-2 text-lg font-bold text-gray-900">Zabiegi agrotechniczne</h3>
-            <p class="text-sm leading-relaxed text-gray-600">
-              Zapisuj opryski, nawożenie i siewy. Przypisuj produkty z dawkami, sprzęt i operatorów. Prowadź pełny
-              dziennik zabiegów na każdym polu.
-            </p>
-          </div>
-
-          <!-- 3 - Reports -->
-          <div class="reveal stagger-3 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100">
-              <svg class="h-6 w-6 text-amber-600" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-            </div>
-            <h3 class="mb-2 text-lg font-bold text-gray-900">Raporty PDF</h3>
-            <p class="text-sm leading-relaxed text-gray-600">
-              Generuj raporty oprysków, Integrowanej Produkcji, upraw, ubezpieczeń i maszyn. Jedno kliknięcie &mdash;
-              gotowy dokument do druku.
-            </p>
-          </div>
-
-          <!-- 4 - Observations -->
-          <div class="reveal stagger-4 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100">
-              <svg class="h-6 w-6 text-purple-600" fill="none" stroke="currentColor" stroke-width="2"
-                viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-            </div>
-            <h3 class="mb-2 text-lg font-bold text-gray-900">Obserwacje polowe</h3>
-            <p class="text-sm leading-relaxed text-gray-600">
-              Dokumentuj stan pola ze zdjęciami: szkodniki, choroby, fazy BBCH, pogoda. Wszystko powiązane z konkretną
-              działką.
-            </p>
-          </div>
-
-          <!-- 5 - Price tracker -->
-          <div class="reveal stagger-5 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-rose-100">
-              <svg class="h-6 w-6 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
-            <h3 class="mb-2 text-lg font-bold text-gray-900">Ceny skupu</h3>
-            <p class="text-sm leading-relaxed text-gray-600">
-              Śledź aktualne ceny płodów rolnych. Wykresy, historia i ulubione.
-            </p>
-          </div>
-
-          <!-- 6 - Products DB -->
-          <div class="reveal stagger-6 card-hover rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100">
-              <svg class="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-              </svg>
-            </div>
-            <h3 class="mb-2 text-lg font-bold text-gray-900">Baza środków ochrony</h3>
-            <p class="text-sm leading-relaxed text-gray-600">
-              Pełna baza produktów ochrony roślin zsynchronizowana z gov.pl. Substancje czynne, dawki, zezwolenia
-              &mdash; zawsze aktualne.
-            </p>
-          </div>
-        </div>
-
-        <!-- PWA install banner -->
-        <div
-          class="reveal mt-12 flex flex-col items-center gap-6 rounded-2xl border border-green-100 bg-gradient-to-r from-green-50 to-emerald-50 p-8 sm:flex-row sm:gap-8">
-          <div class="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-green-100">
-            <svg class="h-8 w-8 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-          </div>
-          <div class="text-center sm:text-left">
-            <h4 class="text-lg font-bold text-gray-900">Zainstaluj jak aplikację mobilną</h4>
-            <p class="mt-1 text-sm text-gray-600">ePole to PWA (Progressive Web App) &mdash; zainstaluj bezpośrednio na
-              telefonie, tablecie lub komputerze. Bez sklepu z aplikacjami, bez aktualizacji. Działa wszędzie, gdzie
-              masz przeglądarkę.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshot -->
-    <section class="gradient-animated py-20">
-      <div class="container mx-auto max-w-5xl px-6 lg:px-8">
-        <div class="mb-10 text-center">
-          <h2 class="text-3xl font-bold text-white lg:text-4xl">Tak to wygląda</h2>
-          <p class="mt-3 text-base text-white/80">Prosty interfejs &mdash; bez zbędnych komplikacji</p>
-        </div>
-        <div class="overflow-hidden rounded-2xl bg-white shadow-2xl">
-          <div class="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-2.5">
-            <div class="flex gap-1.5">
-              <div class="h-3 w-3 rounded-full bg-red-400"></div>
-              <div class="h-3 w-3 rounded-full bg-yellow-400"></div>
-              <div class="h-3 w-3 rounded-full bg-green-400"></div>
-            </div>
-            <div class="mx-3 flex-1 rounded-md bg-white px-3 py-1 text-xs text-gray-400">app.epole.farm</div>
-          </div>
-          <img src="website-ss.png" alt="ePole - panel zarządzania gospodarstwem" class="w-full" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="bg-white py-20 lg:py-28">
-      <div class="container mx-auto max-w-4xl px-6 lg:px-8">
-        <div class="mb-16 text-center">
-          <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">Cennik</h2>
-          <p class="mt-3 text-gray-500">Wszystkie ceny netto</p>
-          <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
-        </div>
-
-        <div class="flex flex-col gap-6 sm:flex-row sm:justify-center">
-          <!-- Free -->
-          <div
-            class="card-hover flex w-full max-w-sm flex-col rounded-2xl border border-gray-100 bg-white shadow-md sm:w-1/2">
-            <div class="flex-1 p-8">
-              <h3 class="text-xl font-bold text-gray-900">Darmowy</h3>
-              <div class="mt-4 text-4xl font-extrabold text-green-600">0&nbsp;PLN</div>
-              <p class="mt-1 text-sm text-gray-400">na zawsze</p>
-              <ul class="mt-8 space-y-3 text-sm text-gray-700">
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Zarządzanie polami i&nbsp;działkami
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Import z&nbsp;eWniosku, ULDK i&nbsp;GML
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Dziennik zabiegów z&nbsp;produktami i&nbsp;dawkami
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Baza środków ochrony roślin (gov.pl)
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Raporty PDF: opryski, IP, uprawy, ubezpieczenia
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Obserwacje polowe ze zdjęciami
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Tracker cen skupu (aktualizacja co godzinę)
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Rejestr sprzętu i&nbsp;operatorów
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Zaproszenia i&nbsp;dostęp dla wielu użytkowników
-                </li>
-              </ul>
-            </div>
-            <div class="p-6 pt-0">
-              <a href="https://app.epole.farm/login" class="block">
-                <button
-                  class="w-full rounded-full bg-gray-100 px-6 py-3 text-sm font-bold text-gray-800 transition hover:bg-gray-200">Rozpocznij
-                  za darmo</button>
-              </a>
-            </div>
-          </div>
-
-          <!-- Paid -->
-          <div
-            class="card-hover relative flex w-full max-w-sm flex-col rounded-2xl border-2 border-green-500 bg-white shadow-lg sm:w-1/2">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="gradient rounded-full px-4 py-1 text-xs font-bold text-white">Premium</span>
-            </div>
-            <div class="flex-1 p-8">
-              <h3 class="text-xl font-bold text-gray-900">Płatny</h3>
-              <div class="mt-4 text-4xl font-extrabold text-green-600">50&nbsp;PLN</div>
-              <p class="mt-1 text-sm text-gray-400">miesięcznie</p>
-              <div class="mt-4 rounded-lg border border-green-100 bg-green-50 p-3 text-center">
-                <span class="text-sm font-bold text-green-700">500&nbsp;PLN/rok</span>
-                <span class="ml-1 text-xs text-gray-500 line-through">600&nbsp;PLN</span>
-                <p class="mt-0.5 text-xs text-green-600">2 miesiące gratis</p>
-              </div>
-              <ul class="mt-8 space-y-3 text-sm text-gray-700">
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Wszystko z&nbsp;planu darmowego
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Przechowywanie dokumentów w&nbsp;chmurze
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Funkcje AI
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Brak reklam
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg class="h-4 w-4 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd" />
-                  </svg>
-                  Wsparcie rozwoju projektu
-                </li>
-              </ul>
-            </div>
-            <div class="p-6 pt-0">
-              <button
-                class="gradient w-full cursor-not-allowed rounded-full px-6 py-3 text-sm font-bold text-white opacity-60">Wkrótce</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about-us" class="bg-gray-50 py-20 lg:py-28">
-      <div class="container mx-auto max-w-4xl px-6 lg:px-8">
-        <div class="mb-16 text-center">
-          <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">O nas</h2>
-          <p class="mt-3 text-gray-500">Ludzie za ePole.farm</p>
-          <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
-        </div>
-        <div class="flex flex-wrap justify-center gap-8">
-          <div class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md">
-            <img src="ceo-min.webp" alt="Wojtek - CEO"
-              class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100" width="128" height="128"
-              loading="lazy" />
-            <h3 class="mt-5 text-xl font-bold text-gray-900">Wojtek</h3>
-            <p class="mt-1 text-sm font-medium text-green-600">CEO &amp; pomysłodawca</p>
-            <p class="mt-4 text-sm text-gray-600">Zrobiłem to dla siebie, bo miałem dość tracenia czasu na dokumentację.
-              Teraz używam tego w swoim gospodarstwie.</p>
-          </div>
-          <div class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md">
-            <img src="developer-min.webp" alt="Borys - Developer"
-              class="mx-auto h-32 w-32 rounded-full object-cover ring-4 ring-green-100" width="128" height="128"
-              loading="lazy" />
-            <h3 class="mt-5 text-xl font-bold text-gray-900">Borys</h3>
-            <p class="mt-1 text-sm font-medium text-green-600">Główny developer</p>
-            <p class="mt-4 text-sm text-gray-600">Koduję to wszystko i staram się, żeby działało szybko i bez błędów.
-              Wof wof.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="gradient-animated py-20 text-center">
-      <div class="container mx-auto max-w-2xl px-6">
-        <h2 class="text-3xl font-bold text-white lg:text-4xl">Gotowy, żeby spróbować?</h2>
-        <p class="mt-4 text-lg text-white/80">Rejestracja zajmuje minutę. Bez karty, bez zobowiązań.</p>
-        <a href="https://app.epole.farm/login" class="no-underline">
-          <button
-            class="mt-8 rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl">
-            Zaloguj się za darmo
-          </button>
-        </a>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white">
-      <div class="container mx-auto px-6 lg:px-8">
-        <div class="flex flex-col gap-8 py-10 md:flex-row">
-          <div class="flex-1">
-            <a class="flex items-center gap-2 text-xl font-bold text-gray-900 no-underline" href="#">
-              <img src="icon-min.webp" alt="ePole logo" class="inline h-7 w-7" width="28" height="28" loading="lazy" />
-              ePole
-            </a>
-            <p class="mt-3 text-sm text-gray-500">Narzędzie dla rolników, którzy wolą być w polu niż przy komputerze.
-            </p>
-          </div>
-          <div class="flex-1">
-            <p class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">Informacje</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://app.epole.farm/faq" class="text-gray-700 no-underline hover:text-green-600">FAQ</a>
-              </li>
-              <li><a href="https://app.epole.farm/contact"
-                  class="text-gray-700 no-underline hover:text-green-600">Kontakt</a></li>
-            </ul>
-          </div>
-          <div class="flex-1">
-            <p class="mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">Regulamin</p>
-            <ul class="space-y-2 text-sm">
-              <li><a href="https://app.epole.farm/tos" class="text-gray-700 no-underline hover:text-green-600">Warunki
-                  użytkowania</a></li>
-              <li><a href="https://app.epole.farm/privacy"
-                  class="text-gray-700 no-underline hover:text-green-600">Polityka prywatności</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="border-t border-gray-100 py-5 text-center">
-          <p class="text-xs text-gray-400">&copy; 2024 ePole.farm. Wszelkie prawa zastrzeżone.</p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <link href="font.css" rel="stylesheet" />
-
-  <!-- Nav scroll -->
-  <script>
-    var header = document.getElementById('header');
-    var navaction = document.getElementById('navAction');
-    var toToggle = document.querySelectorAll('.toggleColour');
-
-    document.addEventListener('scroll', function () {
-      if (window.scrollY > 60) {
-        header.classList.add('bg-white', 'shadow');
-        header.classList.remove('backdrop-blur-sm');
-        navaction.classList.remove('bg-white', 'text-gray-800');
-        navaction.classList.add('gradient', 'text-white');
-        for (var i = 0; i < toToggle.length; i++) {
-          toToggle[i].classList.add('text-gray-800');
-          toToggle[i].classList.remove('text-white');
+      document.addEventListener('scroll', function () {
+        if (window.scrollY > 60) {
+          header.classList.add('bg-white', 'shadow');
+          header.classList.remove('backdrop-blur-sm');
+          navaction.classList.remove('bg-white', 'text-gray-800');
+          navaction.classList.add('gradient', 'text-white');
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add('text-gray-800');
+            toToggle[i].classList.remove('text-white');
+          }
+        } else {
+          header.classList.remove('bg-white', 'shadow');
+          header.classList.add('backdrop-blur-sm');
+          navaction.classList.remove('gradient', 'text-white');
+          navaction.classList.add('bg-white', 'text-gray-800');
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add('text-white');
+            toToggle[i].classList.remove('text-gray-800');
+          }
         }
-      } else {
-        header.classList.remove('bg-white', 'shadow');
-        header.classList.add('backdrop-blur-sm');
-        navaction.classList.remove('gradient', 'text-white');
-        navaction.classList.add('bg-white', 'text-gray-800');
-        for (var i = 0; i < toToggle.length; i++) {
-          toToggle[i].classList.add('text-white');
-          toToggle[i].classList.remove('text-gray-800');
+      });
+    </script>
+
+    <!-- Reveal on scroll -->
+    <script>
+      var ro = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add('visible');
+          });
+        },
+        { threshold: 0.15 }
+      );
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.reveal').forEach(function (el) {
+          ro.observe(el);
+        });
+      });
+    </script>
+
+    <!-- Mobile menu -->
+    <script>
+      var navMenuDiv = document.getElementById('nav-content');
+      var navMenu = document.getElementById('nav-toggle');
+
+      navMenu.addEventListener('click', function (e) {
+        e.preventDefault();
+        navMenuDiv.classList.toggle('hidden');
+        if (
+          !navMenuDiv.classList.contains('hidden') &&
+          window.innerWidth < 1024
+        ) {
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add('text-gray-800');
+            toToggle[i].classList.remove('text-white');
+          }
+        } else if (window.scrollY <= 60) {
+          for (var i = 0; i < toToggle.length; i++) {
+            toToggle[i].classList.add('text-white');
+            toToggle[i].classList.remove('text-gray-800');
+          }
         }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!navMenuDiv.contains(e.target) && !navMenu.contains(e.target))
+          navMenuDiv.classList.add('hidden');
+      });
+
+      navMenuDiv.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navMenuDiv.classList.add('hidden');
+        });
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-VPZ4KW45MN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-    });
-  </script>
-
-  <!-- Reveal on scroll -->
-  <script>
-    var ro = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 });
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
-    });
-  </script>
-
-  <!-- Mobile menu -->
-  <script>
-    var navMenuDiv = document.getElementById('nav-content');
-    var navMenu = document.getElementById('nav-toggle');
-
-    navMenu.addEventListener('click', function (e) {
-      e.preventDefault();
-      navMenuDiv.classList.toggle('hidden');
-      if (!navMenuDiv.classList.contains('hidden') && window.innerWidth < 1024) {
-        for (var i = 0; i < toToggle.length; i++) { toToggle[i].classList.add('text-gray-800'); toToggle[i].classList.remove('text-white'); }
-      } else if (window.scrollY <= 60) {
-        for (var i = 0; i < toToggle.length; i++) { toToggle[i].classList.add('text-white'); toToggle[i].classList.remove('text-gray-800'); }
-      }
-    });
-
-    document.addEventListener('click', function (e) {
-      if (!navMenuDiv.contains(e.target) && !navMenu.contains(e.target)) navMenuDiv.classList.add('hidden');
-    });
-
-    navMenuDiv.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () { navMenuDiv.classList.add('hidden'); });
-    });
-  </script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPZ4KW45MN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-VPZ4KW45MN');
-  </script>
-</body>
-
+      gtag('js', new Date());
+      gtag('config', 'G-VPZ4KW45MN');
+    </script>
+  </body>
 </html>
