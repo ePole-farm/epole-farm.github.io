@@ -69,7 +69,7 @@
       }
 
       .gradient-animated {
-        background: linear-gradient(-45deg, #16a34a, #15803d, #22c55e, #84cc16);
+        background: linear-gradient(-45deg, #14532d, #166534, #16a34a, #65a30d);
         background-size: 400% 400%;
         animation: gradientShift 20s ease infinite;
       }
@@ -99,12 +99,15 @@
       .card-hover {
         transition:
           transform 0.3s ease,
-          box-shadow 0.3s ease;
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
       }
 
       .card-hover:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transform: translateY(-6px);
+        box-shadow:
+          0 20px 40px -8px rgba(22, 101, 52, 0.18),
+          0 8px 16px -4px rgba(0, 0, 0, 0.06);
       }
 
       .gradient-text {
@@ -149,6 +152,157 @@
 
       .stagger-6 {
         transition-delay: 0.3s;
+      }
+
+      /* Field-row pattern for hero – evokes a freshly tilled field */
+      .field-pattern {
+        background-image: radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 255, 255, 0.08) 0,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 255, 255, 0.06) 0,
+            transparent 50%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 0 1px,
+            transparent 1px 80px
+          );
+      }
+
+      /* When both classes are combined, stack the field pattern overlays
+         on top of the animated green gradient so the gradient stays visible. */
+      .gradient-animated.field-pattern {
+        background-image: radial-gradient(
+            circle at 20% 30%,
+            rgba(255, 255, 255, 0.08) 0,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 255, 255, 0.06) 0,
+            transparent 50%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 0 1px,
+            transparent 1px 80px
+          ),
+          linear-gradient(-45deg, #14532d, #166534, #16a34a, #65a30d);
+      }
+
+      /* Soft grain for trust strip */
+      .soil-bg {
+        background-color: #fefdf8;
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(132, 204, 22, 0.05) 0,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(22, 163, 74, 0.05) 0,
+            transparent 40%
+          );
+      }
+
+      .step-line::before {
+        content: '';
+        position: absolute;
+        top: 2.25rem;
+        left: 50%;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(22, 163, 74, 0.25),
+          rgba(132, 204, 22, 0.25)
+        );
+        z-index: 0;
+      }
+
+      @media (max-width: 767px) {
+        .step-line::before {
+          display: none;
+        }
+      }
+
+      .glow-ring {
+        box-shadow:
+          0 0 0 1px rgba(22, 163, 74, 0.1),
+          0 0 0 6px rgba(22, 163, 74, 0.04),
+          0 20px 50px -10px rgba(22, 101, 52, 0.25);
+      }
+
+      .pricing-pop {
+        animation: pop 0.6s ease-out;
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .badge-dot {
+        position: relative;
+      }
+
+      .badge-dot::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 9999px;
+        background: #22c55e;
+        transform: translateY(-50%);
+        box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+        animation: pulseDot 2.4s ease-in-out infinite;
+      }
+
+      @keyframes pulseDot {
+        0%,
+        100% {
+          box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 0 7px rgba(34, 197, 94, 0.05);
+        }
+      }
+
+      .underline-brush {
+        background-image: linear-gradient(
+          120deg,
+          rgba(132, 204, 22, 0.35) 0%,
+          rgba(34, 197, 94, 0.35) 100%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 0.4em;
+        background-position: 0 88%;
+        padding: 0 0.15em;
+      }
+
+      /* Subtle dark scrim behind nav while over the hero so white text stays readable
+         no matter where the animated gradient is at. */
+      #header.nav-on-hero {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.18) 0%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+      #header.nav-on-hero .toggleColour {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
       }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -306,14 +460,14 @@
   </head>
 
   <body
-    class="gradient-animated leading-normal tracking-normal text-white"
+    class="gradient-animated field-pattern leading-normal tracking-normal text-white"
     style="font-family: 'Roboto', 'Source Sans Pro', sans-serif"
   >
     <div id="content">
       <!-- Nav -->
       <nav
         id="header"
-        class="fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300"
+        class="nav-on-hero fixed top-0 z-30 w-full text-white backdrop-blur-sm transition-all duration-300"
       >
         <div
           class="container mx-auto flex items-center justify-between px-4 py-3 lg:px-6"
@@ -398,47 +552,173 @@
       </nav>
 
       <!-- Hero -->
-      <section class="flex min-h-screen items-center pt-16">
+      <section
+        class="flex min-h-screen items-start pb-16 pt-28 md:items-center md:pb-20 md:pt-24 lg:pt-20"
+      >
         <div
           class="container mx-auto flex flex-col items-center px-6 md:flex-row lg:px-8"
         >
           <div class="w-full text-center md:w-1/2 md:text-left">
-            <p class="mb-3 text-sm uppercase tracking-widest opacity-80">
-              Aplikacja dla rolników
-            </p>
-            <h1 class="text-4xl font-extrabold leading-tight lg:text-6xl">
-              Zarządzaj polem<br />bez papierologii
+            <div
+              class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm"
+            >
+              <span class="badge-dot pl-3.5"
+                >Polska aplikacja dla rolników</span
+              >
+            </div>
+            <h1
+              class="mt-5 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl"
+            >
+              Mniej papierów,<br />
+              <span class="underline-brush">więcej czasu</span> w polu.
             </h1>
-            <p class="mt-6 text-lg leading-relaxed opacity-90 lg:text-xl">
-              Pola, zabiegi, raporty, obserwacje i ceny skupu &mdash; wszystko w
-              jednym miejscu. Za darmo.
+            <p
+              class="mt-6 max-w-xl text-lg leading-relaxed opacity-95 lg:text-xl"
+            >
+              ePole prowadzi dziennik zabiegów, ewidencję pól, obserwacje,
+              raporty i tracker cen skupu &mdash; wszystko w jednym miejscu.
+              Działa na telefonie, w polu, bez papierologii.
             </p>
             <div
               class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start"
             >
               <a href="https://app.epole.farm/login" class="no-underline">
                 <button
-                  class="w-full rounded-full bg-white px-8 py-4 text-base font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl sm:w-auto"
+                  class="group w-full rounded-full bg-white px-8 py-4 text-base font-bold text-green-800 shadow-xl transition hover:scale-105 hover:shadow-2xl sm:w-auto"
                 >
-                  Wypróbuj za darmo
+                  Zacznij za darmo
+                  <span
+                    class="ml-1 inline-block transition-transform group-hover:translate-x-1"
+                    >&rarr;</span
+                  >
                 </button>
               </a>
               <a href="#features" class="no-underline">
                 <button
-                  class="w-full rounded-full border-2 border-white/40 px-8 py-4 text-base font-bold text-white transition hover:bg-white/10 sm:w-auto"
+                  class="w-full rounded-full border-2 border-white/40 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition hover:bg-white/15 sm:w-auto"
                 >
-                  Poznaj funkcje
+                  Zobacz, co potrafi
                 </button>
               </a>
             </div>
+
+            <!-- Trust strip -->
+            <ul
+              class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm opacity-90 md:justify-start"
+            >
+              <li class="flex items-center gap-1.5">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Bez karty
+              </li>
+              <li class="flex items-center gap-1.5">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Plan darmowy na zawsze
+              </li>
+              <li class="flex items-center gap-1.5">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Działa na telefonie
+              </li>
+              <li class="flex items-center gap-1.5">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Import z eWniosku
+              </li>
+            </ul>
           </div>
           <div class="mt-12 w-full text-center md:mt-0 md:w-1/2">
-            <img
-              class="mx-auto w-full rounded-2xl shadow-2xl md:w-5/6"
-              src="image-min.webp"
-              alt="ePole - widok aplikacji"
-              loading="lazy"
-            />
+            <div class="relative mx-auto md:w-5/6">
+              <div
+                class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-lime-400/20 to-emerald-300/20 blur-2xl"
+              ></div>
+              <img
+                class="relative mx-auto w-full rounded-2xl shadow-2xl ring-1 ring-white/20"
+                src="image-min.webp"
+                alt="ePole - widok aplikacji"
+                loading="lazy"
+              />
+              <!-- Floating chips -->
+              <div
+                class="absolute -left-4 top-8 hidden rounded-2xl bg-white px-4 py-3 text-left shadow-xl ring-1 ring-black/5 md:block"
+              >
+                <div class="flex items-center gap-2">
+                  <div
+                    class="flex h-9 w-9 items-center justify-center rounded-xl bg-green-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-gray-900">
+                      Zabieg zapisany
+                    </p>
+                    <p class="text-[10px] text-gray-500">Pszenica · 12 ha</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="absolute -bottom-4 -right-2 hidden rounded-2xl bg-white px-4 py-3 text-left shadow-xl ring-1 ring-black/5 md:block"
+              >
+                <div class="flex items-center gap-2">
+                  <div
+                    class="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-amber-600"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold text-gray-900">
+                      Skup pszenicy &uarr;
+                    </p>
+                    <p class="text-[10px] text-gray-500">+12 zł / t dziś</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -470,15 +750,165 @@
         </svg>
       </div>
 
+      <!-- Pain points / Why ePole -->
+      <section class="soil-bg py-20 lg:py-24">
+        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+          <div class="mb-14 text-center">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-green-700"
+            >
+              Znamy Twoje codzienne wyzwania
+            </p>
+            <h2 class="mt-3 text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Koniec z
+              <span class="underline-brush">papierami w kabinie</span>
+            </h2>
+            <p
+              class="mx-auto mt-4 max-w-2xl text-base text-gray-600 lg:text-lg"
+            >
+              Każde gospodarstwo ma te same problemy. ePole rozwiązuje je w
+              jednym miejscu &mdash; bez kombinowania i bez Excela.
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-3">
+            <div
+              class="reveal stagger-1 group flex gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:border-green-200 hover:shadow-lg"
+            >
+              <div
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-amber-50 text-3xl"
+              >
+                📋
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">
+                  Zabiegi w zeszycie?
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">
+                  Zapisujesz opryski na pomiętej kartce, a po sezonie nie wiesz,
+                  czym i kiedy traktowałeś dane pole. ePole prowadzi dziennik za
+                  Ciebie &mdash; z dawkami, karencją i operatorem.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="reveal stagger-2 group flex gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:border-green-200 hover:shadow-lg"
+            >
+              <div
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-3xl"
+              >
+                🗺️
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">
+                  Pola rozsiane po dokumentach?
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">
+                  eWniosek, wypisy z ewidencji, mapy katastralne &mdash; każde
+                  pole w innym miejscu. Zaimportuj raz i miej wszystko na jednej
+                  mapie z historią uprawy.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="reveal stagger-3 group flex gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:border-green-200 hover:shadow-lg"
+            >
+              <div
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-rose-50 text-3xl"
+              >
+                📊
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">
+                  Kontrola za miesiąc?
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">
+                  Raport na ARiMR, ubezpieczyciela czy kupującego &mdash; zwykle
+                  godziny przeklepywania. W ePole wygenerujesz go jednym
+                  kliknięciem, z danymi spójnymi z dziennikiem zabiegów.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="reveal stagger-4 group flex gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:border-green-200 hover:shadow-lg"
+            >
+              <div
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-3xl"
+              >
+                💰
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">
+                  Ceny skupu w głowie?
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">
+                  Dzwonienie po skupach albo ciągłe sprawdzanie stron. Mamy ceny
+                  z Woźniaka, Agromaxu, Arteo i innych w jednym widoku, z
+                  historią i porównaniem.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="reveal stagger-5 group flex gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:border-green-200 hover:shadow-lg"
+            >
+              <div
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-purple-50 text-3xl"
+              >
+                🌱
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">
+                  Wynik z laboratorium ginie?
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">
+                  Pomiar gleby zrobiony, wyniki gdzieś w teczce. ePole prowadzi
+                  Cię krok po kroku &mdash; od punktów poboru z GPS, po raport
+                  odżywienia gleby.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="reveal stagger-6 group flex gap-5 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition hover:border-green-200 hover:shadow-lg"
+            >
+              <div
+                class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-orange-50 text-3xl"
+              >
+                👨‍🌾
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">
+                  Pracujesz z zespołem?
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">
+                  Operator, agronom - każdy potrzebuje innych danych. Zaproś ich
+                  do organizacji, nadaj role, i koniec z przesyłaniem plików.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Features -->
       <section id="features" class="bg-white py-20 lg:py-28">
         <div class="container mx-auto max-w-6xl px-6 lg:px-8">
           <div class="mb-16 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
-              Co potrafi ePole?
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-green-700"
+            >
+              Funkcje
+            </p>
+            <h2 class="mt-3 text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Wszystko, czego potrzebujesz <br class="hidden lg:inline" />w
+              <span class="underline-brush">jednej aplikacji</span>
             </h2>
             <p class="mx-auto mt-4 max-w-xl text-lg text-gray-500">
-              Jedno narzędzie zamiast stosu kartek
+              Od ewidencji pól po raporty &mdash; bez zbędnych dodatków.
             </p>
             <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
           </div>
@@ -764,18 +1194,113 @@
         </div>
       </section>
 
+      <!-- How to start -->
+      <section
+        class="bg-gradient-to-b from-white to-green-50/50 py-20 lg:py-24"
+      >
+        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
+          <div class="mb-14 text-center">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-green-700"
+            >
+              Jak zacząć
+            </p>
+            <h2 class="mt-3 text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Trzy kroki do
+              <span class="underline-brush">pierwszego raportu</span>
+            </h2>
+            <p class="mx-auto mt-4 max-w-xl text-base text-gray-600">
+              Nawet jeśli nie lubisz aplikacji &mdash; tym się da ogarnąć
+              wieczorem przy kawie.
+            </p>
+          </div>
+
+          <div class="step-line relative grid gap-8 md:grid-cols-3">
+            <div
+              class="reveal stagger-1 card-hover relative z-10 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md"
+            >
+              <div
+                class="glow-ring mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-3xl font-extrabold text-green-600"
+              >
+                1
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-gray-900">
+                Załóż konto i wczytaj pola
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-gray-600">
+                Zaimportuj pola z eWniosku (portal, CSV, GML) albo wpisz numer
+                działki. Cała mapa Twojego gospodarstwa pojawia się w 5 minut.
+              </p>
+            </div>
+
+            <div
+              class="reveal stagger-2 card-hover relative z-10 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md"
+            >
+              <div
+                class="glow-ring mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-3xl font-extrabold text-green-600"
+              >
+                2
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-gray-900">
+                Zapisuj zabiegi z telefonu
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-gray-600">
+                Po oprysku, nawożeniu czy siewie wybierasz pole, środek z
+                katalogu i dawkę. Dziennik prowadzi się sam &mdash; zawsze masz
+                go w kieszeni.
+              </p>
+            </div>
+
+            <div
+              class="reveal stagger-3 card-hover relative z-10 rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md"
+            >
+              <div
+                class="glow-ring mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-3xl font-extrabold text-green-600"
+              >
+                3
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-gray-900">
+                Wygeneruj raporty
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-gray-600">
+                Uprawy, opryski, ubezpieczenia, bilans NPK &mdash; jedno
+                kliknięcie i masz PDF gotowy dla kontroli, ubezpieczyciela albo
+                księgowej.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Screenshot -->
-      <section class="gradient-animated py-20">
-        <div class="container mx-auto max-w-5xl px-6 lg:px-8">
+      <section class="gradient-animated relative overflow-hidden py-20">
+        <div
+          class="pointer-events-none absolute inset-0 opacity-30"
+          style="
+            background-image: radial-gradient(
+              circle at 50% 0%,
+              rgba(255, 255, 255, 0.2) 0,
+              transparent 60%
+            );
+          "
+        ></div>
+        <div class="container relative mx-auto max-w-5xl px-6 lg:px-8">
           <div class="mb-10 text-center">
-            <h2 class="text-3xl font-bold text-white lg:text-4xl">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-white/80"
+            >
+              Zobacz na żywo
+            </p>
+            <h2 class="mt-3 text-3xl font-bold text-white lg:text-5xl">
               Tak to wygląda
             </h2>
             <p class="mt-3 text-base text-white/80">
               Prosty interfejs &mdash; bez zbędnych komplikacji
             </p>
           </div>
-          <div class="overflow-hidden rounded-2xl bg-white shadow-2xl">
+          <div
+            class="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-white/20"
+          >
             <div
               class="flex items-center gap-2 border-b border-gray-200 bg-gray-100 px-4 py-2.5"
             >
@@ -804,10 +1329,19 @@
       <section id="pricing" class="bg-white py-20 lg:py-28">
         <div class="container mx-auto max-w-6xl px-6 lg:px-8">
           <div class="mb-16 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-green-700"
+            >
               Cennik
+            </p>
+            <h2 class="mt-3 text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Zacznij <span class="underline-brush">za darmo</span>
             </h2>
-            <p class="mt-3 text-gray-500">Wszystkie ceny netto</p>
+            <p class="mx-auto mt-4 max-w-lg text-base text-gray-600 lg:text-lg">
+              Bez karty, bez zobowiązań. Płatne plany dopiero gdy chcesz więcej
+              miejsca i AI.
+            </p>
+            <p class="mt-2 text-sm text-gray-400">Wszystkie ceny netto</p>
             <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
           </div>
 
@@ -1211,18 +1745,36 @@
       </section>
 
       <!-- About -->
-      <section id="about-us" class="bg-gray-50 py-20 lg:py-28">
+      <section
+        id="about-us"
+        class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20 lg:py-28"
+      >
+        <div
+          class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-200 to-transparent"
+        ></div>
         <div class="container mx-auto max-w-4xl px-6 lg:px-8">
           <div class="mb-16 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-green-700"
+            >
               O nas
+            </p>
+            <h2 class="mt-3 text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Robimy to dla
+              <span class="underline-brush">siebie i sąsiadów</span>
             </h2>
-            <p class="mt-3 text-gray-500">Ludzie za ePole.farm</p>
+            <p
+              class="mx-auto mt-4 max-w-2xl text-base text-gray-600 lg:text-lg"
+            >
+              ePole nie powstało w korporacji. Wojtek prowadzi gospodarstwo i
+              codziennie używa tego, co tu widzisz. Każda funkcja musi się
+              sprawdzić w polu &mdash; inaczej nie wchodzi.
+            </p>
             <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
           </div>
           <div class="flex flex-wrap justify-center gap-8">
             <div
-              class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md"
+              class="card-hover w-full max-w-xs rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md"
             >
               <img
                 src="ceo-min.webp"
@@ -1234,15 +1786,15 @@
               />
               <h3 class="mt-5 text-xl font-bold text-gray-900">Wojtek</h3>
               <p class="mt-1 text-sm font-medium text-green-600">
-                CEO &amp; pomysłodawca
+                Rolnik &amp; pomysłodawca
               </p>
-              <p class="mt-4 text-sm text-gray-600">
-                Zrobiłem to dla siebie, bo miałem dość tracenia czasu na
-                dokumentację. Teraz używam tego w swoim gospodarstwie.
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                &bdquo;Zrobiłem to dla siebie, bo miałem dość tracenia czasu na
+                dokumentację. Teraz używam tego w swoim gospodarstwie.&rdquo;
               </p>
             </div>
             <div
-              class="card-hover w-full max-w-xs rounded-2xl bg-white p-8 text-center shadow-md"
+              class="card-hover w-full max-w-xs rounded-2xl border border-gray-100 bg-white p-8 text-center shadow-md"
             >
               <img
                 src="developer-min.webp"
@@ -1256,11 +1808,32 @@
               <p class="mt-1 text-sm font-medium text-green-600">
                 Główny developer
               </p>
-              <p class="mt-4 text-sm text-gray-600">
-                Koduję to wszystko i staram się, żeby działało szybko i bez
-                błędów. Wof wof.
+              <p class="mt-4 text-sm leading-relaxed text-gray-600">
+                &bdquo;Koduję to wszystko i staram się, żeby działało szybko i
+                bez błędów. Wof wof.&rdquo;
               </p>
             </div>
+          </div>
+
+          <!-- Trust badges -->
+          <div
+            class="mt-16 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-500"
+          >
+            <span
+              class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm ring-1 ring-gray-100"
+            >
+              🇵🇱 Polska aplikacja
+            </span>
+            <span
+              class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm ring-1 ring-gray-100"
+            >
+              🔒 Dane na serwerach w UE
+            </span>
+            <span
+              class="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm ring-1 ring-gray-100"
+            >
+              🌾 Robione przez rolnika
+            </span>
           </div>
         </div>
       </section>
@@ -1269,8 +1842,14 @@
       <section id="faq" class="bg-white py-20 lg:py-28">
         <div class="container mx-auto max-w-3xl px-6 lg:px-8">
           <div class="mb-16 text-center">
-            <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
-              Najczęstsze pytania
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-green-700"
+            >
+              FAQ
+            </p>
+            <h2 class="mt-3 text-3xl font-extrabold text-gray-900 lg:text-5xl">
+              Najczęstsze
+              <span class="underline-brush">pytania</span>
             </h2>
             <p class="mt-3 text-gray-500">
               Wszystko, co warto wiedzieć przed startem
@@ -1438,28 +2017,65 @@
       </section>
 
       <!-- CTA -->
-      <section class="gradient-animated py-20 text-center">
-        <div class="container mx-auto max-w-2xl px-6">
-          <h2 class="text-3xl font-bold text-white lg:text-4xl">
-            Gotowy, żeby spróbować?
+      <section
+        class="gradient-animated field-pattern relative overflow-hidden py-24 text-center"
+      >
+        <div
+          class="pointer-events-none absolute inset-0"
+          style="
+            background-image: radial-gradient(
+              ellipse at center,
+              rgba(255, 255, 255, 0.15) 0,
+              transparent 60%
+            );
+          "
+        ></div>
+        <div class="container relative mx-auto max-w-2xl px-6">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm"
+          >
+            🌾 Twoje pole w Twojej kieszeni
+          </span>
+          <h2 class="mt-6 text-3xl font-extrabold text-white lg:text-5xl">
+            Wrzuć papierki do szuflady.
           </h2>
-          <p class="mt-4 text-lg text-white/80">
-            Rejestracja zajmuje minutę. Bez karty, bez zobowiązań.
+          <p class="mt-4 text-lg text-white/85 lg:text-xl">
+            Rejestracja zajmuje minutę. Bez karty, bez zobowiązań. Plan darmowy
+            na zawsze.
           </p>
-          <a href="https://app.epole.farm/login" class="no-underline">
-            <button
-              class="mt-8 rounded-full bg-white px-10 py-4 text-lg font-bold text-gray-800 shadow-lg transition hover:scale-105 hover:shadow-xl"
-            >
-              Zaloguj się za darmo
-            </button>
-          </a>
+          <div
+            class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <a href="https://app.epole.farm/login" class="no-underline">
+              <button
+                class="group w-full rounded-full bg-white px-10 py-4 text-lg font-bold text-green-800 shadow-xl transition hover:scale-105 hover:shadow-2xl sm:w-auto"
+              >
+                Zacznij za darmo
+                <span
+                  class="ml-1 inline-block transition-transform group-hover:translate-x-1"
+                  >&rarr;</span
+                >
+              </button>
+            </a>
+            <a href="#features" class="no-underline">
+              <button
+                class="w-full rounded-full border-2 border-white/40 px-10 py-4 text-lg font-bold text-white transition hover:bg-white/10 sm:w-auto"
+              >
+                Zobacz funkcje
+              </button>
+            </a>
+          </div>
+          <p class="mt-6 text-sm text-white/70">
+            &check; Bez karty &nbsp;·&nbsp; &check; Darmowo na zawsze
+            &nbsp;·&nbsp; &check; Działa od ręki
+          </p>
         </div>
       </section>
 
       <!-- Footer -->
       <footer class="bg-white">
         <div class="container mx-auto px-6 lg:px-8">
-          <div class="flex flex-col gap-8 py-10 md:flex-row">
+          <div class="flex flex-col gap-8 py-12 md:flex-row">
             <div class="flex-1">
               <a
                 class="flex items-center gap-2 text-xl font-bold text-gray-900 no-underline"
@@ -1475,9 +2091,9 @@
                 />
                 ePole
               </a>
-              <p class="mt-3 text-sm text-gray-500">
+              <p class="mt-3 max-w-xs text-sm leading-relaxed text-gray-500">
                 Narzędzie dla rolników, którzy wolą być w polu niż przy
-                komputerze.
+                komputerze. Robione w Polsce.
               </p>
             </div>
             <div class="flex-1">
@@ -1544,10 +2160,10 @@
       var navaction = document.getElementById('navAction');
       var toToggle = document.querySelectorAll('.toggleColour');
 
-      document.addEventListener('scroll', function () {
+      function updateHeaderState() {
         if (window.scrollY > 60) {
           header.classList.add('bg-white', 'shadow');
-          header.classList.remove('backdrop-blur-sm');
+          header.classList.remove('backdrop-blur-sm', 'nav-on-hero');
           navaction.classList.remove('bg-white', 'text-gray-800');
           navaction.classList.add('gradient', 'text-white');
           for (var i = 0; i < toToggle.length; i++) {
@@ -1556,7 +2172,7 @@
           }
         } else {
           header.classList.remove('bg-white', 'shadow');
-          header.classList.add('backdrop-blur-sm');
+          header.classList.add('backdrop-blur-sm', 'nav-on-hero');
           navaction.classList.remove('gradient', 'text-white');
           navaction.classList.add('bg-white', 'text-gray-800');
           for (var i = 0; i < toToggle.length; i++) {
@@ -1564,7 +2180,12 @@
             toToggle[i].classList.remove('text-gray-800');
           }
         }
-      });
+      }
+
+      document.addEventListener('scroll', updateHeaderState);
+      // Sync nav state on initial load (browser may restore scroll position past threshold)
+      updateHeaderState();
+      document.addEventListener('DOMContentLoaded', updateHeaderState);
     </script>
 
     <!-- Reveal on scroll -->
