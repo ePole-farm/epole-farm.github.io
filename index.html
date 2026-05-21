@@ -209,15 +209,23 @@
                 "name": "Plan darmowy",
                 "price": "0",
                 "priceCurrency": "PLN",
-                "description": "Pełne zarządzanie gospodarstwem za darmo na zawsze.",
+                "description": "Pełne zarządzanie gospodarstwem za darmo na zawsze. 100 MB miejsca na zdjęcia i dokumenty + 1 GB dla organizacji, 1 zapytanie AI miesięcznie.",
                 "availability": "https://schema.org/InStock"
               },
               {
                 "@type": "Offer",
-                "name": "Plan Premium",
+                "name": "Plan Plus",
                 "price": "500",
                 "priceCurrency": "PLN",
-                "description": "500 PLN/rok lub 50 PLN/mies. netto. Wszystko z planu darmowego, brak reklam, wsparcie rozwoju projektu.",
+                "description": "500 PLN/rok lub 50 PLN/mies. netto. Wszystko z planu darmowego, 1 GB miejsca dla organizacji, 10 zapytań AI miesięcznie, brak reklam, wsparcie rozwoju projektu.",
+                "availability": "https://schema.org/PreOrder"
+              },
+              {
+                "@type": "Offer",
+                "name": "Plan Pro",
+                "price": "5000",
+                "priceCurrency": "PLN",
+                "description": "5 000 PLN/rok lub 500 PLN/mies. netto. Wszystko z planu Plus, 5 GB miejsca dla organizacji, 100 zapytań AI miesięcznie, priorytetowe wsparcie.",
                 "availability": "https://schema.org/PreOrder"
               }
             ]
@@ -239,7 +247,7 @@
                 "name": "Ile kosztuje ePole?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "ePole ma darmowy plan na zawsze, który obejmuje zarządzanie polami, dziennik zabiegów, katalog środków ochrony i nawozów, obserwacje, pomiary gleby, raporty i tracker cen skupu. Plan Premium (50 PLN/mies. lub 500 PLN/rok netto) dodaje brak reklam i wsparcie rozwoju projektu."
+                  "text": "ePole ma darmowy plan na zawsze (100 MB na zdjęcia i dokumenty + 1 GB dla organizacji, 1 zapytanie AI miesięcznie). Plan Plus (50 PLN/mies. lub 500 PLN/rok netto) dodaje 1 GB dla organizacji, 10 zapytań AI miesięcznie, brak reklam i wsparcie rozwoju projektu. Plan Pro (500 PLN/mies. lub 5 000 PLN/rok netto) zapewnia 5 GB dla organizacji, 100 zapytań AI miesięcznie i priorytetowe wsparcie."
                 }
               },
               {
@@ -794,7 +802,7 @@
 
       <!-- Pricing -->
       <section id="pricing" class="bg-white py-20 lg:py-28">
-        <div class="container mx-auto max-w-4xl px-6 lg:px-8">
+        <div class="container mx-auto max-w-6xl px-6 lg:px-8">
           <div class="mb-16 text-center">
             <h2 class="text-3xl font-extrabold text-gray-900 lg:text-5xl">
               Cennik
@@ -803,10 +811,12 @@
             <div class="gradient mx-auto mt-6 h-1 w-16 rounded-full"></div>
           </div>
 
-          <div class="flex flex-col gap-6 sm:flex-row sm:justify-center">
+          <div
+            class="mx-auto grid max-w-sm gap-6 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3 lg:items-stretch"
+          >
             <!-- Free -->
             <div
-              class="card-hover flex w-full max-w-sm flex-col rounded-2xl border border-gray-100 bg-white shadow-md sm:w-1/2"
+              class="card-hover flex w-full flex-col rounded-2xl border border-gray-100 bg-white shadow-md"
             >
               <div class="flex-1 p-8">
                 <h3 class="text-xl font-bold text-gray-900">Darmowy</h3>
@@ -957,6 +967,35 @@
                     </svg>
                     Zaproszenia i&nbsp;dostęp dla wielu użytkowników
                   </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    100&nbsp;MB miejsca na zdjęcia i&nbsp;dokumenty + 1&nbsp;GB
+                    dla organizacji
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    1&nbsp;zapytanie AI miesięcznie
+                  </li>
                 </ul>
               </div>
               <div class="p-6 pt-0">
@@ -970,14 +1009,14 @@
               </div>
             </div>
 
-            <!-- Paid -->
+            <!-- Plus -->
             <div
-              class="card-hover relative flex w-full max-w-sm flex-col rounded-2xl border-2 border-green-500 bg-white shadow-lg sm:w-1/2"
+              class="card-hover relative flex w-full flex-col rounded-2xl border-2 border-green-500 bg-white shadow-lg"
             >
               <div class="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span
                   class="gradient rounded-full px-4 py-1 text-xs font-bold text-white"
-                  >Premium</span
+                  >Najpopularniejszy</span
                 >
               </div>
               <div class="flex-1 p-8">
@@ -1024,7 +1063,21 @@
                         clip-rule="evenodd"
                       />
                     </svg>
-                    Przechowywanie dokumentów w&nbsp;chmurze
+                    1&nbsp;GB miejsca dla organizacji
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    30&nbsp;zapytań AI miesięcznie
                   </li>
                   <li class="flex items-center gap-2">
                     <svg
@@ -1053,6 +1106,95 @@
                       />
                     </svg>
                     Wsparcie rozwoju projektu
+                  </li>
+                </ul>
+              </div>
+              <div class="p-6 pt-0">
+                <button
+                  class="gradient w-full cursor-not-allowed rounded-full px-6 py-3 text-sm font-bold text-white opacity-60"
+                >
+                  Wkrótce
+                </button>
+              </div>
+            </div>
+
+            <!-- Pro -->
+            <div
+              class="card-hover flex w-full flex-col rounded-2xl border border-gray-100 bg-white shadow-md"
+            >
+              <div class="flex-1 p-8">
+                <h3 class="text-xl font-bold text-gray-900">Pro</h3>
+                <div class="mt-4 text-4xl font-extrabold text-green-600">
+                  500&nbsp;PLN
+                </div>
+                <p class="mt-1 text-sm text-gray-400">miesięcznie</p>
+                <div
+                  class="mt-4 rounded-lg border border-green-100 bg-green-50 p-3 text-center"
+                >
+                  <span class="text-sm font-bold text-green-700"
+                    >5&nbsp;000&nbsp;PLN/rok</span
+                  >
+                  <span class="ml-1 text-xs text-gray-500 line-through"
+                    >6&nbsp;000&nbsp;PLN</span
+                  >
+                  <p class="mt-0.5 text-xs text-green-600">2 miesiące gratis</p>
+                </div>
+                <ul class="mt-8 space-y-3 text-sm text-gray-700">
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Wszystko z&nbsp;planu Plus
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    5&nbsp;GB miejsca dla organizacji
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    300&nbsp;zapytań AI miesięcznie
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg
+                      class="h-4 w-4 flex-shrink-0 text-green-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    Priorytetowe wsparcie
                   </li>
                 </ul>
               </div>
@@ -1169,12 +1311,15 @@
                 >
               </summary>
               <p class="mt-4 text-sm leading-relaxed text-gray-600">
-                ePole ma darmowy plan na zawsze, który obejmuje zarządzanie
-                polami, dziennik zabiegów, katalog środków ochrony i nawozów,
-                obserwacje, pomiary gleby, raporty i tracker cen skupu. Plan
-                Premium (50&nbsp;PLN/mies. lub 500&nbsp;PLN/rok netto) dodaje
-                przechowywanie dokumentów w chmurze, brak reklam i wsparcie
-                rozwoju projektu.
+                ePole ma darmowy plan na zawsze (100&nbsp;MB miejsca na zdjęcia
+                i dokumenty + 1&nbsp;GB dla organizacji, 1&nbsp;zapytanie AI
+                miesięcznie). Plan Plus (50&nbsp;PLN/mies. lub
+                500&nbsp;PLN/rok&nbsp;netto) dodaje 1&nbsp;GB dla organizacji,
+                10&nbsp;zapytań AI miesięcznie, brak reklam i wsparcie rozwoju
+                projektu. Plan Pro (500&nbsp;PLN/mies. lub
+                5&nbsp;000&nbsp;PLN/rok netto) zapewnia 5&nbsp;GB dla
+                organizacji, 100&nbsp;zapytań AI miesięcznie i priorytetowe
+                wsparcie.
               </p>
             </details>
             <details
@@ -1210,9 +1355,9 @@
               </summary>
               <p class="mt-4 text-sm leading-relaxed text-gray-600">
                 Tak. Pola można dodać ręcznie lub zaimportować z portalu
-                eWniosek, z pliku CSV lub GML z eWniosku albo po numerze
-                działki. Dostępny jest też import obejmujący wszystkie sezony
-                naraz oraz historia importów.
+                eWniosek, z pliku CSV z eWniosku albo po numerze działki.
+                Dostępny jest też import obejmujący wszystkie sezony naraz oraz
+                historia importów.
               </p>
             </details>
             <details
